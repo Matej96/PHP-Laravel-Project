@@ -1,0 +1,14 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.picaclassa {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+.nav-item{
+    display: flex;
+    justify-content: space-between;
+}
