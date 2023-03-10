@@ -3,12 +3,65 @@
     margin: 0;
     box-sizing: border-box;
 }
-.picaclassa {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 auto;
+
+.button_class{
+	display: flex;
+	justify-content: flex-end;
 }
+
+.ul_class{
+	margin-right: 10%;
+}
+
+nav ul.navbar-nav{
+	margin-right: 5%;
+}
+
+@media (max-width: 767.9px){
+	nav form.d-flex{
+		display: none!important;
+	}
+}
+
+.button_class_mobil{
+	display: none;
+}
+
+@media (max-width: 767.9px){
+	.button_class_mobil{
+		display: block;
+		margin-left: auto;
+	}
+}
+
+@media (max-width: 767.9px){
+	.button_class{
+		display: none;
+	}
+}
+
+@media (max-width: 767.9px){
+	nav ul.navbar-nav li{
+		height: 100%;
+	}
+}
+
+.hidden {
+	display: none;
+	width: 100%;
+}
+
+.navbar-collapse {
+	height: 10vh;
+}
+
+nav ul.navbar-nav {
+	height: 100%;
+}
+
+
 .nav-item{
-    display: flex;
-    justify-content: space-between;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
