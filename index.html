@@ -16,6 +16,10 @@
             <div class="container-fluid">
                 <a class="navbar-brand  text-center" href="#">Swapper</a>
                 <div class="button_class_mobil pe-2">
+                  <button class="search_mobil btn btn-outline-success " type="submit">
+                    <i class="bi bi-search">
+                    <span class="d-md-none"></span>
+                  </i></button>
 
                   <button class="btn btn-outline-success">
                     <span class="bi bi-cart">
@@ -55,126 +59,137 @@
 
                   <button class="btn btn-outline-success">
                     <span class="bi bi-cart">
-                      <span class="d-sm-none">Nákupný košík</span>
+                      <span class="button_spans">Košík</span>
                     </span>
                   </button>
                   
                   <button class="btn btn-outline-success">
                     <span class="bi bi-person">
-                      <span class="d-sm-none">Prihlásenie</span>
+                      <span class="button_spans">Prihlásenie</span>
                     </span>
                   </button>
                 </div>
             </div>  
-              
+            
           </nav>
-          <div class="target_women elements_women hidden container-fluid">
-            <div class="row">
-              <div class="col-4">
-                <ul class="multi-column-dropdown">
-                  <li><a href="#">WOMEN</a></li>
-                  <li class="divider"></li>                            
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </div>
-              <div class="col-4">
-                <ul class="multi-column-dropdown">
-                  <li><a href="#">Action</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </div>
-              <div class="col-4">
-                <ul class="multi-column-dropdown">
-                  <li><a href="#">Action</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="target_men hidden elements_men container-fluid">
-            <div class="row">
-              <div class="col-4">
-                <ul class="multi-column-dropdown">
-                  <li><a href="#">MEN</a></li>
-                  <li class="divider"></li>                            
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </div>
-              <div class="col-4">
-                <ul class="multi-column-dropdown">
-                  <li><a href="#">Action</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </div>
-              <div class="col-4">
-                <ul class="multi-column-dropdown">
-                  <li><a href="#">Action</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="target_kids hidden elements_kids container-fluid">
-            <div class="row">
-              <div class="col-4">
-                <ul class="multi-column-dropdown">
-                  <li><a href="#">KIDS</a></li>
-                  <li class="divider"></li>                            
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </div>
-              <div class="col-4">
-                <ul class="multi-column-dropdown">
-                  <li><a href="#">Action</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </div>
-              <div class="col-4">
-                <ul class="multi-column-dropdown">
-                  <li><a href="#">Action</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
+          
           
           <section class="main">
-            
-          
+            <div id="ss" class="search_div">
+              <form class="d-flex me-4 formik">
+                  <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success " type="submit"><i class="bi bi-search">
+                    <span class="d-md-none"></span>
+                  </i></button>
+                  <button type="button" class="btn-close btn-close-green btn-outline-success ms-4" aria-label="Close"></button>
+                </form>
+
+            </div>
+            <div class="container-fluid bg-danger fixed">Ahoj</div>
+            <div class="overlay bg-dark">
+              
+              <div class="target_women elements_women hidden container-fluid">
+                <div class="row">
+                  <div class="col-4">
+                    <ul class="multi-column-dropdown">
+                      <li><span>Oblečenie</span></li>
+                      <li class="divider"><hr></li>                            
+                      <li><a href="#">Bundy</a></li>
+                      <li><a href="#">Šaty</a></li>
+                      <li><a href="#">Tričká</a></li>
+                      <li><a href="#">Nohavice</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-4">
+                    <ul class="multi-column-dropdown">
+                      <li><span>Topánky</span></li>
+                      <li class="divider"><hr></li>     
+                      <li><a href="#">Tenisky</a></li>
+                      <li><a href="#"></a></li>
+                      <li><a href="#">Športové</a></li>
+                      <li><a href="#">Spoločenské</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-4">
+                    <ul class="multi-column-dropdown">
+                      <li><span>Doplnky</span></li>
+                      <li class="divider"><hr></li>     
+                      <li><a href="#">Hodinky</a></li>
+                      <li><a href="#">Šály</a></li>
+                      <li><a href="#">Čiapky</a></li>
+                      <li><a href="#">Okuliare</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="target_men hidden elements_men container-fluid">
+                <div class="row">
+                  <div class="col-4">
+                    <ul class="multi-column-dropdown">
+                      <li><span>Oblečenie</span></li>
+                      <li class="divider"><hr></li>                            
+                      <li><a href="#">Bundy</a></li>
+                      <li><a href="#">Obleky</a></li>
+                      <li><a href="#">Tričká</a></li>
+                      <li><a href="#">Nohavice</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-4">
+                    <ul class="multi-column-dropdown">
+                      <li><span>Topánky</span></li>
+                      <li class="divider"><hr></li>     
+                      <li><a href="#">Tenisky</a></li>
+                      <li><a href="#"></a></li>
+                      <li><a href="#">Športové</a></li>
+                      <li><a href="#">Spoločenské</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-4">
+                    <ul class="multi-column-dropdown">
+                      <li><span>Doplnky</span></li>
+                      <li class="divider"><hr></li>
+                      <li><a href="#">Hodinky</a></li>
+                      <li><a href="#">Šály</a></li>
+                      <li><a href="#">Čiapky</a></li>
+                      <li><a href="#">Okuliare</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="target_kids hidden elements_kids container-fluid">
+                <div class="row">
+                  <div class="col-4">
+                    <ul class="multi-column-dropdown">
+                      <li><span>Oblečenie</span></li>
+                      <li class="divider"><hr></li>                            
+                      <li><a href="#">Bundy</a></li>
+                      <li><a href="#">Šaty</a></li>
+                      <li><a href="#">Tričká</a></li>
+                      <li><a href="#">Nohavice</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-4">
+                    <ul class="multi-column-dropdown">
+                      <li><span>Topánky</span></li>
+                      <li class="divider"><hr></li>     
+                      <li><a href="#">Tenisky</a></li>
+                      <li><a href="#"></a></li>
+                      <li><a href="#">Športové</a></li>
+                      <li><a href="#">Spoločenské</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-4">
+                    <ul class="multi-column-dropdown">
+                      <li><span>Doplnky</span></li>
+                      <li class="divider"><hr></li>     
+                      <li><a href="#">Hodinky</a></li>
+                      <li><a href="#">Šály</a></li>
+                      <li><a href="#">Čiapky</a></li>
+                      <li><a href="#">Okuliare</a></li>
+                    </ul>
+                  </div>
+                </div>
+            </div>
           </section> 
           <script src="script/index.js"></script>
 
