@@ -166,6 +166,22 @@ nav form.d-flex.formik {
 	display: block;
 }
 
+
+.img_box img{
+	max-width: 100%;
+}
+
+.slider_container .container{
+	padding: 0 15px;
+	max-width: 1100px;
+	margin: 0 auto;
+}
+
+.card_slider{
+	padding: 50px 0;
+}
+
+
 footer {
 	padding: 2.5% 10%!important;
 	border: 1px solid black;
@@ -190,3 +206,4 @@ footer hr{
 .row .col-4.mt-3 ul li{
 	margin: 3% 0;
 }
+
