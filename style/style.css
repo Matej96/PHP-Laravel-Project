@@ -112,9 +112,7 @@ nav ul.navbar-nav{
 	width: 100%;
 }
 
-.overlay {
-	position: relative;
-}
+
 
 .overlay .container-fluid {
 	display: none;
@@ -122,6 +120,7 @@ nav ul.navbar-nav{
 
 .woman-section.active, .man-section.active, .kids-section.active {
 	display: block;
+	border-top: 2px solid red;
 }
 
 .fixed {
@@ -167,6 +166,7 @@ nav form.d-flex.formik {
 	display: block;
 }
 
+
 .img_box img{
 	max-width: 100%;
 }
@@ -179,5 +179,31 @@ nav form.d-flex.formik {
 
 .card_slider{
 	padding: 50px 0;
+}
+
+
+footer {
+	padding: 2.5% 10%!important;
+	border: 1px solid black;
+}
+
+footer .row {
+	margin-top: 20px;
+	display: flex;
+	align-items: center;
+	text-align: start;
+}
+
+footer a {
+	display: flex;
+	justify-content: end;
+}
+
+footer hr{
+	margin: 30px 0;
+}
+
+.row .col-4.mt-3 ul li{
+	margin: 3% 0;
 }
 

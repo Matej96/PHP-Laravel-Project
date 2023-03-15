@@ -22,4 +22,5 @@ $(document).ready(function() {
     $(".kids-section").mouseleave(() => {
         $("#kidsSection").removeClass("active");
     });
+
 });
