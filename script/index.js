@@ -20,7 +20,6 @@ hoverable_women.addEventListener('mouseover', () => {
     target_women.style.justifyContent = 'space-around';
 });
 
-
 const hoverable_men = document.querySelector('.hoverable_men');
 const target_men = document.querySelector('.target_men');
 const elements_men = document.querySelectorAll('.elements_men');
@@ -100,8 +99,14 @@ search_div.addEventListener('mouseout', () => {
     //hover_element = "";
 });
 
+
 const toggler_button = document.querySelector('.navbar-toggler');
 
 toggler_button.addEventListener('click', () => {
     hover_element = "";
+    if(window.getComputedStyle(search_div).getPropertyValue('display') == 'none'){
+        search_div.style.display = 'block';
+    }else{
+        search_div.style.display = 'none';
+    }
 });
