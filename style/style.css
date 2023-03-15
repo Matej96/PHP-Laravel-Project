@@ -9,12 +9,24 @@ header {
 	min-height: 64px;
 	position: fixed;
 	top: 0;
-	left: 0;
 	width: 100%;
+	z-index: 10;
 }
 
 main {
 	margin-top: 64px;
+}
+
+@media only screen and (min-width: 1100px) {
+	body{
+		width: 1100px;
+		margin: auto;
+	}
+
+	header{
+		width: 1100px;
+		margin: auto;
+	}
 }
 
 @media only screen and (min-width: 768px) {
@@ -153,4 +165,16 @@ nav form.d-flex.formik {
 
 .show .search_div {
 	display: block;
+}
+
+.team {
+	text-align: center;
+}
+
+.team img{
+	padding-bottom: 10px;
+}
+
+.slider{
+	padding-bottom: 40px;
 }
