@@ -107,20 +107,16 @@ nav ul.navbar-nav{
 	}
 }
 
-.hidden {				/* cast navbaru, ktory sa zobrazuje na hover */
-	display: none;
-	width: 100%;
-}
-
-
 
 .overlay .container-fluid {
 	display: none;
 }
+.overlay li:hover{
+	background: blue;
+}
 
 .woman-section.active, .man-section.active, .kids-section.active {
 	display: block;
-	border-top: 2px solid red;
 }
 
 .fixed {
@@ -147,9 +143,14 @@ nav form.d-flex.formik {
 	list-style-type: none;
 }
 
-.multi-column-dropdown li {
+.multi-column-dropdown li{
 	text-align: center;
 	margin-top : 5x;
+}
+
+.multi-column-dropdown ul{
+	display: flex;
+	justify-content: center;
 }
 
 .multi-column-dropdown li a{
@@ -206,4 +207,3 @@ footer hr{
 .row .col-4.mt-3 ul li{
 	margin: 3% 0;
 }
-
