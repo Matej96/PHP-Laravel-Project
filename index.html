@@ -13,7 +13,7 @@
 </head>
     <body>
       <header>
-        <nav class="navbar navbar-expand-md navbar-light bg-light p-0">
+        <nav class="navbar navbar-expand-md navbar-light p-0">
           <div class="container-fluid">
               <a class="navbar-brand  text-center" href="#">Swapper</a>
               <div class="button_class_mobil pe-2">
@@ -40,18 +40,17 @@
                       <button class="btn btn-outline-success " type="submit"><i class="bi bi-search">
                         <span class="d-md-none"></span>
                       </i></button>
-                      <button type="button" class="btn-close btn-close-green btn-outline-success ms-4" aria-label="Close"></button>
-                    </form>
+                  </form>
     
                 </div>
                 <ul class="nav navbar-nav me-auto navbar-nav-scroll">
-                  <li class="nav-item hoverable_women elements_women">
+                  <li class="nav-item woman-section">
                     <a class="nav-link" href="#">Dámske</a>
                   </li>
-                  <li class="nav-item hoverable_men elements_men">
+                  <li class="nav-item man-section">
                     <a class="nav-link">Pánske</a>
                   </li>
-                  <li class="nav-item hoverable_kids elements_kids">
+                  <li class="nav-item kids-section">
                     <a class="nav-link" href="#">Detské</a>                      
                   </li>
                 </ul>
@@ -78,10 +77,8 @@
               </div>
           </div>  
         </nav>
-      </header>
-      <main>
-        <section class="overlay bg-dark">    
-          <div class="target_women elements_women hidden container-fluid">
+        <section class="overlay">    
+          <div id="womanSection" class="container-fluid woman-section">
             <div class="row">
               <div class="col-4">
                 <ul class="multi-column-dropdown">
@@ -115,7 +112,7 @@
               </div>
             </div>
           </div>
-          <div class="target_men hidden elements_men container-fluid">
+          <div id="manSection" class="container-fluid man-section">
             <div class="row">
               <div class="col-4">
                 <ul class="multi-column-dropdown">
@@ -149,7 +146,7 @@
               </div>
             </div>
           </div>
-          <div class="target_kids hidden elements_kids container-fluid">
+          <div id="kidsSection" class="container-fluid kids-section">
             <div class="row">
               <div class="col-4">
                 <ul class="multi-column-dropdown">
@@ -183,22 +180,18 @@
               </div>
             </div>
           </section>
+      </header>
+      <main>
+        
           <section class="main">
 
-            <div class="container-fluid bg-danger">Ahoj</div>
+            <div style="height: 1000px;" class="container-fluid bg-danger">Ahoj</div>
           </section> 
       </main>
-      <footer>
-
+      <footer style="background-color: pink; height: 60px;">
+        Nieco
       </footer>
-
-
-
-        
-
-          
-          
-          
-          <script src="script/index.js"></script>
+      <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+      <script src="script/index.js"></script>
     </body>
 </html>
