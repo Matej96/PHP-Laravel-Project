@@ -1,0 +1,174 @@
+.content {
+    display: block;
+    align-items: center;
+}
+
+
+.dropdowns {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 35%;
+}
+
+.color {
+    height: 15px;
+    width: 15px;
+}
+/*treba dorobit*/
+.btns {
+    outline: none !important;
+    box-shadow: none;
+}
+
+.swiper {
+    width: auto;
+    height: auto;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    padding: 5%;
+  }
+
+
+  .swiper {
+    width: auto;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .swiper-slide {
+    background-position: center;
+  }
+
+  .mySwiper2 {
+    height: auto;
+    width: auto;
+  }
+
+  .mySwiper {
+    height: 20%;
+    box-sizing: border-box;
+    padding: 10px 0;
+  }
+
+  .mySwiper .swiper-slide {
+    width: 25%;
+    height: auto;
+    opacity: 0.4;
+  }
+
+  .mySwiper .swiper-slide-thumb-active {
+    opacity: 1;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .swiper-button-prev, .swiper-button-next{
+    color: red;
+  }
+
+.dropdown-toggle {
+    max-width: 130px;
+    text-align: center;
+}
+
+.qty .count {
+    color: #000;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 30px;
+    padding: 0 2px
+    ;min-width: 35px;
+    text-align: center;
+}
+.qty .plus {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    color: white;
+    width: 30px;
+    height: 30px;
+    font: 30px/1 Arial,sans-serif;
+    text-align: center;
+    border-radius: 50%;
+    }
+.qty .minus {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    color: white;
+    width: 30px;
+    height: 30px;
+    font: 30px/1 Arial,sans-serif;
+    text-align: center;
+    border-radius: 50%;
+    background-clip: padding-box;
+}
+
+.minus:hover{
+    background-color: #717fe0 !important;
+}
+.plus:hover{
+    background-color: #717fe0 !important;
+}
+/*Prevent text selection*/
+span{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+input{  
+    border: 0;
+    width: 2%;
+}
+nput::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input:disabled{
+    background-color:white;
+}
+
+.counter_row{
+    display: flex;
+
+}
+
+@media (max-width:768px){
+    .dropdowns {
+        margin-bottom: 20%;
+    }
+    h2, h3, span.minus {
+        margin-left: 5vh!important;
+    }
+}
+
+.details {
+    text-align: center;
+  }
+.details ul {
+    text-align: center;
+    list-style-position: inside;
+}
+         
