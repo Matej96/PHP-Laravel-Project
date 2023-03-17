@@ -1,3 +1,5 @@
+/*Navbar*/
+
 *{
     padding: 0;
     margin: 0;
@@ -268,65 +270,9 @@ nav form.d-flex.formik {
 	display: block;
 }
 
+/*Navbar End*/
 
-.img_box img{
-	max-width: 100%;
-}
-
-.slider_container .container{
-	padding: 0 15px;
-	max-width: 1100px;
-	margin: 0 auto;
-	
-}
-.slider_container h2{
-	color: rgba(255,255,255,.80);
-	text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
-	font-family: "Baskerville Old Face";
-	text-align: center;
-	background-color: rgba(0, 0, 0, 0.9);
-}
-.slider_container{
-	background-color: rgba(255,255,255,1);
-	margin-top: 10%;
-	box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
-}
-
-.swiper-slide .img_box img{
-	width: 100%;
-	height: 80%;
-	transition: 0.5s;
-}
-
-
-.swiper-slide {
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-}
-
-.swiper-slide .content{
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	background-color: rgba(0, 0, 0, 0.5);
-	color: rgba(255,255,255,.80);
-	text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
-	font-family: "Baskerville Old Face";
-	text-align: center;
-	padding: 20px;
-	transform: translateY(45%);
-	transition: transform 0.3s ease-in-out;
-
-}
-
-.swiper-slide:hover .content{
-	transform: translateY(0);
-}
-
-.card_slider{
-	padding: 50px 0;
-}
-
+/*Footer*/
 
 footer {
 	padding: 2.5% 10%!important;
@@ -355,205 +301,190 @@ footer hr{
 	margin: 30px 0;
 }
 
-.row .col-4.mt-3 ul li{
-	margin: 3% 0;
-}
-.swiper-button-next, .swiper-button-prev{
-	border-radius: 20%;
-	padding: 2.8%;
-	background-color: rgba(0, 0, 0, 0.9);
-	border-color: rgba(255,255,255,.80);
-	
-}
-.swiper-button-next:hover, .swiper-button-prev:hover {
-	color: rgba(255,255,255,1);
-	background-color: rgba(0,0,0,1);
-	text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
-    border-color: rgba(255,255,255,1);
-}
+/*Footer End*/
 
-:root{
-	--swiper-navigation-color: rgba(255,255,255,.80);
-}
-.bi:hover{
-	color: rgba(255,255,255,1);
-}
+/* Login/Registration PopUps*/
 
-
-/*Login/REgistration*/
-
-.login_overlay{
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	background: rgba(0,0,0,0.7);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	transition: opacity 500ms;
-	opacity: 0;
-	visibility: hidden;
-	font-family: "Baskerville Old Face";
+.login_overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 500ms;
+    opacity: 0;
+    visibility: hidden;
+    font-family: "Baskerville Old Face";
 
 }
 
-.login_overlay:target{
-	opacity: 1;
-	visibility: visible;
+.login_overlay:target {
+    opacity: 1;
+    visibility: visible;
 }
 
-.login_overlay h1{
-	color: rgba(0,0,0,0.8);
-	text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
+.login_overlay h1 {
+    color: rgba(0, 0, 0, 0.8);
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
 }
 
-.login_overlay h3{
-	color: rgba(255,255,255,0.8);
-	text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+.login_overlay h3 {
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
 }
 
-.wrapper_popup{
-	position: relative;
-	width: 50%;
-	min-height: 400px;
-	display: flex;
+.wrapper_popup {
+    position: relative;
+    width: 50%;
+    min-height: 400px;
+    display: flex;
 }
 
-.first_column, .second_column{
-	width: 50%;
-	padding: 35px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	text-align: center;
-	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+.first_column, .second_column {
+    width: 50%;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.first_column{
-	background: rgba(255, 255, 255, 0.9);
-}
-
-
-.second_column{
-	background: rgba(0, 0, 0, 0.9);
-}
-
-.signin, .signup{
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-#signin, #signup{
-	background: none;
-	border: none;
-	font-family: inherit;
-	cursor: pointer;
-	font-weight: bold;
-}
-
-.close{
-	position: absolute;
-	right: 2%;
-	top: 0;
-	font-size: 50px;
-	text-decoration: none;
-	color: rgba(255,255,255,0.8);
-	transition: all 200ms;
-}
-
-.close:hover{
-	color: rgba(255,255,255,1);
-	text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+.first_column {
+    background: rgba(255, 255, 255, 0.9);
 }
 
 
-input{
-	background: rgba(255, 255, 255, 0.9);
-	border: none;
-	padding: 12px 15px;
-	border: 2px;
-	margin: 8px 0;
-	width: 100%;
-	color: rgba(0, 0, 0, 0.9);
+.second_column {
+    background: rgba(0, 0, 0, 0.9);
 }
 
-input:focus{
-	outline-color: rgba(0, 0, 0, 0.9);
+.signin, .signup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.form-submit{
-	background-color: rgba(255, 255, 255, 1);
-		color: rgba(0, 0, 0, 1);     
-		border-color: rgba(0, 0, 0, 1);
-		box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
-		text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
-		margin-left: 0!important;
-}
-.form-submit:hover{
-	color: rgba(255,255,255,1);
-	background-color: rgba(0,0,0,1);
-	text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
-    border-color: rgba(255,255,255,1);
-	text-decoration: underline;
-}
-.login_button, .login_span{
-	color: rgba(0, 0, 0, 0.9);
-}
-.login_button:hover{
-	color: rgba(0, 0, 0, 1);
-	text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
-	text-decoration: un;
+#signin, #signup {
+    background: none;
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+    font-weight: bold;
 }
 
-.signup .form-submit{
-	margin-top: 15px;
+.close {
+    position: absolute;
+    right: 2%;
+    top: 0;
+    font-size: 50px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 200ms;
 }
 
-.login_forgot{
-	color: rgba(0, 0, 0, 0.9);
-	text-decoration: underline;
-}
-.login_forgot:hover{
-	color: rgba(0, 0, 0, 1);
-	text-shadow: rgba(0, 0, 0, 0.5);
-	font-weight: bold;
+.close:hover {
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
 }
 
-.brand{
-	height: 100%;
-	width: 100%;
-	margin-right: 0!important;
+
+.signup input, .signin input {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    padding: 12px 15px;
+    border: 2px;
+    margin: 8px 0;
+    width: 100%;
+    color: rgba(0, 0, 0, 0.9);
 }
 
-@media only screen and (min-width: 768px){
-	.wrapper_popup{
-		width: 80%;
-	}
-	
+input:focus {
+    outline-color: rgba(0, 0, 0, 0.9);
 }
 
-@media only screen and (min-width: 992px){
-	.wrapper_popup{
-		width: 70%;
-	}
-	
+.form-submit {
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(0, 0, 0, 1);
+    border-color: rgba(0, 0, 0, 1);
+    box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
+    margin-left: 0 !important;
 }
 
-@media only screen and (max-width: 768px){
-	.wrapper_popup{
-		width: 80%;
-		flex-direction: column-reverse;
-	}
-
-	.column{
-		width: 100%;
-	}
-	.close{
-		top: 0;
-		right: 10px;
-		margin: 0;
-	}
+.form-submit:hover {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(0, 0, 0, 1);
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 1);
+    text-decoration: underline;
 }
+
+.login_button, .login_span {
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.login_button:hover {
+    color: rgba(0, 0, 0, 1);
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
+    text-decoration: un;
+}
+
+.signup .form-submit {
+    margin-top: 15px;
+}
+
+.login_forgot {
+    color: rgba(0, 0, 0, 0.9);
+    text-decoration: underline;
+}
+
+.login_forgot:hover {
+    color: rgba(0, 0, 0, 1);
+    text-shadow: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+}
+
+.brand {
+    height: 100%;
+    width: 100%;
+    margin-right: 0 !important;
+}
+
+@media only screen and (min-width: 768px) {
+    .wrapper_popup {
+        width: 80%;
+    }
+
+}
+
+@media only screen and (min-width: 992px) {
+    .wrapper_popup {
+        width: 70%;
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+    .wrapper_popup {
+        width: 80%;
+        flex-direction: column-reverse;
+    }
+
+    .column {
+        width: 100%;
+    }
+
+    .close {
+        top: 0;
+        right: 10px;
+        margin: 0;
+    }
+}
+
+/*Login/Registration END*/
+

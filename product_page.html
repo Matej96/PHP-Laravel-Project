@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WearIT</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="style/style_main.css">
+  <link rel="stylesheet" href="style/style_product_page.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-md navbar-light p-0">
+      <div class="container-fluid">
+          <div class="col-md-1 col-2 me-">
+            <a href="landing_page.html">
+              <img class="navbar-brand  text-center" src="images/wtech_logo.png">
+            </a>
+          </div>
+        <div class="button_class_mobil pe-2">
+          <a href="shopping_card_page.html">
+            <button class="btn btn-outline-success">
+              <span class="bi bi-cart">
+                <span class="d-none">Nákupný košík</span>
+              </span>
+            </button>
+          </a>
+          <a href="#login">
+            <button class="btn btn-outline-success">
+              <span class="bi bi-person">
+                <span class="d-none">Prihlásenie</span>
+              </span>
+            </button>
+          </a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+          aria-controls="navbarScroll" aria-expanded="true" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+          <div id="ss" class="search_div">
+            <form class="d-flex me-4 formik">
+              <input class="form-control me-2 " type="search" placeholder="Vyhľadať tovar" aria-label="Search">
+              <button class="btn btn-outline-success " type="submit"><i class="bi bi-search">
+                  <span class="d-md-none"></span>
+                </i></button>
+            </form>
+
+          </div>
+          <ul class="nav navbar-nav me-auto navbar-nav-scroll">
+            <li class="nav-item woman-section">
+              <a class="nav-link" href="#">Dámske</a>
+            </li>
+            <li class="nav-item man-section">
+              <a class="nav-link">Pánske</a>
+            </li>
+            <li class="nav-item kids-section">
+              <a class="nav-link" href="#">Detské</a>
+            </li>
+          </ul>
+        </div>
+        <form class="d-flex me-4">
+          <input class="form-control me-2 " type="search" placeholder="Vyhľadať tovar" aria-label="Search">
+          <button class="btn btn-outline-success " type="submit"><i class="bi bi-search">
+              <span class="d-md-none"></span>
+            </i></button>
+        </form>
+        <div class="button_class">
+          <a href="shopping_card_page.html">
+            <button class="btn btn-outline-success">
+              <span class="bi bi-cart">
+                <span class="button_spans">Košík</span>
+              </span>
+            </button>
+          </a>
+          <a href="#login">
+            <button class="btn btn-outline-success">
+              <span class="bi bi-person">
+                <span class="button_spans">Prihlásenie</span>
+              </span>
+            </button>
+          </a>
+        </div>
+        <div id="login" class="overlay login_overlay">
+          <div class="wrapper wrapper_popup">
+            <a href="#" class="close">&times;</a>
+            <div class="column first_column">
+              <div class="signin">
+                <h1>Prihlásenie do účtu</h1>
+                <input type="email" placeholder="Emailová adresa">
+                <input type="password" placeholder="Heslo">
+                <a href="#" class="login_forgot">Zabudli ste heslo ?</a>
+                <button class="col-7 ms-3 btn form-submit">
+                  <i class="bi bi-box-arrow-in-right"> Prihlásiť sa</i>
+                </button>
+                <span class="login_span">Nemáte ešte účet? <button id="signup" class="login_button">Zaregistrovať
+                    sa</button></span>
+              </div>
+              <div class="signup">
+                <h1>Vytvorte si účet</h1>
+                <input type="email" placeholder="Emailová adresa">
+                <input type="password" placeholder="Heslo">
+                <input type="password" placeholder="Opakovať Heslo">
+                <button class="col-7 ms-3 btn form-submit">
+                  <i class="bi bi-person-plus"> Vytvoriť účet</i>
+                </button>
+                <span class="login_span">Máte už vytvorený účet? <button id="signin" class="login_button">Prihlásiť
+                    sa</button></span>
+              </div>
+
+            </div>
+
+            <div class="column second_column">
+              <div class="signin">
+                <img class="brand" src="images/wtech_logo.png">
+                <h3>Pohodlne nakupujte!</h3>
+              </div>
+              <div class="signup">
+                <img class="brand" src="images/wtech_logo.png">
+                <h3>Vytvorenie účtu je zadarmo!</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="overlay">
+      <div id="womanSection" class="container-fluid woman-section">
+        <div class="row">
+          <div class="col-4 mt-3">
+            <ul class="multi-column-dropdown">
+              <span class="title-section">Oblečenie</span>
+              <hr style="height: 2px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+              <li><a href="product_list_page.html">Bundy</a></li>
+              <li><a href="product_list_page.html">Šaty</a></li>
+              <li><a href="product_list_page.html">Tričká</a></li>
+              <li><a href="product_list_page.html">Nohavice</a></li>
+            </ul>
+          </div>
+          <div class="col-4 mt-3">
+            <ul class="multi-column-dropdown">
+              <span class="title-section">Topánky</span>
+              <hr style="height: 2px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+              <li><a href="product_list_page.html">Tenisky</a></li>
+              <li><a href="product_list_page.html">Čižmy</a></li>
+              <li><a href="product_list_page.html">Športové</a></li>
+              <li><a href="product_list_page.html">Spoločenské</a></li>
+            </ul>
+          </div>
+          <div class="col-4 mt-3">
+            <ul class="multi-column-dropdown">
+              <span class="title-section">Doplnky</span>
+              <hr style="height: 2px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+              <li><a href="product_list_page.html">Hodinky</a></li>
+              <li><a href="product_list_page.html">Šály</a></li>
+              <li><a href="product_list_page.html">Čiapky</a></li>
+              <li><a href="product_list_page.html">Okuliare</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="manSection" class="container-fluid man-section">
+        <div class="row">
+          <div class="col-4 mt-3">
+            <ul class="multi-column-dropdown">
+              <span class="title-section">Oblečenie</span>
+              <hr style="height: 2px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+              <li><a href="product_list_page.html">Mikiny</a></li>
+              <li><a href="product_list_page.html">Tričká</a></li>
+              <li><a href="product_list_page.html">Bundy</a></li>
+              <li><a href="product_list_page.html">Nohavice</a></li>
+            </ul>
+          </div>
+          <div class="col-4 mt-3">
+            <ul class="multi-column-dropdown">
+              <span class="title-section">Topánky</span>
+              <hr style="height: 2px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+              <li><a href="product_list_page.html">Tenisky</a></li>
+              <li><a href="product_list_page.html">Pracovné</a></li>
+              <li><a href="product_list_page.html">Športové</a></li>
+              <li><a href="product_list_page.html">Spoločenské</a></li>
+            </ul>
+          </div>
+          <div class="col-4 mt-3">
+            <ul class="multi-column-dropdown">
+              <span class="title-section">Doplnky</span>
+              <hr style="height: 2px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+              <li><a href="product_list_page.html">Hodinky</a></li>
+              <li><a href="product_list_page.html">Šály</a></li>
+              <li><a href="product_list_page.html">Čiapky</a></li>
+              <li><a href="product_list_page.html">Okuliare</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="kidsSection" class="container-fluid kids-section">
+        <div class="row">
+          <div class="col-4 mt-3">
+            <ul class="multi-column-dropdown">
+              <span class="title-section">Oblečenie</span>
+              <hr style="height: 2px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+              <li><a href="product_list_page.html">Bundy</a></li>
+              <li><a href="product_list_page.html">Šaty</a></li>
+              <li><a href="product_list_page.html">Tričká</a></li>
+              <li><a href="product_list_page.html">Nohavice</a></li>
+            </ul>
+          </div>
+          <div class="col-4 mt-3">
+            <ul class="multi-column-dropdown">
+              <span class="title-section">Topánky</span>
+              <hr style="height: 2px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+              <li><a href="product_list_page.html">Tenisky</a></li>
+              <li><a href="product_list_page.html">Obuv na prvé kroky</a></li>
+              <li><a href="product_list_page.html">Športové</a></li>
+              <li><a href="product_list_page.html">Spoločenské</a></li>
+            </ul>
+          </div>
+          <div class="col-4 mt-3">
+            <ul class="multi-column-dropdown">
+              <span class="title-section">Doplnky</span>
+              <hr style="height: 2px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+              <li><a href="product_list_page.html">Šiltovky</a></li>
+              <li><a href="product_list_page.html">Šály</a></li>
+              <li><a href="product_list_page.html">Čiapky</a></li>
+              <li><a href="product_list_page.html">Okuliare</a></li>
+            </ul>
+          </div>
+        </div>
+    </section>
+  </header>
+
+  <main>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6 col-12 first-half">
+          <h5 class="my-4">Pánske/Oblečenie/Mikiny</h5>
+          <div style="--swiper-navigation-color: rgba(255,255,255,.80); --swiper-pagination-color: #fff"
+            class="swiper mySwiper2">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="images/product1.png" />
+              </div>
+              <div class="swiper-slide">
+                <img src="images/product1_2.png" />
+              </div>
+              <div class="swiper-slide">
+                <img src="images/product1_3.png" />
+              </div>
+              <div class="swiper-slide">
+                <img src="images/product1_4.png" />
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+          <div thumbsSlider="" class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="images/product1.png" />
+              </div>
+              <div class="swiper-slide">
+                <img src="images/product1_2.png" />
+              </div>
+              <div class="swiper-slide">
+                <img src="images/product1_3.png" />
+              </div>
+              <div class="swiper-slide">
+                <img src="images/product1_4.png" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-12 second-half">
+          <div class="content">
+            <hr style="height: 2px; background: black; margin-top: 6rem;">
+            <div class="row">
+              <h2 class="my-4 title-product">GANT</h2>
+              <h3 class="mt-3 mb-5 price-tag">Cena: 70,53 €</h3>
+              <h3 class="mt-3 mb-5 price-tag">Typ oblečenia: Mikina</h3>
+            </div>
+            <hr style="height: 2px; background: black;">
+            <div class="row dropdowns">
+              <div class="col-3 dropdown">
+                <button class="btn btn-secondary dropdown-toggle px-4 py-2" type="button" id="dropdownMenuButton"
+                  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Velkost
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          XXXL
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          XXL
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          XL
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          L
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          M
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          S
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          XS
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          XXS
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-3 offset-1 dropdown">
+                <button class="btn btn-secondary dropdown-toggle px-4 py-2" type="button" id="dropdownMenuButton"
+                  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Farba
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          <div class="color" style="background-color:red"></div>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          <div class="color" style="background-color:blue"></div>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          <div class="color" style="background-color:black"></div>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          <div class="color" style="background-color:grey"></div>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          <div class="color" style="background-color:coral"></div>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          <div class="color" style="background-color:chocolate"></div>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          <div class="color" style="background-color:darkolivegreen"></div>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          <div class="color" style="background-color:salmon"></div>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row counter_row">
+              <div class="qty mt-5">
+                <div class="counter_div">
+                  <span class="minus bg-dark ms-3">-</span>
+                  <input type="number" class="count" name="qty" value="1">
+                  <span class="plus bg-dark">+</span>
+                </div>
+                <button class="col-7 ms-3 btn btn-outline-success add-cart">
+                  <i class="bi bi-cart-plus">Pridat do kosika</i>
+                </button>
+              </div>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <h2 class="mt-5 mb-4 h2-header">Popis</h2>
+        <div class="p-description">
+          <p class="mx-5 mt-3">Mikina značky GANT je vyrobená z kvalitného a mäkkého materiálu, ktorý zaručuje pohodlné a príjemné nosenie. 
+            Jej strih je moderný a nadčasový, s dlhými rukávmi a okrúhlym výstrihom. Vpred je vybavená praktickým zipsom, ktorý umožňuje regulovať teplotu a pohodlie v závislosti od počasia.
+            <br>
+            <br>
+            Na hrudi má mikina nápis GANT, ktorý je symbolom značky a zaručuje vysokú kvalitu a štýl. 
+            Je k dispozícii v rôznych farbách, ktoré sa ľahko kombinujú s rôznymi kúskami oblečenia. 
+            Táto mikina je ideálnym doplnkom pre každodenné použitie a vhodná pre ľudí, ktorí ocenia vysokú kvalitu a eleganciu.
+          </p>
+        </div>
+        <h2 class="mt-5 mb-4 h2-header">Detaily</h2>
+        <div class="row mb-5 details">
+          <div class="col-md-6 pt-3 p-description">
+            <ul>
+              <li>Potlač loga</li>
+              <li>Teplákovina</li>
+              <li>S kapucňou</li>
+            </ul>
+          </div>
+          <div class="col-md-6 pt-3 p-description">
+            <ul>
+              <li>Rovný strih</li>
+              <li>Výšivka znaku</li>
+              <li>Klokanie vrecka</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="container-fluid">
+    <div class="row">
+      <div class="col-6">
+        <h5>Sledujte nas</h5>
+      </div>
+      <div class="col-6">
+        <h5>Kontaktujte nas</h5>
+      </div>
+    </div>
+    <hr style="height: 2px; background: white;">
+    <div class="row">
+      <div class="col-6">
+        <span>Socialne siete</span>
+        <i class="bi bi-instagram ms-2"></i>
+        <i class="bi bi-facebook ms-2"></i>
+        <i class="bi bi-google ms-2"></i>
+        <i class="bi bi-twitter ms-2"></i>
+        <i class="bi bi-linkedin ms-2"></i>
+      </div>
+      <div class="col-6">
+        <div class="mb-2">
+          <i class="bi bi-geo-alt-fill"><span class="ms-2">Slovensko, Bratislava, 841 01</span></i>
+        </div>
+        <div>
+          <i class="bi bi-telephone"><span class="ms-2 me-2">(421) 456-562</span></i>
+          <i class="bi bi-printer"><span class="ms-2">(421) 456-5680</span></i>
+        </div>
+
+      </div>
+    </div>
+    <hr style="height: 2px; background: white;">
+    <div class="col-md-3 col-2 me-">
+      <a href="landing_page.html">
+        <img class="navbar-brand  text-center" src="images/wtech_logo.png">
+      </a>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+    integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script src="script/navbar.js"></script>
+  <script src="script/script_product.js"></script>
+</body>
+
+</html>
