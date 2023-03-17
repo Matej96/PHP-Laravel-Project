@@ -158,7 +158,6 @@ nav ul.navbar-nav{
 }
 
 
-
 .navbar-toggler{
 	background-color: rgba(255, 255, 255, 0.9);
 	color: rgba(0, 0, 0, 0.8);     
@@ -380,4 +379,181 @@ footer hr{
 	color: rgba(255,255,255,1);
 }
 
+
+/*Login/REgistration*/
+
+.login_overlay{
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0,0,0,0.7);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: opacity 500ms;
+	opacity: 0;
+	visibility: hidden;
+	font-family: "Baskerville Old Face";
+
+}
+
+.login_overlay:target{
+	opacity: 1;
+	visibility: visible;
+}
+
+.login_overlay h1{
+	color: rgba(0,0,0,0.8);
+	text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
+}
+
+.login_overlay h3{
+	color: rgba(255,255,255,0.8);
+	text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+}
+
+.wrapper_popup{
+	position: relative;
+	width: 50%;
+	min-height: 400px;
+	display: flex;
+}
+
+.first_column, .second_column{
+	width: 50%;
+	padding: 35px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.first_column{
+	background: rgba(255, 255, 255, 0.9);
+}
+
+
+.second_column{
+	background: rgba(0, 0, 0, 0.9);
+}
+
+.signin, .signup{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#signin, #signup{
+	background: none;
+	border: none;
+	font-family: inherit;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.close{
+	position: absolute;
+	right: 2%;
+	top: 0;
+	font-size: 50px;
+	text-decoration: none;
+	color: rgba(255,255,255,0.8);
+	transition: all 200ms;
+}
+
+.close:hover{
+	color: rgba(255,255,255,1);
+	text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+}
+
+
+input{
+	background: rgba(255, 255, 255, 0.9);
+	border: none;
+	padding: 12px 15px;
+	border: 2px;
+	margin: 8px 0;
+	width: 100%;
+	color: rgba(0, 0, 0, 0.9);
+}
+
+input:focus{
+	outline-color: rgba(0, 0, 0, 0.9);
+}
+
+.form-submit{
+	background-color: rgba(255, 255, 255, 1);
+		color: rgba(0, 0, 0, 1);     
+		border-color: rgba(0, 0, 0, 1);
+		box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
+		text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
+		margin-left: 0!important;
+}
+.form-submit:hover{
+	color: rgba(255,255,255,1);
+	background-color: rgba(0,0,0,1);
+	text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+    border-color: rgba(255,255,255,1);
+	text-decoration: underline;
+}
+.login_button, .login_span{
+	color: rgba(0, 0, 0, 0.9);
+}
+.login_button:hover{
+	color: rgba(0, 0, 0, 1);
+	text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
+	text-decoration: un;
+}
+
+.signup .form-submit{
+	margin-top: 15px;
+}
+
+.login_forgot{
+	color: rgba(0, 0, 0, 0.9);
+	text-decoration: underline;
+}
+.login_forgot:hover{
+	color: rgba(0, 0, 0, 1);
+	text-shadow: rgba(0, 0, 0, 0.5);
+	font-weight: bold;
+}
+
+.brand{
+	height: 100%;
+	width: 100%;
+	margin-right: 0!important;
+}
+
+@media only screen and (min-width: 768px){
+	.wrapper_popup{
+		width: 80%;
+	}
 	
+}
+
+@media only screen and (min-width: 992px){
+	.wrapper_popup{
+		width: 70%;
+	}
+	
+}
+
+@media only screen and (max-width: 768px){
+	.wrapper_popup{
+		width: 80%;
+		flex-direction: column-reverse;
+	}
+
+	.column{
+		width: 100%;
+	}
+	.close{
+		top: 0;
+		right: 10px;
+		margin: 0;
+	}
+}
