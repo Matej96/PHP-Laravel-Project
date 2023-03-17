@@ -7,12 +7,68 @@
 .dropdowns {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 35%;
+    margin-top: 5%;
+    margin-bottom: 15%;
+}
+.btn-secondary {
+  background-color: rgba(255, 255, 255, 1);
+		color: rgba(0, 0, 0, 1);     
+		border-color: rgba(0, 0, 0, 1);
+		box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
+		text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
+}
+.btn-secondary:hover, .btn-secondary:focus{
+  color: rgba(255,255,255,1);
+	background-color: rgba(0,0,0,1);
+	text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+    border-color: rgba(255,255,255,1);
+	text-decoration: underline;
 }
 
 .color {
     height: 15px;
     width: 15px;
+}
+
+.first-half, .second-half{
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9);
+}
+.add-cart{
+    background-color: rgba(255, 255, 255, 1);
+		color: rgba(0, 0, 0, 1);     
+		border-color: rgba(0, 0, 0, 1);
+		box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
+		text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
+}
+.my-4{
+  color: rgba(0,0,0,0.8);
+	text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
+	font-family: "Baskerville Old Face";
+  text-decoration: underline;
+}
+.price-tag{
+  margin-bottom: 0.5rem!important;
+  color: rgba(0,0,0,0.8);
+	text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
+	font-family: "Baskerville Old Face";
+}
+.title-product{
+  margin-top: 0.5rem!important;
+  margin-bottom: 0!important;
+}
+.h2-header{
+  margin-bottom: 0!important;
+  background-color: rgba(0,0,0,0.9);
+  color: rgba(255,255,255,255.8);
+	text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+	font-family: "Baskerville Old Face";
+}
+.p-description, details{
+  background-color: rgba(255,255,255,0.9);
+  box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9);
+  color: rgba(0,0,0,0.9);
+	font-family: "Baskerville Old Face";
 }
 /*treba dorobit*/
 .btns {
@@ -81,9 +137,7 @@
     height: auto;
   }
 
-  .swiper-button-prev, .swiper-button-next{
-    color: red;
-  }
+  
 
 .dropdown-toggle {
     max-width: 130px;
@@ -171,4 +225,5 @@ input:disabled{
     text-align: center;
     list-style-position: inside;
 }
+
          
