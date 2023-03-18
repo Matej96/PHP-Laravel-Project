@@ -1,0 +1,34 @@
+.main_section {
+    display: flex;
+    margin-top: 10%;
+    width: 100%;
+}
+
+.aside_div {
+    background-color: aqua;
+    width: 130%;
+}
+
+.nadpis_row {
+    display: flex;
+    justify-content: start;
+}
+
+.filter_row {
+    display: flex;
+    justify-content: end;
+}
+
+.filter_btn {
+    width: 100%;
+}
+
+.filter_btn_small {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .filter_btn_small{
+        display: block;
+    }    
+}

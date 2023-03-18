@@ -99,6 +99,7 @@ span.plus:hover, span.plus:focus, span.minus:hover, span.minus:focus {
 }
 
 .swiper-slide {
+  height: 0;
   text-align: center;
   font-size: 18px;
   background: #fff;
@@ -108,12 +109,15 @@ span.plus:hover, span.plus:focus, span.minus:hover, span.minus:focus {
 }
 
 .swiper-slide img {
+  height: 0;
+  margin: auto;
   display: block;
   width: 60%;
   height: auto;
   object-fit: cover;
   padding: 5%;
 }
+
 
 .swiper {
   width: auto;
@@ -135,6 +139,7 @@ span.plus:hover, span.plus:focus, span.minus:hover, span.minus:focus {
   height: 20%;
   box-sizing: border-box;
   padding: 10px 0;
+  height: auto;
 }
 
 .mySwiper .swiper-slide {
@@ -249,6 +254,7 @@ input:disabled {
 
   .swiper-slide img {
     width: 70%;
+    margin: auto;
   }
 
   .title-product,
