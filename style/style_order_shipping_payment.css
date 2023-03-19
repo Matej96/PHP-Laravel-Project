@@ -1,0 +1,48 @@
+.nadpis_row{
+    background-color: wheat;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.fakturacne_row{
+    background-color: whitesmoke;
+}
+
+.fakturacne_row ul, .dodacie_row ul {
+    list-style: none;
+}
+
+.dodacie_row{
+    background-color: antiquewhite;
+}
+
+.checkbox_row{
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttony {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+@media (max-width: 768px){
+    .fakturacne_row .container-fluid, .dodacie_row .container-fluid{
+        display: flex;
+        justify-content: space-around;
+    }
+    .fakturacne_row ul, .dodacie_row ul {
+        display: block;
+    }
+    .fakturacne_row ul li, .dodacie_row ul li {
+        margin-top: 1.5vh;
+    }
+    .fakturacne_row .div_check_btn{
+        margin-left: 10%;
+    }
+    .checkbox_row{
+        display: block;
+        margin-left: 10%;
+    }
+}
