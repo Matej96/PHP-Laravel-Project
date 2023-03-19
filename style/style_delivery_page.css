@@ -1,0 +1,30 @@
+main {
+    background-color: wheat;
+}
+h2{
+    text-align: center;
+}
+
+.row div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.row ul {
+    list-style: none;
+}
+
+.buttony{
+    display: flex;
+    justify-content: space-between;
+}
+
+.first_btn{
+    display: flex;
+    justify-content: start!important;
+}
+
+.second_btn{
+    display: flex;
+    justify-content: end!important;
+}
