@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="style/style_product_list.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.css">
-<script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>
   <script src="https://kit.fontawesome.com/f87ddda31a.js" crossorigin="anonymous"></script>
@@ -24,11 +24,11 @@
   <header>
     <nav class="navbar navbar-expand-md navbar-light p-0">
       <div class="container-fluid">
-          <div class="col-md-1 col-2 me-">
-            <a href="landing_page.html">
-              <img class="navbar-brand  text-center" src="images/wtech_logo.png">
-            </a>
-          </div>
+        <div class="col-md-1 col-2 me-">
+          <a href="landing_page.html">
+            <img class="navbar-brand  text-center" src="images/wtech_logo.png">
+          </a>
+        </div>
         <div class="button_class_mobil pe-2">
           <a href="shopping_card_page.html">
             <button class="btn btn-outline-success">
@@ -246,251 +246,492 @@
     <section class="main_section">
       <div class="container-fluid">
         <div class="row py-3">
-            <div class="col-2" id="sticky-sidebar">
-                <div class="sticky-top">
-                    <div class="nav flex-column">
-                        <p style="height: 70px;"></p>
-                        <div class="aside_div">
-                          <h3>Oblecenie</h3>
-                          <ul>
-                            <li>Obuv pre prve kroky</li>
-                            <li>Svetre</li>
-                            <li>Tricka</li>
-                            <li>Nohavice</li>
-                            <li>Rifle</li>
-                            <li>Obleky</li>
-                          </ul>
-                        </div>
+          <div class="col-2" id="sticky-sidebar">
+            <div class="sticky-top">
+              <div class="nav flex-column">
+                <p style="height: 70px;"></p>
+                <div class="aside_div">
+                  <div class="unroll-container" id="unroll-container-1">
+                    <div class="unroll-header">
+                      <h2>Dámske</h2>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-10 col" id="main" style="background-color: red;">
-              <div class="container-fluid">
-                <div class="row mt-4 nadpis_row">
-                  <div class="col-4">
-                    <h2 class="col-3 col-lg-4">Bundy</h2>
-                  </div>
-                </div>
-                <div class="row filter_row">
-                  <div class="dropdown col-3 col-lg-2">
-                    <button class="btn btn-secondary dropdown-toggle filter_btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa-solid fa-clothes-hanger"></i> Velkost
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                  </div>
-                  <div class="dropdown col-3 col-lg-2">
-                    <button class="btn btn-secondary dropdown-toggle filter_btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="bi bi-tag"></i> Cena
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
+                    <div class="unroll-content">
+                      <h3>Oblečenie</h3>
+                      <hr style="height: 2px; background: black;">
+                      <ul>
+                        <li>Bundy</li>
+                        <li>Šaty</li>
+                        <li>Tričká</li>
+                        <li>Nohavice</li>
+                      </ul>
+                      <h3>Topánky</h3>
+                      <hr style="height: 2px; background: black;">
+                      <ul>
+                        <li>Tenisky</li>
+                        <li>Čižmy</li>
+                        <li>Športové</li>
+                        <li>Spoločenské</li>
+                      </ul>
+                      <h3>Doplnky</h3>
+                      <hr style="height: 2px; background: black;">
+                      <ul>
+                        <li>Hodinky</li>
+                        <li>Šály</li>
+                        <li>Čiapky</li>
+                        <li>Okuliare</li>
+                      </ul>
                     </div>
                   </div>
-                  <div class="col-3 col-lg-2"> 
-                    <select id="choices-multiple-remove-button" placeholder="Select upto 5 tags" multiple>
-                      <option value="HTML">HTML</option>
-                      <option value="Jquery">Jquery</option>
-                      <option value="CSS">CSS</option>
-                      <option value="Bootstrap 3">Bootstrap 3</option>
-                      <option value="Bootstrap 4">Bootstrap 4</option>
-                      <option value="Java">Java</option>
-                      <option value="Javascript">Javascript</option>
-                      <option value="Angular">Angular</option>
-                      <option value="Python">Python</option>
-                      <option value="Hybris">Hybris</option>
-                      <option value="SQL">SQL</option>
-                      <option value="NOSQL">NOSQL</option>
-                      <option value="NodeJS">NodeJS</option>
-                    </select>
-                   </div>
-                  
-                  <div class="dropdown col-3 col-lg-2">
-                    <button class="btn btn-secondary dropdown-toggle pe-5 filter_btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Zoradit
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
+
+                  <div class="unroll-container" id="unroll-container-2">
+                    <div class="unroll-header">
+                      <h2>Pánske</h2>
+                    </div>
+                    <div class="unroll-content">
+                      <h3>Oblečenie</h3>
+                      <hr style="height: 2px; background: black;">
+                      <ul>
+                        <li>Mikiny</li>
+                        <li>Tričká</li>
+                        <li>Bundy</li>
+                        <li>Nohavice</li>
+                      </ul>
+                      <h3>Topánky</h3>
+                      <hr style="height: 2px; background: black;">
+                      <ul>
+                        <li>Tenisky</li>
+                        <li>Pracovné</li>
+                        <li>Športové</li>
+                        <li>Spoločenské</li>
+                      </ul>
+                      <h3>Doplnky</h3>
+                      <hr style="height: 2px; background: black;">
+                      <ul>
+                        <li>Hodinky</li>
+                        <li>Šály</li>
+                        <li>Čiapky</li>
+                        <li>Okuliare</li>
+                      </ul>
                     </div>
                   </div>
-                </div>
-                <div class="swiper mySwiper">
-                  <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                      <div class="grid-container">
-                        <div class="grid-item">
-                          <img src="images/product1.png">
-                          <h4>Nazov</h4>
-                          <h5>Cena</h5>
-                        </div>
-                        <div class="grid-item">
-                          <img src="images/product1.png">
-                          <h4>Nazov</h4>
-                          <h5>Cena</h5>
-                        </div>
-                        <div class="grid-item">
-                          <img src="images/product1.png">
-                          <h4>Nazov</h4>
-                          <h5>Cena</h5>
-                        </div>
-                        <div class="grid-item">
-                          <img src="images/product1.png">
-                          <h4>Nazov</h4>
-                          <h5>Cena</h5>
-                        </div>
-                        <div class="grid-item">
-                          <img src="images/product1.png">
-                          <h4>Nazov</h4>
-                          <h5>Cena</h5>
-                        </div>
-                        <div class="grid-item">
-                          <img src="images/product1.png">
-                          <h4>Nazov</h4>
-                          <h5>Cena</h5>
-                        </div>
-                        <div class="grid-item">
-                          <img src="images/product1.png">
-                          <h4>Nazov</h4>
-                          <h5>Cena</h5>
-                        </div>
-                        <div class="grid-item">
-                          <img src="images/product1.png">
-                          <h4>Nazov</h4>
-                          <h5>Cena</h5>
-                        </div>
-                        <div class="grid-item">
-                          <img src="images/product1.png">
-                          <h4>Nazov</h4>
-                          <h5>Cena</h5>
-                        </div>
-                      </div>
+
+                  <div class="unroll-container" id="unroll-container-3">
+                    <div class="unroll-header">
+                      <h2>Detské</h2>
                     </div>
-                    <div class="swiper-slide">
-                      <div class="grid-container">
-                        <div class="grid-item">
-                          <img src="images/product1.png">
-                          <h4>Nazov</h4>
-                          <h5>Cena</h5>
-                        </div>
-                        <div class="grid-item">
-                          <img src="images/product1.png">
-                          <h4>Nazov</h4>
-                          <h5>Cena</h5>
-                        </div>
-                        <div class="grid-item">
-                          <img src="images/product1.png">
-                          <h4>Nazov</h4>
-                          <h5>Cena</h5>
-                        </div>
-                        <div class="grid-item">
-                          <img src="images/product1.png">
-                          <h4>Nazov</h4>
-                          <h5>Cena</h5>
-                        </div>
-                        <div class="grid-item">
-                          <img src="images/product1.png">
-                          <h4>Nazov</h4>
-                          <h5>Cena</h5>
-                        </div>
-                        <div class="grid-item">
-                          <img src="images/product1.png">
-                          <h4>Nazov</h4>
-                          <h5>Cena</h5>
-                        </div>
-                        <div class="grid-item">
-                          <img src="images/product1.png">
-                          <h4>Nazov</h4>
-                          <h5>Cena</h5>
-                        </div>
-                        <div class="grid-item">
-                          <img src="images/product1.png">
-                          <h4>Nazov</h4>
-                          <h5>Cena</h5>
-                        </div>
-                        <div class="grid-item">
-                          <img src="images/product1.png">
-                          <h4>Nazov</h4>
-                          <h5>Cena</h5>
-                        </div>
-                      </div>
+                    <div class="unroll-content">
+                      <h3>Oblečenie</h3>
+                      <hr style="height: 2px; background: black;">
+                      <ul>
+                        <li>Bundy</li>
+                        <li>Šaty</li>
+                        <li>Tričká</li>
+                        <li>Nohavice</li>
+                      </ul>
+                      <h3>Topánky</h3>
+                      <hr style="height: 2px; background: black;">
+                      <ul>
+                        <li>Tenisky</li>
+                        <li>Obuv na prvé kroky</li>
+                        <li>Športové</li>
+                        <li>Spoločenské</li>
+                      </ul>
+                      <h3>Doplnky</h3>
+                      <hr style="height: 2px; background: black;">
+                      <ul>
+                        <li>Šiltovky</li>
+                        <li>Šály</li>
+                        <li>Čiapky</li>
+                        <li>Okuliare</li>
+                      </ul>
                     </div>
-                    <div class="swiper-slide">
-                      <div class="grid-container">
-                        <div class="grid-item">
-                          <img src="images/product1.png">
-                          <h4>Nazov</h4>
-                          <h5>Cena</h5>
-                        </div>
-                        <div class="grid-item">
-                          <img src="images/product1.png">
-                          <h4>Nazov</h4>
-                          <h5>Cena</h5>
-                        </div>
-                        <div class="grid-item">
-                          <img src="images/product1.png">
-                          <h4>Nazov</h4>
-                          <h5>Cena</h5>
-                        </div>
-                        <div class="grid-item">
-                          <img src="images/product1.png">
-                          <h4>Nazov</h4>
-                          <h5>Cena</h5>
-                        </div>
-                        <div class="grid-item">
-                          <img src="images/product1.png">
-                          <h4>Nazov</h4>
-                          <h5>Cena</h5>
-                        </div>
-                        <div class="grid-item">
-                          <img src="images/product1.png">
-                          <h4>Nazov</h4>
-                          <h5>Cena</h5>
-                        </div>
-                        <div class="grid-item">
-                          <img src="images/product1.png">
-                          <h4>Nazov</h4>
-                          <h5>Cena</h5>
-                        </div>
-                        <div class="grid-item">
-                          <img src="images/product1.png">
-                          <h4>Nazov</h4>
-                          <h5>Cena</h5>
-                        </div>
-                        <div class="grid-item">
-                          <img src="images/product1.png">
-                          <h4>Nazov</h4>
-                          <h5>Cena</h5>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="swiper-slide">Slide 5</div>
-                    <div class="swiper-slide">Slide 6</div>
-                    <div class="swiper-slide">Slide 7</div>
-                    <div class="swiper-slide">Slide 8</div>
-                    <div class="swiper-slide">Slide 9</div>
-                    <div class="swiper-slide"></div>
                   </div>
-                  <div class="swiper-pagination mt-5"></div>
                 </div>
               </div>
             </div>
+          </div>
+          <div class="col-lg-10 col" id="main">
+            <div class="container-fluid main_container">
+              <div class="row nadpis_row">
+                <div class="col nadpis_col">
+                  <h2 class="col-3 col-lg-4">Bundy</h2>
+                  <h5 class="col-3 col-lg-4">Pánske/Oblečenie</h5>
+                  <hr style="height: 2px; background: white;">
+                </div>
+              </div>
+              <div class="row filter_row">
+                <div class="dropdown col-3 col-lg-2">
+                  <button class="btn btn-secondary dropdown-toggle filter_btn" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa-solid fa-clothes-hanger"></i> Velkost
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </div>
+                <div class="dropdown col-3 col-lg-2">
+                  <button class="btn btn-secondary dropdown-toggle filter_btn" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="bi bi-tag"></i> Cena
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </div>
+                <div class="col-3 col-lg-2">
+                  <select id="choices-multiple-remove-button" placeholder="Select upto 5 tags" multiple>
+                    <option value="HTML">HTML</option>
+                    <option value="Jquery">Jquery</option>
+                    <option value="CSS">CSS</option>
+                    <option value="Bootstrap 3">Bootstrap 3</option>
+                    <option value="Bootstrap 4">Bootstrap 4</option>
+                    <option value="Java">Java</option>
+                    <option value="Javascript">Javascript</option>
+                    <option value="Angular">Angular</option>
+                    <option value="Python">Python</option>
+                    <option value="Hybris">Hybris</option>
+                    <option value="SQL">SQL</option>
+                    <option value="NOSQL">NOSQL</option>
+                    <option value="NodeJS">NodeJS</option>
+                  </select>
+                </div>
+
+                <div class="dropdown col-3 col-lg-2">
+                  <button class="btn btn-secondary dropdown-toggle pe-5 filter_btn" type="button"
+                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Zoradit
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </div>
+                <hr style="height: 2px; background: white; padding-left: 3%; padding-right: 3%;">
+              </div>
+              <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="grid-container">
+                      <div class="grid-item">
+                        <div class="img_box">
+                          <a href="product_page.html">
+                            <img src="images/product7.png">
+                          </a>
+                        </div>
+                        <div class="content">
+                          <h3>Mikina Calvin Klein Jeans</h3>
+                          <h3>Cena: 94,53 €</h3>
+                        </div>
+                      </div>
+                      <div class="grid-item">
+                        <div class="img_box">
+                          <a href="product_page.html">
+                            <img src="images/product8.png">
+                          </a>
+                        </div>
+                        <div class="content">
+                          <h3>Mikina Champion</h3>
+                          <h3>Cena: 39,93 €</h3>
+                        </div>
+                      </div>
+                      <div class="grid-item">
+                        <div class="img_box">
+                          <a href="product_page.html">
+                            <img src="images/product9.png">
+                          </a>
+                        </div>
+                        <div class="content">
+                          <h3>Mikina Nike Sportswear</h3>
+                          <h3>Cena: 55,92 €</h3>
+                        </div>
+                      </div>
+                      <div class="grid-item">
+                        <div class="img_box">
+                          <a href="product_page.html">
+                            <img src="images/product10.png">
+                          </a>
+                        </div>
+                        <div class="content">
+                          <h3>Mikina Alpha Industries</h3>
+                          <h3>Cena: 46,32 €</h3>
+                        </div>
+                      </div>
+                      <div class="grid-item">
+                        <div class="img_box">
+                          <a href="product_page.html">
+                            <img src="images/product11.png">
+                          </a>
+                        </div>
+                        <div class="content">
+                          <h3>Mikina Champion</h3>
+                          <h3>Cena: 55,92 €</h3>
+                        </div>
+                      </div>
+                      <div class="grid-item">
+                        <div class="img_box">
+                          <a href="product_page.html">
+                            <img src="images/product12.png">
+                          </a>
+                        </div>
+                        <div class="content">
+                          <h3>Mikina Tommy Hilfiger</h3>
+                          <h3>Cena: 87,43 €</h3>
+                        </div>
+                      </div>
+                      <div class="grid-item">
+                        <div class="img_box">
+                          <a href="product_page.html">
+                            <img src="images/product13.png">
+                          </a>
+                        </div>
+                        <div class="content">
+                          <h3>Mikina Calvin Klein Jeans</h3>
+                          <h3>Cena: 84,90 €</h3>
+                        </div>
+                      </div>
+                      <div class="grid-item">
+                        <div class="img_box">
+                          <a href="product_page.html">
+                            <img src="images/product14.png">
+                          </a>
+                        </div>
+                        <div class="content">
+                          <h3>Mikina GANT</h3>
+                          <h3>Cena: 75,92 €</h3>
+                        </div>
+                      </div>
+                      <div class="grid-item">
+                        <div class="img_box">
+                          <a href="product_page.html">
+                            <img src="images/product1.png">
+                          </a>
+                        </div>
+                        <div class="content">
+                          <h3>Mikina GANT</h3>
+                          <h3>Cena: 70,53 €</h3>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="grid-container">
+                      <div class="grid-item">
+                        <div class="img_box">
+                          <a href="product_page.html">
+                            <img src="images/product7.png">
+                          </a>
+                        </div>
+                        <div class="content">
+                          <h3>Mikina Calvin Klein Jeans</h3>
+                          <h3>Cena: 94,53 €</h3>
+                        </div>
+                      </div>
+                      <div class="grid-item">
+                        <div class="img_box">
+                          <a href="product_page.html">
+                            <img src="images/product8.png">
+                          </a>
+                        </div>
+                        <div class="content">
+                          <h3>Mikina Champion</h3>
+                          <h3>Cena: 39,93 €</h3>
+                        </div>
+                      </div>
+                      <div class="grid-item">
+                        <div class="img_box">
+                          <a href="product_page.html">
+                            <img src="images/product9.png">
+                          </a>
+                        </div>
+                        <div class="content">
+                          <h3>Mikina Nike Sportswear</h3>
+                          <h3>Cena: 55,92 €</h3>
+                        </div>
+                      </div>
+                      <div class="grid-item">
+                        <div class="img_box">
+                          <a href="product_page.html">
+                            <img src="images/product10.png">
+                          </a>
+                        </div>
+                        <div class="content">
+                          <h3>Mikina Alpha Industries</h3>
+                          <h3>Cena: 46,32 €</h3>
+                        </div>
+                      </div>
+                      <div class="grid-item">
+                        <div class="img_box">
+                          <a href="product_page.html">
+                            <img src="images/product11.png">
+                          </a>
+                        </div>
+                        <div class="content">
+                          <h3>Mikina Champion</h3>
+                          <h3>Cena: 55,92 €</h3>
+                        </div>
+                      </div>
+                      <div class="grid-item">
+                        <div class="img_box">
+                          <a href="product_page.html">
+                            <img src="images/product12.png">
+                          </a>
+                        </div>
+                        <div class="content">
+                          <h3>Mikina Tommy Hilfiger</h3>
+                          <h3>Cena: 87,43 €</h3>
+                        </div>
+                      </div>
+                      <div class="grid-item">
+                        <div class="img_box">
+                          <a href="product_page.html">
+                            <img src="images/product13.png">
+                          </a>
+                        </div>
+                        <div class="content">
+                          <h3>Mikina Calvin Klein Jeans</h3>
+                          <h3>Cena: 84,90 €</h3>
+                        </div>
+                      </div>
+                      <div class="grid-item">
+                        <div class="img_box">
+                          <a href="product_page.html">
+                            <img src="images/product14.png">
+                          </a>
+                        </div>
+                        <div class="content">
+                          <h3>Mikina GANT</h3>
+                          <h3>Cena: 75,92 €</h3>
+                        </div>
+                      </div>
+                      <div class="grid-item">
+                        <div class="img_box">
+                          <a href="product_page.html">
+                            <img src="images/product1.png">
+                          </a>
+                        </div>
+                        <div class="content">
+                          <h3>Mikina GANT</h3>
+                          <h3>Cena: 70,53 €</h3>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="grid-container">
+                      <div class="grid-item">
+                        <div class="img_box">
+                          <a href="product_page.html">
+                            <img src="images/product7.png">
+                          </a>
+                        </div>
+                        <div class="content">
+                          <h3>Mikina Calvin Klein Jeans</h3>
+                          <h3>Cena: 94,53 €</h3>
+                        </div>
+                      </div>
+                      <div class="grid-item">
+                        <div class="img_box">
+                          <a href="product_page.html">
+                            <img src="images/product8.png">
+                          </a>
+                        </div>
+                        <div class="content">
+                          <h3>Mikina Champion</h3>
+                          <h3>Cena: 39,93 €</h3>
+                        </div>
+                      </div>
+                      <div class="grid-item">
+                        <div class="img_box">
+                          <a href="product_page.html">
+                            <img src="images/product9.png">
+                          </a>
+                        </div>
+                        <div class="content">
+                          <h3>Mikina Nike Sportswear</h3>
+                          <h3>Cena: 55,92 €</h3>
+                        </div>
+                      </div>
+                      <div class="grid-item">
+                        <div class="img_box">
+                          <a href="product_page.html">
+                            <img src="images/product10.png">
+                          </a>
+                        </div>
+                        <div class="content">
+                          <h3>Mikina Alpha Industries</h3>
+                          <h3>Cena: 46,32 €</h3>
+                        </div>
+                      </div>
+                      <div class="grid-item">
+                        <div class="img_box">
+                          <a href="product_page.html">
+                            <img src="images/product11.png">
+                          </a>
+                        </div>
+                        <div class="content">
+                          <h3>Mikina Champion</h3>
+                          <h3>Cena: 55,92 €</h3>
+                        </div>
+                      </div>
+                      <div class="grid-item">
+                        <div class="img_box">
+                          <a href="product_page.html">
+                            <img src="images/product12.png">
+                          </a>
+                        </div>
+                        <div class="content">
+                          <h3>Mikina Tommy Hilfiger</h3>
+                          <h3>Cena: 87,43 €</h3>
+                        </div>
+                      </div>
+                      <div class="grid-item">
+                        <div class="img_box">
+                          <a href="product_page.html">
+                            <img src="images/product13.png">
+                          </a>
+                        </div>
+                        <div class="content">
+                          <h3>Mikina Calvin Klein Jeans</h3>
+                          <h3>Cena: 84,90 €</h3>
+                        </div>
+                      </div>
+                      <div class="grid-item">
+                        <div class="img_box">
+                          <a href="product_page.html">
+                            <img src="images/product14.png">
+                          </a>
+                        </div>
+                        <div class="content">
+                          <h3>Mikina GANT</h3>
+                          <h3>Cena: 75,92 €</h3>
+                        </div>
+                      </div>
+                      <div class="grid-item">
+                        <div class="img_box">
+                          <a href="product_page.html">
+                            <img src="images/product1.png">
+                          </a>
+                        </div>
+                        <div class="content">
+                          <h3>Mikina GANT</h3>
+                          <h3>Cena: 70,53 €</h3>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-pagination mt-5"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      
-      
-      
     </section>
-    
-
-    
-    
   </main>
 
   <footer class="container-fluid">
@@ -534,9 +775,10 @@
     integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   <script src="script/navbar.js"></script>
-  
+
   <script>
     var swiper = new Swiper(".mySwiper", {
+      
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
@@ -545,17 +787,45 @@
         },
       },
     });
-    $(document).ready(function(){
-    
-    var multipleCancelButton = new Choices('#choices-multiple-remove-button', {
-       removeItemButton: true,
-       maxItemCount:5,
-       searchResultLimit:5,
-       renderChoiceLimit:5
-     }); 
-     
+    $(document).ready(function () {
+
+      var multipleCancelButton = new Choices('#choices-multiple-remove-button', {
+        removeItemButton: true,
+        maxItemCount: 5,
+        searchResultLimit: 5,
+        renderChoiceLimit: 5
+      });
+
     });
-  </script> 
+  </script>
+  <script>
+    const unrollHeaders = document.querySelectorAll('.unroll-header');
+    let activeUnrollContainer = null;
+
+    for (let i = 0; i < unrollHeaders.length; i++) {
+      unrollHeaders[i].addEventListener('click', function () {
+        const unrollContainer = this.parentNode;
+        const unrollContent = this.nextElementSibling;
+        const isActive = unrollContainer.classList.contains('show');
+
+        // Opätovné kliknutie na aktivný kontainer ho zavrie
+        if (isActive && activeUnrollContainer) {
+          activeUnrollContainer.classList.remove('show');
+          activeUnrollContainer.querySelector('.unroll-content').classList.remove('show');
+          activeUnrollContainer = null;
+        } else {
+          // Zatvor aktivný container a otvor novo otvorený
+          if (activeUnrollContainer) {
+            activeUnrollContainer.classList.remove('show');
+            activeUnrollContainer.querySelector('.unroll-content').classList.remove('show');
+          }
+          unrollContainer.classList.add('show');
+          unrollContent.classList.add('show');
+          activeUnrollContainer = unrollContainer;
+        }
+      });
+    }
+  </script>
 </body>
 
 </html>
