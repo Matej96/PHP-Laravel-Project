@@ -1,48 +1,122 @@
-.nadpis_row{
-    background-color: wheat;
+/*CSS - Order_Shipping_Payment Page*/
+
+.nadpis_row {
+    margin-top: 10%;
+    background: rgba(0, 0, 0, 0.9);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     text-align: center;
-    text-decoration: underline;
+    color: rgba(255, 255, 255, .80);
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+    font-family: "Baskerville Old Face";
 }
 
-.fakturacne_row{
-    background-color: whitesmoke;
+.fakturacne_row {
+    background: rgba(255, 255, 255, 0.9);
 }
 
-.fakturacne_row ul, .dodacie_row ul {
+.fakturacne_row ul,
+.dodacie_row ul {
     list-style: none;
 }
 
-.dodacie_row{
-    background-color: antiquewhite;
+.dodacie_row {
+    background: rgba(255, 255, 255, 0.9);
 }
 
-.checkbox_row{
+.checkbox_row,
+.div_check_btn {
     display: flex;
-    justify-content: space-between;
+    margin-left: 0 !important;
+    color: rgba(0, 0, 0, .9);
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
+    font-family: "Baskerville Old Face";
 }
 
 .buttony {
     display: flex;
-    justify-content: space-between;
+    margin-top: 1%;
 }
 
+.buttony .col-6:first-child {
+    text-align: left;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
 
-@media (max-width: 768px){
-    .fakturacne_row .container-fluid, .dodacie_row .container-fluid{
+.buttony .col-6:last-child {
+    text-align: right;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
+.order_button {
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(0, 0, 0, 1);
+    border-color: rgba(0, 0, 0, 1);
+    box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
+}
+
+.order_button:hover {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(0, 0, 0, 1);
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 1);
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+
+    .fakturacne_row .container-fluid,
+    .dodacie_row .container-fluid {
         display: flex;
         justify-content: space-around;
     }
-    .fakturacne_row ul, .dodacie_row ul {
+
+    .fakturacne_row ul,
+    .dodacie_row ul {
         display: block;
     }
-    .fakturacne_row ul li, .dodacie_row ul li {
+
+    .fakturacne_row ul li,
+    .dodacie_row ul li {
         margin-top: 1.5vh;
+        width: 100%;
     }
-    .fakturacne_row .div_check_btn{
+
+    .fakturacne_row .div_check_btn {
         margin-left: 10%;
     }
-    .checkbox_row{
+
+    .checkbox_row {
         display: block;
         margin-left: 10%;
     }
 }
+
+.order_input {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    padding: 12px 15px;
+    border: 2px;
+    margin: 8px 0;
+    width: 100%;
+    color: rgba(0, 0, 0, 1);
+    text-shadow: 0.3px 0.3px 0.7px rgba(0, 0, 0, 0.5);
+    font-family: "Baskerville Old Face";
+}
+
+.order_input:focus {
+    outline-color: rgba(0, 0, 0, 1);
+}
+
+.dodacie_row h5,
+.fakturacne_row h5,
+.dodacie_row h3,
+.fakturacne_row h3 {
+    color: rgba(0, 0, 0, 0.9);
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
+    font-family: "Baskerville Old Face";
+}
+
+/*End CSS*/
