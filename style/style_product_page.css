@@ -20,7 +20,8 @@
   text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
 }
 
-.btn-secondary:hover, .btn-secondary:focus {
+.btn-secondary:hover,
+.btn-secondary:focus {
   color: rgba(255, 255, 255, 1);
   background-color: rgba(0, 0, 0, 1) !important;
   text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
@@ -28,7 +29,10 @@
   text-decoration: underline;
 }
 
-span.plus:hover, span.plus:focus, span.minus:hover, span.minus:focus {
+span.plus:hover,
+span.plus:focus,
+span.minus:hover,
+span.minus:focus {
   color: rgba(255, 255, 255, 1);
   background-color: rgba(0, 0, 0, 1) !important;
   text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
@@ -40,7 +44,8 @@ span.plus:hover, span.plus:focus, span.minus:hover, span.minus:focus {
   width: 15px;
 }
 
-.first-half, .second-half {
+.first-half,
+.second-half {
   background-color: rgba(255, 255, 255, 0.9);
   box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9);
 }
@@ -80,7 +85,8 @@ span.plus:hover, span.plus:focus, span.minus:hover, span.minus:focus {
   font-family: "Baskerville Old Face";
 }
 
-.p-description, details {
+.p-description,
+details {
   background-color: rgba(255, 255, 255, 0.9);
   box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9);
   color: rgba(0, 0, 0, 0.9);
@@ -117,7 +123,6 @@ span.plus:hover, span.plus:focus, span.minus:hover, span.minus:focus {
   object-fit: cover;
   padding: 5%;
 }
-
 
 .swiper {
   width: auto;
@@ -234,7 +239,7 @@ input {
   width: 2%;
 }
 
-nput::-webkit-outer-spin-button,
+input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
@@ -250,7 +255,6 @@ input:disabled {
 }
 
 @media (max-width:768px) {
-
 
   .swiper-slide img {
     width: 70%;
@@ -287,19 +291,30 @@ input:disabled {
   padding: .5rem 0 0 .5rem;
 }
 
-.swiper-button-next, .swiper-button-prev{
-	border-radius: 20%;
-	padding: 2.8%;
-	background-color: rgba(0, 0, 0, 0.9);
-	border-color: rgba(255,255,255,.80);
-	
+.swiper-button-next,
+.swiper-button-prev {
+  border-radius: 20%;
+  padding: 2.8%;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-color: rgba(255, 255, 255, .80);
+
 }
 
-.swiper-button-next:hover, .swiper-button-prev:hover {
-	color: rgba(255,255,255,1);
-	background-color: rgba(0,0,0,1);
-	text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
-  border-color: rgba(255,255,255,1);
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(0, 0, 0, 1);
+  text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 1);
+}
+
+@media only screen and (max-width: 576px) {
+  .p-description ul,
+  .p-description p {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    text-align: left;
+  }
 }
 
 /*CSS Product Page End*/

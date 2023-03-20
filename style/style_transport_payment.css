@@ -113,23 +113,20 @@
 
 .first_btn {
     text-align: left;
-    padding-right: 0 !important;
-    padding-left: 0 !important;
 }
 
 .second_btn {
     text-align: right;
-    padding-right: 0 !important;
-    padding-left: 0 !important;
 }
 
 .data_button {
-    width: 250px;
+    width: 100%;
     background-color: rgba(255, 255, 255, 1);
     color: rgba(0, 0, 0, 1);
     border-color: rgba(0, 0, 0, 1);
     box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
     text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
+    margin-bottom: 10px;
 }
 
 .data_button:hover {
@@ -139,5 +136,12 @@
     border-color: rgba(255, 255, 255, 1);
     text-decoration: underline;
 }
+
+@media only screen and (max-width: 576px) {
+    .nadpis_row  h4{
+        font-size: large;
+    }
+}
+
 
 /* End CSS*/
