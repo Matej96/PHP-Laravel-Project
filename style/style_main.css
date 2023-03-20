@@ -258,7 +258,7 @@ nav form.d-flex.formik {
     font-size: larger;
 }
 
-@media (max-width: 320px){
+@media (max-width: 576px){
 	.title-section{
 		font-size: small;
 	}

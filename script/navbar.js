@@ -1,7 +1,18 @@
 /* Navbar Script */
-
 $(document).ready(function () {
-    $(".woman-section").click(() => {
+    document.querySelector(".navbar-toggler").addEventListener("click", () => {
+        if($("#kidsSection").hasClass("active")){
+            $("#kidsSection").removeClass("active");
+        }else if ($("#manSection").hasClass("active")){
+            $("#manSection").removeClass("active");
+        } else if($("#womanSection").hasClass("active")){
+            $("#womanSection").removeClass("active");
+        }
+    });
+});
+
+function clickWoman(){
+    if(window.innerWidth <= 576){
         if($("#manSection").hasClass("active")){
             $("#manSection").removeClass("active");
         }else if ($("#kidsSection").hasClass("active")){
@@ -9,27 +20,33 @@ $(document).ready(function () {
         }
         
         if($("#womanSection").hasClass("active")){
+            console.log('active');
             $("#womanSection").removeClass("active");
         }else{
+            console.log('not active');
             $("#womanSection").addClass("active");
         }
-    });
+    }
+}
 
-    $(".man-section").click(() => {
+function clickMan(){
+    if(window.innerWidth <= 576){
         if($("#womanSection").hasClass("active")){
             $("#womanSection").removeClass("active");
         }else if ($("#kidsSection").hasClass("active")){
             $("#kidsSection").removeClass("active");
         }
-
+    
         if($("#manSection").hasClass("active")){
             $("#manSection").removeClass("active");
         }else{
             $("#manSection").addClass("active");
         }
-    });
+    }
+}
 
-    $(".kids-section").click(() => {
+function clickKids(){
+    if(window.innerWidth <= 576){
         if($("#womanSection").hasClass("active")){
             $("#womanSection").removeClass("active");
         }else if ($("#manSection").hasClass("active")){
@@ -41,18 +58,54 @@ $(document).ready(function () {
         }else{
             $("#kidsSection").addClass("active");
         }
-    });
+    }
+}
 
-    document.querySelector(".navbar-toggler").addEventListener("click", () => {
-        if($("#kidsSection").hasClass("active")){
-            $("#kidsSection").removeClass("active");
-        }else if ($("#manSection").hasClass("active")){
-            $("#manSection").removeClass("active");
-        } else if($("#womanSection").hasClass("active")){
-            $("#womanSection").removeClass("active");
-        }
-    });
-});
+
+function hoverWoman(){
+    if(window.innerWidth > 576){
+        $("#womanSection").addClass("active");
+    }
+}
+
+function hoverMan(){
+    if(window.innerWidth > 576){
+        $("#manSection").addClass("active");   
+    } 
+}
+
+function hoverKids(){
+    if(window.innerWidth > 576){
+        $("#kidsSection").addClass("active");
+    }
+}
+
+function mouseleaveWoman(){
+    if(window.innerWidth > 576){
+        $("#womanSection").removeClass("active");
+    }
+}
+
+function mouseleaveMan(){
+    if(window.innerWidth > 576){
+        $("#manSection").removeClass("active");
+    }
+}
+
+function mouseleaveKids(){
+    if(window.innerWidth > 576){
+        $("#kidsSection").removeClass("active");
+    }
+}
+$(".woman-section").click(clickWoman);
+$(".man-section").click(clickMan);
+$(".kids-section").click(clickKids);
+$(".woman-section").hover(hoverWoman);
+$(".man-section").hover(hoverMan);
+$(".kids-section").hover(hoverKids);
+$(".woman-section").mouseleave(mouseleaveWoman);
+$(".man-section").mouseleave(mouseleaveMan);
+$(".kids-section").mouseleave(mouseleaveKids);
 
 
 /* Navbar Script End */
