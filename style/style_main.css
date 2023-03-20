@@ -300,6 +300,18 @@ footer a {
 footer hr{
 	margin: 30px 0;
 }
+@media only screen and (max-width: 576px) {
+    footer .row, footer h5  {
+        font-size: medium;
+    }
+	footer hr{
+		height: 1px;
+	}
+	footer .navbar-brand{
+		width: 50%;
+	}
+
+}
 
 /*Footer End*/
 
@@ -484,7 +496,11 @@ input:focus {
         right: 10px;
         margin: 0;
     }
+	.form-submit {
+		width: 100%;
+	}
 }
+
 
 /*Login/Registration END*/
 
