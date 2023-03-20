@@ -9,7 +9,16 @@
 }
 
 .card_container {
-    background-color: wheat;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+}
+
+.obsah_container{
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    overflow-y: scroll;
+    height: 1000px;
 }
 
 .remove_btn_row {
@@ -23,6 +32,8 @@
 
 img {
     width: 100%;
+    height: auto;
+    margin-bottom: 50px;
 }
 
 .qty {
