@@ -1,0 +1,5 @@
+.admin-container{
+    max-height: 700px;
+    overflow-y: scroll;
+    padding: 20px;
+}
