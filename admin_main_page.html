@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,322 +19,331 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>
   <script src="https://kit.fontawesome.com/f87ddda31a.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-  <header>
-    <nav class="navbar navbar-expand-md navbar-light p-0">
-      <div class="container-fluid">
-        <div class="col-md-1 col-2 me-">
-          <a href="landing_page.html">
-            <img class="navbar-brand  text-center" src="images/wtech_logo.png">
-          </a>
-        </div>
-        <div class="button_class_mobil pe-2">
-          <a href="shopping_card_page.html">
-            <button class="btn btn-outline-success">
-                <span class="bi bi-plus-square">
-                  <span class="d-none">Pridať produkt</span>
-                </span>
-            </button>
-          </a>
-          <a href="#login">
-            <button class="btn btn-outline-success">
-                <span class="bi bi-person">
-                  <span class="d-none">Prihlásenie</span>
-                </span>
-            </button>
-          </a>
-        </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-                aria-controls="navbarScroll" aria-expanded="true" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarScroll">
-          <div id="ss" class="search_div">
-            <form class="d-flex me-4 formik">
-              <input class="form-control me-2 " type="search" placeholder="Vyhľadať tovar" aria-label="Search">
-              <button class="btn btn-outline-success " type="submit"><i class="bi bi-search">
-                <span class="d-md-none"></span>
-              </i></button>
-            </form>
-          </div>
-        </div>
-        <form class="d-flex me-4">
-          <input class="form-control me-2 " type="search" placeholder="Vyhľadať tovar" aria-label="Search">
-          <button class="btn btn-outline-success " type="submit"><i class="bi bi-search">
-            <span class="d-md-none"></span>
-          </i></button>
-        </form>
-        <div class="button_class">
-          <a href="shopping_card_page.html">
-            <button class="btn btn-outline-success">
-                <span class="bi bi-plus-square">
-                  <span class="button_spans">Pridať produkt</span>
-                </span>
-            </button>
-          </a>
-          <a href="#login">
-            <button class="btn btn-outline-success">
-                <span class="bi bi-person">
-                  <span class="button_spans">Prihlásenie</span>
-                </span>
-            </button>
-          </a>
-        </div>
-        <div id="login" class="overlay login_overlay">
-          <div class="wrapper wrapper_popup">
-            <a href="#" class="close">&times;</a>
-            <div class="column first_column">
-              <div class="signin">
-                <h1>Prihlásenie do účtu</h1>
-                <input type="email" placeholder="Emailová adresa">
-                <input type="password" placeholder="Heslo">
-                <a href="#" class="login_forgot">Zabudli ste heslo ?</a>
-                <button class="col-7 ms-3 btn form-submit">
-                  <i class="bi bi-box-arrow-in-right"> Prihlásiť sa</i>
-                </button>
-                <span class="login_span">Nemáte ešte účet? <button id="signup" class="login_button">Zaregistrovať
-                      sa</button></span>
-              </div>
-              <div class="signup">
-                <h1>Vytvorte si účet</h1>
-                <input type="email" placeholder="Emailová adresa">
-                <input type="password" placeholder="Heslo">
-                <input type="password" placeholder="Opakovať Heslo">
-                <button class="col-7 ms-3 btn form-submit">
-                  <i class="bi bi-person-plus"> Vytvoriť účet</i>
-                </button>
-                <span class="login_span">Máte už vytvorený účet? <button id="signin" class="login_button">Prihlásiť
-                      sa</button></span>
-              </div>
-
-            </div>
-
-            <div class="column second_column">
-              <div class="signin">
-                <img class="brand" src="images/wtech_logo.png">
-                <h3>Pohodlne nakupujte!</h3>
-              </div>
-              <div class="signup">
-                <img class="brand" src="images/wtech_logo.png">
-                <h3>Vytvorenie účtu je zadarmo!</h3>
-              </div>
-            </div>
-          </div>
+<header>
+  <nav class="navbar navbar-expand-md navbar-light p-0">
+    <div class="container-fluid">
+      <div class="col-md-1 col-2 me-">
+        <a href="admin_main_page.html">
+          <img class="navbar-brand  text-center" src="images/wtech_logo.png">
+        </a>
+      </div>
+      <div class="button_class_mobil pe-2">
+        <a href="admin_add_product_page.html">
+          <button class="btn btn-outline-success">
+              <span class="bi bi-plus-square">
+                <span class="d-none">Pridať produkt</span>
+              </span>
+          </button>
+        </a>
+        <a href="landing_page.html">
+          <button class="btn btn-outline-success">
+              <span class="bi bi-person">
+                <span class="d-none">Odhlásiť sa</span>
+              </span>
+          </button>
+        </a>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+              aria-controls="navbarScroll" aria-expanded="true" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <div id="ss" class="search_div">
+          <form class="d-flex me-4 formik">
+            <input class="form-control me-2 " type="search" placeholder="Vyhľadať tovar" aria-label="Search">
+            <button class="btn btn-outline-success " type="submit"><i class="bi bi-search">
+              <span class="d-md-none"></span>
+            </i></button>
+          </form>
         </div>
       </div>
-    </nav>
-  </header>
-
-  <main>
-    <div class="container my-5 bg-light admin-container">
-      <div class="row">
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="card w-100 my-2">
-            <div class="card-header">
-              <div class="row">
-                <div class="text-end">
-                  <button class="btn btn-warning btn-outline-dark btn-sm">
-                    <i class="bi bi-pencil-fill"></i>
-                  </button>
-                  <button class="btn btn-danger btn-outline-dark btn-sm">
-                    <i class="bi bi-trash-fill"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <img src="images/product1.png" class="card-img"/>
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, similique?</h5>
-              <p class="card-text">999.99€</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="card w-100 my-2">
-            <div class="card-header">
-              <div class="row">
-                <div class="text-end">
-                  <button class="btn btn-warning btn-outline-dark btn-sm">
-                    <i class="bi bi-pencil-fill"></i>
-                  </button>
-                  <button class="btn btn-danger btn-outline-dark btn-sm">
-                    <i class="bi bi-trash-fill"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <img src="images/product2.png" class="card-img"/>
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, numquam!</h5>
-              <p class="card-text">999.99€</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="card w-100 my-2">
-            <div class="card-header">
-              <div class="row">
-                <div class="text-end">
-                  <button class="btn btn-warning btn-outline-dark btn-sm">
-                    <i class="bi bi-pencil-fill"></i>
-                  </button>
-                  <button class="btn btn-danger btn-outline-dark btn-sm">
-                    <i class="bi bi-trash-fill"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <img src="images/product3.png" class="card-img"/>
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, quae.</h5>
-              <p class="card-text">999.99€</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="card w-100 my-2">
-            <div class="card-header">
-              <div class="row">
-                <div class="text-end">
-                  <button class="btn btn-warning btn-outline-dark btn-sm">
-                    <i class="bi bi-pencil-fill"></i>
-                  </button>
-                  <button class="btn btn-danger btn-outline-dark btn-sm">
-                    <i class="bi bi-trash-fill"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <img src="images/product4.png" class="card-img"/>
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, quasi.</h5>
-              <p class="card-text">999.99€</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="card w-100 my-2">
-            <div class="card-header">
-              <div class="row">
-                <div class="text-end">
-                  <button class="btn btn-warning btn-outline-dark btn-sm">
-                    <i class="bi bi-pencil-fill"></i>
-                  </button>
-                  <button class="btn btn-danger btn-outline-dark btn-sm">
-                    <i class="bi bi-trash-fill"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <img src="images/product5.png" class="card-img"/>            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, saepe?</h5>
-              <p class="card-text">999.99€</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="card w-100 my-2">
-            <div class="card-header">
-              <div class="row">
-                <div class="text-end">
-                  <button class="btn btn-warning btn-outline-dark btn-sm">
-                    <i class="bi bi-pencil-fill"></i>
-                  </button>
-                  <button class="btn btn-danger btn-outline-dark btn-sm">
-                    <i class="bi bi-trash-fill"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <img src="images/product6.png" class="card-img"/>
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, itaque.</h5>
-              <p class="card-text">999.99€</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="card w-100 my-2">
-            <div class="card-header">
-              <div class="row">
-                <div class="text-end">
-                  <button class="btn btn-warning btn-outline-dark btn-sm">
-                    <i class="bi bi-pencil-fill"></i>
-                  </button>
-                  <button class="btn btn-danger btn-outline-dark btn-sm">
-                    <i class="bi bi-trash-fill"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <img src="images/product3.png" class="card-img"/>
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, veniam!</h5>
-              <p class="card-text">999.99€</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="card w-100 my-2">
-            <div class="card-header">
-              <div class="row">
-                <div class="text-end">
-                  <button class="btn btn-warning btn-outline-dark btn-sm">
-                    <i class="bi bi-pencil-fill"></i>
-                  </button>
-                  <button class="btn btn-danger btn-outline-dark btn-sm">
-                    <i class="bi bi-trash-fill"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <img src="images/product1.png" class="card-img"/>
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, maxime?</h5>
-              <p class="card-text">999.99€</p>
-            </div>
-          </div>
-        </div>
+      <form class="d-flex me-4">
+        <input class="form-control me-2 " type="search" placeholder="Vyhľadať tovar" aria-label="Search">
+        <button class="btn btn-outline-success " type="submit"><i class="bi bi-search">
+          <span class="d-md-none"></span>
+        </i></button>
+      </form>
+      <div class="button_class">
+        <a href="admin_add_product_page.html">
+          <button class="btn btn-outline-success">
+              <span class="bi bi-plus-square">
+                <span class="button_spans">Pridať produkt</span>
+              </span>
+          </button>
+        </a>
+        <a href="landing_page.html">
+          <button class="btn btn-outline-success">
+              <span class="bi bi-person">
+                <span class="button_spans">Odhlásiť sa</span>
+              </span>
+          </button>
+        </a>
       </div>
     </div>
-  </main>
+  </nav>
+</header>
 
-  <footer class="container-fluid">
-    <div class="row">
-      <div class="col-6">
-        <h5>Sledujte nas</h5>
-      </div>
-      <div class="col-6">
-        <h5>Kontaktujte nas</h5>
-      </div>
-    </div>
-    <hr style="height: 2px; background: white;">
-    <div class="row">
-      <div class="col-6">
-        <span>Socialne siete</span>
-        <i class="bi bi-instagram ms-2"></i>
-        <i class="bi bi-facebook ms-2"></i>
-        <i class="bi bi-google ms-2"></i>
-        <i class="bi bi-twitter ms-2"></i>
-        <i class="bi bi-linkedin ms-2"></i>
-      </div>
-      <div class="col-6">
-        <div class="mb-2">
-          <i class="bi bi-geo-alt-fill"><span class="ms-2">Slovensko, Bratislava, 841 01</span></i>
-        </div>
-        <div>
-          <i class="bi bi-telephone"><span class="ms-2 me-2">(421) 456-562</span></i>
-          <i class="bi bi-printer"><span class="ms-2">(421) 456-5680</span></i>
-        </div>
+<main>
+  <section class="admin_section">
+    <div class="row card_row">
 
+      <div class="card col-lg-3 col-md-4 col-sm-6">
+        <div class="card-header">
+          <div class="row">
+            <div class="text-end">
+              <button class="btn btn-warning btn-outline-dark btn-sm"
+                      onclick="window.location.href='admin_add_product_page.html'">
+                <i class="bi bi-pencil-fill"></i>
+              </button>
+              <button class="btn btn-danger btn-outline-dark btn-sm remove_button">
+                <i class="bi bi-trash-fill"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="img_box">
+          <img src="images/product1.png" class="card-img" />
+        </div>
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Mikina GANT</h5>
+          <h5 class="card-text">Cena: 70,53€</h5>
+        </div>
       </div>
+
+      <div class="card col-lg-3 col-md-4 col-sm-6">
+        <div class="card-header">
+          <div class="row">
+            <div class="text-end">
+              <button class="btn btn-warning btn-outline-dark btn-sm"
+                      onclick="window.location.href='admin_add_product_page.html'">
+                <i class="bi bi-pencil-fill"></i>
+              </button>
+              <button class="btn btn-danger btn-outline-dark btn-sm remove_button">
+                <i class="bi bi-trash-fill"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <img src="images/product2.png" class="card-img" />
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Mikina Alpha Industries</h5>
+          <h5 class="card-text">Cena: 39,90€</h5>
+        </div>
+      </div>
+
+      <div class="card col-lg-3 col-md-4 col-sm-6">
+        <div class="card-header">
+          <div class="row">
+            <div class="text-end">
+              <button class="btn btn-warning btn-outline-dark btn-sm"
+                      onclick="window.location.href='admin_add_product_page.html'">
+                <i class="bi bi-pencil-fill"></i>
+              </button>
+              <button class="btn btn-danger btn-outline-dark btn-sm remove_button">
+                <i class="bi bi-trash-fill"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <img src="images/product3.png" class="card-img" />
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Tenisky Air Max 90 Nike</h5>
+          <h5 class="card-text">Cena: 130,90€</h5>
+        </div>
+      </div>
+
+      <div class="card col-lg-3 col-md-4 col-sm-6">
+        <div class="card-header">
+          <div class="row">
+            <div class="text-end">
+              <button class="btn btn-warning btn-outline-dark btn-sm"
+                      onclick="window.location.href='admin_add_product_page.html'">
+                <i class="bi bi-pencil-fill"></i>
+              </button>
+              <button class="btn btn-danger btn-outline-dark btn-sm remove_button">
+                <i class="bi bi-trash-fill"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <img src="images/product4.png" class="card-img" />
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Prechodná bunka Nike</h5>
+          <h5 class="card-text">Cena: 69,69€</h5>
+        </div>
+      </div>
+
+      <div class="card col-lg-3 col-md-4 col-sm-6">
+        <div class="card-header">
+          <div class="row">
+            <div class="text-end">
+              <button class="btn btn-warning btn-outline-dark btn-sm"
+                      onclick="window.location.href='admin_add_product_page.html'">
+                <i class="bi bi-pencil-fill"></i>
+              </button>
+              <button class="btn btn-danger btn-outline-dark btn-sm remove_button">
+                <i class="bi bi-trash-fill"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <img src="images/product5.png" class="card-img" />
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Šaty Izzie Raere</h5>
+          <h5 class="card-text">Cena: 75,56€</h5>
+        </div>
+      </div>
+
+      <div class="card col-lg-3 col-md-4 col-sm-6">
+        <div class="card-header">
+          <div class="row">
+            <div class="text-end">
+              <button class="btn btn-warning btn-outline-dark btn-sm"
+                      onclick="window.location.href='admin_add_product_page.html'">
+                <i class="bi bi-pencil-fill"></i>
+              </button>
+              <button class="btn btn-danger btn-outline-dark btn-sm remove_button">
+                <i class="bi bi-trash-fill"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <img src="images/product6.png" class="card-img" />
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Kabelka Tommy Hilfiger</h5>
+          <h5 class="card-text">Cena: 120,20€</h5>
+        </div>
+      </div>
+
+      <div class="card col-lg-3 col-md-4 col-sm-6">
+        <div class="card-header">
+          <div class="row">
+            <div class="text-end">
+              <button class="btn btn-warning btn-outline-dark btn-sm"
+                      onclick="window.location.href='admin_add_product_page.html'">
+                <i class="bi bi-pencil-fill"></i>
+              </button>
+              <button class="btn btn-danger btn-outline-dark btn-sm remove_button">
+                <i class="bi bi-trash-fill"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <img src="images/product7.png" class="card-img" />
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Mikina Calvin Klein Jeans</h5>
+          <h5 class="card-text">Cena: 94,53€</h5>
+        </div>
+      </div>
+
+      <div class="card col-lg-3 col-md-4 col-sm-6">
+        <div class="card-header">
+          <div class="row">
+            <div class="text-end">
+              <button class="btn btn-warning btn-outline-dark btn-sm"
+                      onclick="window.location.href='admin_add_product_page.html'">
+                <i class="bi bi-pencil-fill"></i>
+              </button>
+              <button class="btn btn-danger btn-outline-dark btn-sm remove_button">
+                <i class="bi bi-trash-fill"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <img src="images/product8.png" class="card-img" />
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Mikina Champion</h5>
+          <h5 class="card-text">Cena: 39,63€</h5>
+        </div>
+      </div>
+
+      <div class="card col-lg-3 col-md-4 col-sm-6">
+        <div class="card-header">
+          <div class="row">
+            <div class="text-end">
+              <button class="btn btn-warning btn-outline-dark btn-sm"
+                      onclick="window.location.href='admin_add_product_page.html'">
+                <i class="bi bi-pencil-fill"></i>
+              </button>
+              <button class="btn btn-danger btn-outline-dark btn-sm remove_button">
+                <i class="bi bi-trash-fill"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <img src="images/product9.png" class="card-img" />
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Mikina Nike Sportswear</h5>
+          <h5 class="card-text">Cena: 55,92€</h5>
+        </div>
+      </div>
+
+      <div class="card col-lg-3 col-md-4 col-sm-6">
+        <div class="card-header">
+          <div class="row">
+            <div class="text-end">
+              <button class="btn btn-warning btn-outline-dark btn-sm"
+                      onclick="window.location.href='admin_add_product_page.html'">
+                <i class="bi bi-pencil-fill"></i>
+              </button>
+              <button class="btn btn-danger btn-outline-dark btn-sm remove_button">
+                <i class="bi bi-trash-fill"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <img src="images/product10.png" class="card-img" />
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Mikina Alpha Industries</h5>
+          <h5 class="card-text">Cena: 46,32€</h5>
+        </div>
+      </div>
+
     </div>
-    <hr style="height: 2px; background: white;">
-    <div class="col-md-3 col-2 me-">
-      <a href="landing_page.html">
-        <img class="navbar-brand  text-center" src="images/wtech_logo.png">
-      </a>
+  </section>
+</main>
+
+<footer class="container-fluid">
+  <div class="row">
+    <div class="col-6">
+      <h5>Sledujte nas</h5>
     </div>
-  </footer>
+    <div class="col-6">
+      <h5>Kontaktujte nas</h5>
+    </div>
+  </div>
+  <hr style="height: 2px; background: white;">
+  <div class="row">
+    <div class="col-md-6 col-sm-12">
+      <span>Socialne siete</span>
+      <i class="bi bi-instagram ms-2"></i>
+      <i class="bi bi-facebook ms-2"></i>
+      <i class="bi bi-google ms-2"></i>
+      <i class="bi bi-twitter ms-2"></i>
+      <i class="bi bi-linkedin ms-2"></i>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <div class="mb-2">
+        <i class="bi bi-geo-alt-fill"><span class="ms-2">Slovensko, Bratislava, 841 01</span></i>
+      </div>
+      <div>
+        <i class="bi bi-telephone"><span class="ms-2 me-2">(421) 456-562</span></i>
+        <i class="bi bi-printer"><span class="ms-2">(421) 456-5680</span></i>
+      </div>
+
+    </div>
+  </div>
+  <hr style="height: 2px; background: white;">
+  <div class="col-sm-3 col-12 me-">
+    <a href="admin_main_page.html">
+      <img class="navbar-brand  text-center" src="images/wtech_logo.png">
+    </a>
+  </div>
+</footer>
+
+<script src="script/script_admin_main.js"></script>
 </body>
+
 </html>
