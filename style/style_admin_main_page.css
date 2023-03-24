@@ -1,5 +1,36 @@
-.admin-container{
+.admin_section{
+    display: flex;
     max-height: 700px;
     overflow-y: scroll;
+    overflow-x: none;
+    margin-top: 10%;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+    font-family: "Baskerville Old Face";
     padding: 20px;
+}
+
+.admin_section .card{
+    margin-bottom: 20px;
+}
+
+
+.admin_section.card-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-width: 100%;
+}
+
+.admin_section .card-body {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+    font-family: "Baskerville Old Face";
+    text-align: center;
+    padding: 10px;
+    transition: transform 0.3s ease-in-out;
 }
