@@ -1,3 +1,6 @@
+/*CSS pre admin_main_page.html*/
+
+/*Sekcia v ktorej sú všetký karty produktov*/
 .admin_section{
     display: flex;
     max-height: 700px;
@@ -10,10 +13,10 @@
     padding: 20px;
 }
 
+/*Dizajn každej karty, ktorá sa nachádza v seksii admin_section*/
 .admin_section .card{
     margin-bottom: 20px;
 }
-
 
 .admin_section.card-img {
     width: 100%;
@@ -34,3 +37,6 @@
     padding: 10px;
     transition: transform 0.3s ease-in-out;
 }
+/*Koniec dizajnu karty*/
+
+/*Koniec CSS-ka*/

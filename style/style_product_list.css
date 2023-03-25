@@ -238,13 +238,16 @@
     opacity: 1;
 }
 
-#choices-multiple-remove-button{
-    overflow: scroll;
-
+.bootstrap-select>.dropdown-toggle{
+    width: 80%!important;
 }
 
 .bootstrap-select>.dropdown-toggle.bs-placeholder{
     border: 1px solid rgb(0,0,0);
+    color: rgba(0, 0, 0, 1)!important;
+    margin-right: 5%;
+    box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
+    font-family: "Baskerville Old Face";
 }
 
 .circle {
@@ -292,14 +295,6 @@
     overflow-x: scroll!important;
 }
 
-.cena_dropdown{
-    width: 100%;
-}
-
-.cena_btn {
-    height: 45.99px;
-    width: 100%;
-}
 
 .from_to_dropdown form{
     display: flex;
