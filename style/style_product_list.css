@@ -240,4 +240,54 @@
 
 #choices-multiple-remove-button{
     overflow: scroll;
+
+}
+
+.bootstrap-select>.dropdown-toggle.bs-placeholder{
+    border: 1px solid rgb(0,0,0);
+}
+
+.circle {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    margin-right: 0.5em;
+    border: 1px solid rgba(0,0,0,0.5);
+    /*margin-top: 0.1em;*/
+}
+.circle.red { background-color: #ff0000; }
+.circle.green { background-color: #00ff00; }
+.circle.blue { background-color: #0000ff; }
+.circle.purple { background-color: blueviolet }
+.circle.brown { background-color: brown }
+.circle.pink {background-color: deeppink}
+.circle.aqua {background-color: aqua}
+.circle.orange {background-color: orange}
+.circle.black { background-color: #000000; }
+.circle.white { background-color: #ffffff; }
+.circle.other {border: none}
+
+.dropdown-menu.show {
+    max-height: 200px;
+    overflow-y: scroll;
+    padding: 0;
+}
+
+.bootstrap-select .dropdown-toggle .filter-option-inner-inner {
+    overflow-x: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.5);
+}
+
+.filter-option-inner-inner{
+    overflow-x: scroll!important;
 }
