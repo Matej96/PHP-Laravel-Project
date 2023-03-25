@@ -39,22 +39,20 @@
 
 .buttony .col-6:first-child {
     text-align: left;
-    padding-right: 0 !important;
-    padding-left: 0 !important;
 }
 
 .buttony .col-6:last-child {
     text-align: right;
-    padding-right: 0 !important;
-    padding-left: 0 !important;
 }
 
 .order_button {
+    width: 100%;
     background-color: rgba(255, 255, 255, 1);
     color: rgba(0, 0, 0, 1);
     border-color: rgba(0, 0, 0, 1);
     box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
     text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
+    margin-bottom: 10px;
 }
 
 .order_button:hover {
@@ -91,6 +89,25 @@
     .checkbox_row {
         display: block;
         margin-left: 10%;
+    }
+    .checkbox_2{
+        justify-content: start;
+    }
+}
+
+.checkbox_2{
+    display: flex;
+}
+
+@media only screen and (min-width: 768px){
+    .checkbox_2{
+        justify-content: end;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .nadpis_row  h4{
+        font-size: large;
     }
 }
 

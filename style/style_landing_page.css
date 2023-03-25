@@ -40,10 +40,9 @@
 	font-family: "Baskerville Old Face";
 	text-align: center;
 	padding: 20px;
-	transform: translateY(45%);
-	transition: transform 0.3s ease-in-out;
 
 }
+
 
 .swiper-slide .img_box img{
 	width: 100%;
@@ -52,9 +51,14 @@
     max-width: 100%;
 }
 
-
-.swiper-slide:hover .content{
-	transform: translateY(0);
+@media only screen and (min-width: 576px) {
+	.swiper-slide .content{
+		transform: translateY(45%);
+		transition: transform 0.3s ease-in-out;
+	}
+	.swiper-slide:hover .content{
+		transform: translateY(0);
+	} 
 }
 
 .card_slider{
@@ -83,5 +87,7 @@
 .bi:hover{
 	color: rgba(255,255,255,1);
 }
+
+
 
 /*CSS Landing-Page End*/
