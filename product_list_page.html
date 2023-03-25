@@ -366,9 +366,9 @@
                 </div>
               </div>
               <div class="row filter_row">
-                <div class="dropdown col-3 col-lg-2">
+                <div class="col col-lg-3 d-flex justify-content-center align-items-center">
                   <div class="form-group mb-4">
-                    <select class="selectpicker border-dark" title="Farba" multiple aria-label="size 3 select example">
+                    <select class="selectpicker border-dark" id="colorPicker" title="Farba" multiple aria-label="size 3 select example">
                       <option value="red" data-content="<span class='circle red'></span>Červená"></option>
                       <option value="green" data-content="<span class='circle green'></span>Zelená"></option>
                       <option value="blue" data-content="<span class='circle blue'></span>Modrá"></option>
@@ -382,9 +382,9 @@
                     </select>
                   </div>
                 </div>
-                <div class="dropdown col-3 col-lg-2">
+                <div class="col col-lg-3 d-flex justify-content-center align-items-center">
                   <div class="form-group mb-4">
-                    <select class="selectpicker border-dark" data-size="10" title="Veľkosť" multiple aria-label="size 3 select example">
+                    <select class="selectpicker border-dark" data-size="10" id="sizePicker" title="Veľkosť" multiple aria-label="size 3 select example">
                       <option value="4XS" data-content="4XS"></option>
                       <option value="XXXS" data-content="XXXS"></option>
                       <option value="XXS" data-content="XXS"></option>
@@ -402,25 +402,14 @@
                     </select>
                   </div>
                 </div>
-                <div class="col-3 col-lg-2">
-                  <select id="choices-multiple-remove-button" placeholder="Select upto 5 tags" multiple>
-                    <option value="HTML">HTML</option>
-                    <option value="Jquery">Jquery</option>
-                    <option value="CSS">CSS</option>
-                    <option value="Bootstrap 3">Bootstrap 3</option>
-                    <otion value="Bootstrap 4">Bootstrap 4</otion>
-                    <option value="Java">Java</option>
-                    <option value="Javascript">Javascript</option>
-                    <option value="Angular">Angular</option>
-                    <option value="Python">Python</option>
-                    <option value="Hybris">Hybris</option>
-                    <option value="SQL">SQL</option>
-                    <option value="NOSQL">NOSQL</option>
-                    <option value="NodeJS">NodeJS</option>
-                  </select>
-                </div>
-                <div class="dropdown col-3 col-lg-2">
+                <div class="col col-lg-3 d-flex justify-content-center align-items-center">
                   <div class="form-group mb-4">
+                    
+                  </div>
+                </div>
+                <div class="col col-lg-3 d-flex justify-content-center align-items-center">
+                  <div class="form-group mb-4">
+
                     <select class="selectpicker border-dark" data-size="10"  title="Zoradiť" aria-label="size 3 select example">
                       <option value="cheapest" data-content="Od najlacnejšieho"></option>
                       <option value="most_expensive" data-content="Od najdrahšieho"></option>
