@@ -238,13 +238,20 @@
     opacity: 1;
 }
 
+
+
 .bootstrap-select>.dropdown-toggle{
     width: 80%!important;
+    height: 100%;
 }
+
+#price-dropdown {
+    width: 100%!important;
+    height: 100%;
+
 
 .bootstrap-select>.dropdown-toggle.bs-placeholder{
     border: 1px solid rgb(0,0,0);
-    color: rgba(0, 0, 0, 1)!important;
     margin-right: 5%;
     box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
     font-family: "Baskerville Old Face";
@@ -299,4 +306,36 @@
 .from_to_dropdown form{
     display: flex;
     justify-content: space-around;
+
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.form-group label {
+    margin-top: 5px;
+}
+
+.form-group input {
+    max-width: 100px;
+    padding: 0;
+    margin: 5px;
+    border: black solid 1px;
+}
+
+.filter_dropdown {
+    height: 46px;
+    width: 100%;
+}
+
+.dropdown-menu.show{
+    padding: 5px;
+}
+
+.apply-button {
+    display: flex;
+    justify-content: center;
 }
