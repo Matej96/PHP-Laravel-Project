@@ -291,3 +291,17 @@
 .filter-option-inner-inner{
     overflow-x: scroll!important;
 }
+
+.cena_dropdown{
+    width: 100%;
+}
+
+.cena_btn {
+    height: 45.99px;
+    width: 100%;
+}
+
+.from_to_dropdown form{
+    display: flex;
+    justify-content: space-around;
+}
