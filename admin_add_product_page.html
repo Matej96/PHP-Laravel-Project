@@ -21,6 +21,7 @@
   <script src="https://kit.fontawesome.com/f87ddda31a.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<<<<<<< Updated upstream
 <header>
   <nav class="navbar navbar-expand-md navbar-light p-0">
     <div class="container-fluid">
@@ -173,6 +174,148 @@
     </div>
   </section>
 </main>
+=======
+  <header>
+    <nav class="navbar navbar-expand-md navbar-light p-0">
+      <div class="container-fluid">
+        <div class="col-md-1 col-2 me-">
+          <a href="admin_main_page.html">
+            <img class="navbar-brand  text-center" src="images/wtech_logo.png">
+          </a>
+        </div>
+        <div class="button_class_mobil pe-2">
+          <a href="admin_add_product_page.html">
+            <button class="btn btn-outline-success">
+                <span class="bi bi-plus-square">
+                  <span class="d-none">Pridať produkt</span>
+                </span>
+            </button>
+          </a>
+          <a href="landing_page.html">
+            <button class="btn btn-outline-success">
+                <span class="bi bi-person">
+                  <span class="d-none">Odhlásiť sa</span>
+                </span>
+            </button>
+          </a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="true" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+          <div id="ss" class="search_div">
+            <form class="d-flex me-4 formik">
+              <input class="form-control me-2 " type="search" placeholder="Vyhľadať tovar" aria-label="Search">
+              <button class="btn btn-outline-success " type="submit"><i class="bi bi-search">
+                <span class="d-md-none"></span>
+              </i></button>
+            </form>
+          </div>
+        </div>
+        <form class="d-flex me-4">
+          <input class="form-control me-2 " type="search" placeholder="Vyhľadať tovar" aria-label="Search">
+          <button class="btn btn-outline-success " type="submit"><i class="bi bi-search">
+            <span class="d-md-none"></span>
+          </i></button>
+        </form>
+        <div class="button_class">
+          <a href="admin_add_product_page.html">
+            <button class="btn btn-outline-success">
+                <span class="bi bi-plus-square">
+                  <span class="button_spans">Pridať produkt</span>
+                </span>
+            </button>
+          </a>
+          <a href="landing_page.html">
+            <button class="btn btn-outline-success">
+                <span class="bi bi-person">
+                  <span class="button_spans">Odhlásiť sa</span>
+                </span>
+            </button>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="admin_section">
+      <div class="row col-12">
+        <h2 class="main_title col-12">Pridanie nového produktu</h2>
+        <div class="container col-lg-6 col-md-8">
+          <div class="card-body bg-light">
+            <form>
+              <div class="form-outline mb-4">
+                <label class="form-label" for="productName">Názov produktu</label>
+                <input type="text" id="productName" class="form-control border-dark"  placeholder="Názov produktu"/>
+              </div>
+    
+              <div class="form-outline mb-4">
+                <label class="form-label" for="productPrice">Cena</label>
+                <input type="email" id="productPrice" class="form-control border-dark" placeholder="Cena" />
+              </div>
+    
+              <div class="form-outline mb-4">
+                <label class="form-label" for="description">Popis</label>
+                <textarea class="form-control border-dark" id="description" rows="4" placeholder="Popis"></textarea>
+              </div>
+    
+              <div class="mb-3">
+                <label for="formFileMultiple" class="form-label">Vloženie fotiek</label>
+                <input class="form-control border-dark" type="file" id="formFileMultiple" multiple>
+              </div>
+    
+              <div class="row">
+                <div class="col col-lg-6 d-flex justify-content-center align-items-center">
+                  <div class="form-group mb-4">
+                    <div class="col mb-2">
+                      <label for="colorPicker">Farba</label>
+                    </div>
+                    <select class="selectpicker border-dark" id="colorPicker" title="Farba" multiple aria-label="size 3 select example">
+                      <option value="red" data-content="<span class='circle red'></span>Červená"></option>
+                      <option value="green" data-content="<span class='circle green'></span>Zelená"></option>
+                      <option value="blue" data-content="<span class='circle blue'></span>Modrá"></option>
+                      <option value="purple" data-content="<span class='circle purple'></span>Fialová"></option>
+                      <option value="pink" data-content="<span class='circle pink'></span>Ružová"></option>
+                      <option value="aqua" data-content="<span class='circle aqua'></span>Tyrkysová"></option>
+                      <option value="orange" data-content="<span class='circle orange'></span>Hnedá"></option>
+                      <option value="black" data-content="<span class='circle black'></span>Čierna"></option>
+                      <option value="white" data-content="<span class='circle white'></span>Biela"></option>
+                    </select>
+                  </div>
+                </div>
+    
+                <div class="col col-lg-6 d-flex justify-content-center align-items-center">
+                  <div class="form-group mb-4">
+                    <div class="col mb-2">
+                      <label for="categoryPicker">Veľkosť</label>
+                    </div>
+                    <select class="selectpicker border-dark" data-size="10" id="categoryPicker" title="Farba" multiple aria-label="size 3 select example">
+                      <option value="XXXS" data-content="XXXS"></option>
+                      <option value="XXS" data-content="XXS"></option>
+                      <option value="XS" data-content="XS"></option>
+                      <option value="S" data-content="S"></option>
+                      <option value="L" data-content="L"></option>
+                      <option value="XL" data-content="XL"></option>
+                      <option value="XXL" data-content="XXL"></option>
+                      <option value="XXXL" data-content="XXXL"></option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="col-md-12 d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary btn-block mb-4 add_button">Pridať Produkt</button>
+              </div>
+    
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+>>>>>>> Stashed changes
 
 <footer class="container-fluid">
   <div class="row">
@@ -182,6 +325,7 @@
     <div class="col-6">
       <h5>Kontaktujte nas</h5>
     </div>
+<<<<<<< Updated upstream
   </div>
   <hr style="height: 2px; background: white;">
   <div class="row">
@@ -200,9 +344,31 @@
       <div>
         <i class="bi bi-telephone"><span class="ms-2 me-2">(421) 456-562</span></i>
         <i class="bi bi-printer"><span class="ms-2">(421) 456-5680</span></i>
+=======
+    <hr style="height: 2px; background: white;">
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <span>Socialne siete</span>
+        <i class="bi bi-instagram ms-2"></i>
+        <i class="bi bi-facebook ms-2"></i>
+        <i class="bi bi-google ms-2"></i>
+        <i class="bi bi-twitter ms-2"></i>
+        <i class="bi bi-linkedin ms-2"></i>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="mb-2">
+          <i class="bi bi-geo-alt-fill"><span class="ms-2">Slovensko, Bratislava, 841 01</span></i>
+        </div>
+        <div>
+          <i class="bi bi-telephone"><span class="ms-2 me-2">(421) 456-562</span></i>
+          <i class="bi bi-printer"><span class="ms-2">(421) 456-5680</span></i>
+        </div>
+  
+>>>>>>> Stashed changes
       </div>
 
     </div>
+<<<<<<< Updated upstream
   </div>
   <hr style="height: 2px; background: white;">
   <div class="col-sm-3 col-12 me-">
@@ -216,5 +382,19 @@
     $('.selectpicker').selectpicker();
 </script>
 
+=======
+    <hr style="height: 2px; background: white;">
+    <div class="col-sm-3 col-12 me-">
+      <a href="admin_main_page.html">
+        <img class="navbar-brand  text-center" src="images/wtech_logo.png">
+      </a>
+    </div>
+  </footer>
+
+  <script>
+      $('.selectpicker').selectpicker();
+  </script>
+
+>>>>>>> Stashed changes
 </body>
 </html>
