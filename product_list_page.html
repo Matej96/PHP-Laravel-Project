@@ -14,15 +14,22 @@
   <link rel="stylesheet" href="style/style_product_list.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css" integrity="sha512-mR/b5Y7FRsKqrYZou7uysnOdCIJib/7r5QeJMFvLNHNhtye3xJp1TdJVPLtetkukFn227nKpXD9OjUc09lx97Q==" crossorigin="anonymous"
-        referrerpolicy="no-referrer" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css"
+    integrity="sha512-mR/b5Y7FRsKqrYZou7uysnOdCIJib/7r5QeJMFvLNHNhtye3xJp1TdJVPLtetkukFn227nKpXD9OjUc09lx97Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js" integrity="sha512-FHZVRMUW9FsXobt+ONiix6Z0tIkxvQfxtCSirkKc5Sb4TKHmqq1dZa8DphF0XqKb3ldLu/wgMa8mT6uXiLlRlw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js"
+    integrity="sha512-FHZVRMUW9FsXobt+ONiix6Z0tIkxvQfxtCSirkKc5Sb4TKHmqq1dZa8DphF0XqKb3ldLu/wgMa8mT6uXiLlRlw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<!--  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>-->
+  <!--  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>-->
   <script src="https://kit.fontawesome.com/f87ddda31a.js" crossorigin="anonymous"></script>
 </head>
 
@@ -368,7 +375,8 @@
               <div class="row filter_row">
                 <div class="col col-lg-3 d-flex justify-content-center align-items-center">
                   <div class="form-group mb-4">
-                    <select class="selectpicker border-dark" id="colorPicker" title="Farba" multiple aria-label="size 3 select example">
+                    <select class="selectpicker border-dark" id="colorPicker" title="Farba" multiple
+                      aria-label="size 3 select example">
                       <option value="red" data-content="<span class='circle red'></span>Červená"></option>
                       <option value="green" data-content="<span class='circle green'></span>Zelená"></option>
                       <option value="blue" data-content="<span class='circle blue'></span>Modrá"></option>
@@ -384,7 +392,8 @@
                 </div>
                 <div class="col col-lg-3 d-flex justify-content-center align-items-center">
                   <div class="form-group mb-4">
-                    <select class="selectpicker border-dark" data-size="10" id="sizePicker" title="Veľkosť" multiple aria-label="size 3 select example">
+                    <select class="selectpicker border-dark" data-size="10" id="sizePicker" title="Veľkosť" multiple
+                      aria-label="size 3 select example">
                       <option value="4XS" data-content="4XS"></option>
                       <option value="XXXS" data-content="XXXS"></option>
                       <option value="XXS" data-content="XXS"></option>
@@ -403,30 +412,29 @@
                   </div>
                 </div>
                 <div class="col col-lg-3 d-flex justify-content-center align-items-center">
-
-                  <div class="dropdown mb-4 cena_dropdown">
-                    <button class="btn btn-secondary dropdown-toggle cena_btn" type="button" id="range-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Cena
+                  <div class="dropdown filter_dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="price-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Price
                     </button>
-                    <div class="dropdown-menu from_to_dropdown" aria-labelledby="range-dropdown">
-                      <form>
-                        <div class="form-group">
-                          <input type="text" class="form-control" id="from-input" placeholder="From">
-                        </div>
-                        <div class="form-group">
-                          <input type="text" class="form-control" id="to-input" placeholder="To">
-                        </div>
-                        <button type="button" class="btn btn-primary" id="update-range-button">Použiť</button>
-                      </form>
+                    <div class="dropdown-menu" aria-labelledby="price-dropdown">
+                      <div class="form-group mb-4">
+                        <label for="min-price">Min Price:</label>
+                        <input type="number" id="min-price" name="min-price" class="form-control" placeholder="Enter minimum price">
+                      </div>
+                      <div class="form-group mb-4">
+                        <label for="max-price">Max Price:</label>
+                        <input type="number" id="max-price" name="max-price" class="form-control" placeholder="Enter maximum price">
+                      </div>
+                      <button type="submit" class="btn btn-primary">Apply</button>
                     </div>
-                  <div class="form-group mb-4">
-
                   </div>
                 </div>
+                
                 <div class="col col-lg-3 d-flex justify-content-center align-items-center">
                   <div class="form-group mb-4">
 
-                    <select class="selectpicker border-dark" data-size="10"  title="Zoradiť" aria-label="size 3 select example">
+                    <select class="selectpicker border-dark" data-size="10" title="Zoradiť"
+                      aria-label="size 3 select example">
                       <option value="cheapest" data-content="Od najlacnejšieho"></option>
                       <option value="most_expensive" data-content="Od najdrahšieho"></option>
                       <option value="most_recet" data-content="Najnovšie"></option>
@@ -811,16 +819,6 @@
         },
       },
     });
-    $(document).ready(function () {
-
-      var multipleCancelButton = new Choices('#choices-multiple-remove-button', {
-        removeItemButton: true,
-        maxItemCount: 5,
-        searchResultLimit: 5,
-        renderChoiceLimit: 5
-      });
-
-    });
   </script>
   <script>
     const unrollHeaders = document.querySelectorAll('.unroll-header');
@@ -851,6 +849,31 @@
     }
   </script>
 
+<script>
+  var dropdown = document.querySelector('.dropdown');
+  var dropdownMenu = document.querySelector('.dropdown-menu');
+  dropdown.addEventListener('click', function(event) {
+    event.stopPropagation();
+    dropdown.classList.toggle('show');
+    dropdownMenu.classList.toggle('show');
+  });
+
+  // Prevent dropdown from closing when user clicks on input fields
+  var inputs = document.querySelectorAll('.form-control');
+  for (var i = 0; i < inputs.length; i++) {
+    inputs[i].addEventListener('click', function(event) {
+      event.stopPropagation();
+    });
+  }
+  
+  // Hide dropdown menu when user clicks outside of it
+  document.addEventListener('click', function(event) {
+    if (!dropdown.contains(event.target)) {
+      dropdown.classList.remove('show');
+      dropdownMenu.classList.remove('show');
+    }
+  });
+</script>
 
 </body>
 

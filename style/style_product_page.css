@@ -309,6 +309,7 @@ input:disabled {
 }
 
 @media only screen and (max-width: 576px) {
+
   .p-description ul,
   .p-description p {
     margin-right: 0 !important;

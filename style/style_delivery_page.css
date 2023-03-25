@@ -1,5 +1,10 @@
 /*CSS - Delivery Page*/
 
+.data_container {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 .nadpis_row {
     margin-top: 10%;
     background: rgba(0, 0, 0, 0.9);
@@ -29,11 +34,6 @@
     font-size: larger;
 }
 
-.data_container {
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
 .obsah_row div {
     display: flex;
     justify-content: space-between;
@@ -42,6 +42,8 @@
 .obsah_row ul {
     list-style: none;
 }
+
+/*Štýl buttonov použítých v tejto page*/
 
 .buttony {
     display: flex;
@@ -73,6 +75,8 @@
     border-color: rgba(255, 255, 255, 1);
     text-decoration: underline;
 }
+
+/*Koniec štýlu buttonov*/
 
 @media only screen and (max-width: 576px) {
     .nadpis_row  h4{
