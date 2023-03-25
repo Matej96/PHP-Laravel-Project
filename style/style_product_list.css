@@ -1,3 +1,4 @@
+/* CSS-ko pre Product_List_Page */
 .main_section {
     display: flex;
     margin-top: 10%;
@@ -18,7 +19,6 @@
     background: rgba(0, 0, 0, 0.9);
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-
 
 .nadpis_row,
 .filter_row {
@@ -62,6 +62,11 @@
         grid-template-columns: repeat(1, 1fr) !important;
         grid-template-rows: repeat(9, 1fr) !important;
     }
+
+    .bootstrap-select>.dropdown-toggle,
+    #price-dropdown {
+        max-width: 150px !important;
+    }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 992px) {
@@ -71,13 +76,60 @@
     }
 }
 
+@media only screen and (max-width: 576px) {
+
+    .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn),
+    #price-dropdown,
+    .dropdown-menu.show {
+        width: 150px !important;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .filter_row {
+        padding-left: 0 !important;
+    }
+
+    .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn),
+    #price-dropdown {
+        max-width: 130px !important;
+    }
+}
+
+.price_name {
+    padding-top: 8px;
+}
+
+
+.bootstrap-select>.dropdown-toggle,
+#price-dropdown {
+    width: 100% !important;
+    height: 100%;
+    max-width: 180px;
+}
+
+#price-dropdown {
+    margin-left: 11px;
+    background: white;
+    color: gray;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown_div {
+    display: flex;
+    align-items: center;
+}
+
 .mySwiper {
     padding-top: 10px !important;
 }
 
-.sticky-top{
+.sticky-top {
     z-index: 1;
 }
+
 #sticky-sidebar {
     padding-right: 0 !important;
     padding-left: 0 !important;
@@ -239,19 +291,8 @@
 }
 
 
-
-.bootstrap-select>.dropdown-toggle{
-    width: 80%!important;
-    height: 100%;
-}
-
-#price-dropdown {
-    width: 100%!important;
-    height: 100%;
-
-
-.bootstrap-select>.dropdown-toggle.bs-placeholder{
-    border: 1px solid rgb(0,0,0);
+.bootstrap-select>.dropdown-toggle.bs-placeholder {
+    border: 1px solid rgb(0, 0, 0);
     margin-right: 5%;
     box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
     font-family: "Baskerville Old Face";
@@ -263,25 +304,58 @@
     height: 1em;
     border-radius: 50%;
     margin-right: 0.5em;
-    border: 1px solid rgba(0,0,0,0.5);
+    border: 1px solid rgba(0, 0, 0, 0.5);
     /*margin-top: 0.1em;*/
 }
-.circle.red { background-color: #ff0000; }
-.circle.green { background-color: #00ff00; }
-.circle.blue { background-color: #0000ff; }
-.circle.purple { background-color: blueviolet }
-.circle.brown { background-color: brown }
-.circle.pink {background-color: deeppink}
-.circle.aqua {background-color: aqua}
-.circle.orange {background-color: orange}
-.circle.black { background-color: #000000; }
-.circle.white { background-color: #ffffff; }
-.circle.other {border: none}
+
+.circle.red {
+    background-color: #ff0000;
+}
+
+.circle.green {
+    background-color: #00ff00;
+}
+
+.circle.blue {
+    background-color: #0000ff;
+}
+
+.circle.purple {
+    background-color: blueviolet
+}
+
+.circle.brown {
+    background-color: brown
+}
+
+.circle.pink {
+    background-color: deeppink
+}
+
+.circle.aqua {
+    background-color: aqua
+}
+
+.circle.orange {
+    background-color: orange
+}
+
+.circle.black {
+    background-color: #000000;
+}
+
+.circle.white {
+    background-color: #ffffff;
+}
+
+.circle.other {
+    border: none
+}
 
 .dropdown-menu.show {
     max-height: 200px;
-    overflow-y: scroll;
-    padding: 0;
+    padding: 6px;
+    margin-left: 11px;
 }
 
 .bootstrap-select .dropdown-toggle .filter-option-inner-inner {
@@ -295,15 +369,15 @@
 
 ::-webkit-scrollbar-thumb {
     border-radius: 15px;
-    -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.5);
+    -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
 }
 
-.filter-option-inner-inner{
-    overflow-x: scroll!important;
+.filter-option-inner-inner {
+    overflow-x: scroll !important;
 }
 
 
-.from_to_dropdown form{
+.from_to_dropdown form {
     display: flex;
     justify-content: space-around;
 
@@ -331,11 +405,25 @@
     width: 100%;
 }
 
-.dropdown-menu.show{
-    padding: 5px;
-}
 
-.apply-button {
+.apply-button .btn {
     display: flex;
     justify-content: center;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(0, 0, 0, 1);
+    border-color: rgba(0, 0, 0, 1);
+    box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
+    margin-bottom: 10px;
 }
+
+.apply-button:hover .btn {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(0, 0, 0, 1);
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 1);
+    text-decoration: underline;
+}
+
+/*Koniec CSS-ka*/
