@@ -1,5 +1,11 @@
 /*CSS - Transport_Payment Page*/
 
+/*Hlavny kontent stranky obsahuje jednotlive riadky containera*/
+.data_container {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 .nadpis_row {
     margin-top: 10%;
     background: rgba(0, 0, 0, 0.9);
@@ -10,11 +16,6 @@
     font-family: "Baskerville Old Face";
 }
 
-.data_container {
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
 .payment_row,
 .transport_row {
     color: rgba(0, 0, 0, 0.9);
@@ -22,7 +23,9 @@
     font-family: "Baskerville Old Face";
     word-wrap: break-word;
 }
+/*Koniec containeru a jeho riadkov  */
 
+/*  Styly pre rollovanie elemenotov na kliknutie */
 .unroll-container {
     background: rgba(255, 255, 255, 1);
     padding: 1%;
@@ -105,7 +108,9 @@
         transform: translateY(0);
     }
 }
+/* Koniec stylov pre rolovanie elementov */
 
+/* Styly pre tlacidla spat do kosika a fakturacne a dodacie udaje */
 .buttony {
     display: flex;
     justify-content: space-between;
@@ -136,6 +141,8 @@
     border-color: rgba(255, 255, 255, 1);
     text-decoration: underline;
 }
+
+/* Koniec stylov tlacidiel */
 
 @media only screen and (max-width: 576px) {
     .nadpis_row  h4{
