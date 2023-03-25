@@ -1,15 +1,11 @@
+/*CSS pre admin_add_product_page.html*/
+
+/*Sekcia v ktorej sa nachádza formulár*/
 .admin_section{
     display: flex;
     margin-top: 10%;
     background: rgba(255, 255, 255, 0.9);
     box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
-}
-
-.main_title, .card-body{
-    font-family: "Baskerville Old Face";
-    padding: 20px;
-    color: rgba(0, 0, 0, 1);
-    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
 }
 
 .main_title{
@@ -20,7 +16,14 @@
     margin-bottom: 20px;
 }
 
+.main_title, .card-body{
+    font-family: "Baskerville Old Face";
+    padding: 20px;
+    color: rgba(0, 0, 0, 1);
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
+}
 
+/*Štýl jednotlivých dropdownov*/
 .bootstrap-select>.dropdown-toggle.bs-placeholder{
     border: 1px solid rgb(0,0,0);
 }
@@ -32,7 +35,6 @@
     border-radius: 50%;
     margin-right: 0.5em;
     border: 1px solid rgba(0,0,0,0.5);
-    /*margin-top: 0.1em;*/
 }
 .circle.red { background-color: #ff0000; }
 .circle.green { background-color: #00ff00; }
@@ -69,7 +71,9 @@
 .filter-option-inner-inner{
     overflow-x: scroll!important;
 }
+/*Koniec dropdown štýlov*/
 
+/*Štýl button*/
 .add_button{
     width: 60%;
     background-color: rgba(255, 255, 255, 1);
@@ -87,7 +91,9 @@
     border-color: rgba(255, 255, 255, 1);
     text-decoration: underline;
 }
-
+/*Koniec button*/
 .number-input{
     width: 220px;
 }
+
+/*Koniec CSS-ka*/

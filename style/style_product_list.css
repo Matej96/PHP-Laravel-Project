@@ -239,6 +239,7 @@
 }
 
 
+
 .bootstrap-select>.dropdown-toggle{
     width: 80%!important;
     height: 100%;
@@ -247,7 +248,7 @@
 #price-dropdown {
     width: 100%!important;
     height: 100%;
-}
+
 
 .bootstrap-select>.dropdown-toggle.bs-placeholder{
     border: 1px solid rgb(0,0,0);
@@ -305,6 +306,7 @@
 .from_to_dropdown form{
     display: flex;
     justify-content: space-around;
+
 }
 
 .form-group {
