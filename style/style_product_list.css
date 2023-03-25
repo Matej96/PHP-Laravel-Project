@@ -1,0 +1,286 @@
+.main_section {
+    display: flex;
+    margin-top: 10%;
+    width: 100%;
+}
+
+#main {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.main_container {
+    padding: 0 !important;
+}
+
+.aside_div {
+<<<<<<< Updated upstream
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+=======
+    background-color: aqua;
+    width: 100%;
+}
+
+#sticky-sidebar{
+    padding-right: 0!important; 
+    padding-left: 0!important;
+>>>>>>> Stashed changes
+}
+
+
+.nadpis_row,
+.filter_row {
+    display: flex;
+    color: rgba(255, 255, 255, .80);
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+    font-family: "Baskerville Old Face";
+    background-color: rgba(0, 0, 0, 0.9);
+    padding-right: 3%;
+    padding-left: 3%;
+    padding-top: 20px;
+}
+
+.nadpis_row {
+    flex-wrap: nowrap;
+    justify-content: start;
+}
+
+.filter_row {
+    justify-content: center;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.filter_btn {
+    width: 100%;
+}
+
+<<<<<<< Updated upstream
+@media only screen and (max-width: 992px) {
+    .filter_btn {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    #sticky-sidebar {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(1, 1fr) !important;
+        grid-template-rows: repeat(9, 1fr) !important;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-rows: repeat(5, 1fr) !important;
+    }
+}
+
+.mySwiper {
+    padding-top: 10px !important;
+}
+
+.sticky-top{
+    z-index: 1;
+}
+#sticky-sidebar {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
+.swiper-pagination {
+    position: relative !important;
+}
+
+.dropdown-menu {
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: .5rem 0 0 .5rem;
+}
+
+.color {
+    height: 15px;
+    width: 15px;
+}
+
+.mt-100 {
+    margin-top: 100px
+}
+
+.unroll-container {
+    background: rgba(255, 255, 255, 1);
+    padding: 2%;
+    overflow: hidden;
+}
+
+.unroll-header {
+    padding: 10px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.9);
+    color: rgba(255, 255, 255, .80);
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+    font-family: "Baskerville Old Face";
+    text-align: center;
+}
+
+.unroll-header:hover {
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.8);
+    text-decoration: underline;
+}
+
+.unroll-content {
+    opacity: 0;
+    display: none;
+    padding: 10px;
+    color: rgba(0, 0, 0, 0.9);
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
+    font-family: "Baskerville Old Face";
+}
+
+.unroll-content h3 {
+    text-align: center;
+}
+
+.unroll-content ul {
+    font-size: larger;
+}
+
+.unroll-content li:hover {
+    color: rgba(0, 0, 0, 1);
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
+    text-decoration: underline;
+}
+
+.unroll-content.show {
+    opacity: 1;
+    display: block;
+}
+
+
+.unroll-content.show>* {
+    animation: fade-in 0.5s ease forwards;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    margin: auto !important;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 1);
+}
+
+.grid-item {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    background-color: white;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.grid-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-width: 100%;
+}
+
+.grid-item .content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+    font-family: "Baskerville Old Face";
+    text-align: center;
+    padding: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.grid-item .img_box {
+    position: relative;
+    height: auto;
+    overflow: hidden;
+}
+
+.grid-container {
+    padding: 0 15px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.swiper-pagination-bullet {
+    width: 20px !important;
+    height: 20px !important;
+    text-align: center;
+    line-height: 20px;
+    font-size: 15px;
+    background-color: rgba(0, 0, 0, 0.9) !important;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+    opacity: 1;
+}
+
+#choices-multiple-remove-button{
+    overflow: scroll;
+}
+=======
+
+
+@media (max-width: 768px) {
+
+    .filter_btn{
+        margin-left: 0!important;
+        margin-right: 0!important;
+    }
+    
+    #sticky-sidebar{
+        display: none;
+    }
+}
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    margin: auto!important;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .grid-item img {
+    width: 80%;
+    height: auto;
+    display: block;
+  }
+
+
+>>>>>>> Stashed changes
