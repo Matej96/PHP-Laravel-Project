@@ -88,29 +88,6 @@
     text-decoration: underline;
 }
 
-<<<<<<< Updated upstream
 .number-input{
     width: 220px;
-=======
-.filter-option-inner-inner{
-    overflow-x: scroll!important;
-}
-
-.add_button{
-    width: 60%;
-    background-color: rgba(255, 255, 255, 1);
-    color: rgba(0, 0, 0, 1);
-    border-color: rgba(0, 0, 0, 1);
-    box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
-    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
-    margin-bottom: 10px;
-}
-
-.add_button:hover {
-    color: rgba(255, 255, 255, 1);
-    background-color: rgba(0, 0, 0, 1);
-    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
-    border-color: rgba(255, 255, 255, 1);
-    text-decoration: underline;
->>>>>>> Stashed changes
 }

@@ -14,19 +14,9 @@
 }
 
 .aside_div {
-<<<<<<< Updated upstream
     width: 100%;
     background: rgba(0, 0, 0, 0.9);
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-=======
-    background-color: aqua;
-    width: 100%;
-}
-
-#sticky-sidebar{
-    padding-right: 0!important; 
-    padding-left: 0!important;
->>>>>>> Stashed changes
 }
 
 
@@ -56,7 +46,6 @@
     width: 100%;
 }
 
-<<<<<<< Updated upstream
 @media only screen and (max-width: 992px) {
     .filter_btn {
         margin-left: 0 !important;
@@ -251,36 +240,54 @@
 
 #choices-multiple-remove-button{
     overflow: scroll;
-}
-=======
 
-
-@media (max-width: 768px) {
-
-    .filter_btn{
-        margin-left: 0!important;
-        margin-right: 0!important;
-    }
-    
-    #sticky-sidebar{
-        display: none;
-    }
 }
 
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    margin: auto!important;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .grid-item img {
-    width: 80%;
-    height: auto;
-    display: block;
-  }
+.bootstrap-select>.dropdown-toggle.bs-placeholder{
+    border: 1px solid rgb(0,0,0);
+}
 
+.circle {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    margin-right: 0.5em;
+    border: 1px solid rgba(0,0,0,0.5);
+    /*margin-top: 0.1em;*/
+}
+.circle.red { background-color: #ff0000; }
+.circle.green { background-color: #00ff00; }
+.circle.blue { background-color: #0000ff; }
+.circle.purple { background-color: blueviolet }
+.circle.brown { background-color: brown }
+.circle.pink {background-color: deeppink}
+.circle.aqua {background-color: aqua}
+.circle.orange {background-color: orange}
+.circle.black { background-color: #000000; }
+.circle.white { background-color: #ffffff; }
+.circle.other {border: none}
 
->>>>>>> Stashed changes
+.dropdown-menu.show {
+    max-height: 200px;
+    overflow-y: scroll;
+    padding: 0;
+}
+
+.bootstrap-select .dropdown-toggle .filter-option-inner-inner {
+    overflow-x: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.5);
+}
+
+.filter-option-inner-inner{
+    overflow-x: scroll!important;
+}
