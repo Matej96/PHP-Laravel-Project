@@ -1,0 +1,148 @@
+/* Nadpis stranky*/ 
+.nadpis_row {
+    margin-top: 10%;
+    background: rgba(0, 0, 0, 0.9);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: rgba(255, 255, 255, .80);
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+    font-family: "Baskerville Old Face";
+}
+
+/* Kontainer stranky kde sa nachadza cely kosik */
+.obsah_container{
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    overflow-y: scroll;
+    height: 1000px;
+}
+
+/* Kontainer v ktorom je jeden item kosiku  */
+.card_container {
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 1);
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
+    font-family: "Baskerville Old Face";
+
+}
+
+.card_container img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 50px;
+}
+
+.order_button {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(0, 0, 0, 1);
+    border-color: rgba(0, 0, 0, 1);
+    box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
+}
+
+.order_button:hover {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(0, 0, 0, 1);
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 1);
+    text-decoration: underline;
+}
+
+.finish_div .finish_btn{
+    display: flex;
+    justify-content: end;
+    padding-right: 0!important;
+    padding-left: 0!important;
+}
+
+.finish_div .all_price{
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+}
+
+.finish_div {
+    margin-top: 5%;
+    background: rgba(0, 0, 0, 0.9);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: "Baskerville Old Face";
+    margin-bottom: 10px;
+}
+
+
+.remove_btn_row {
+    display: flex;
+    justify-content: end;
+}
+
+.remove_btn_row button {
+    width: auto;
+}
+
+/* Zaciatok stylu counteru */
+.qty {
+    display: flex;
+  }
+  
+.counter_div {
+    display: flex;
+    align-items: center;
+    width: 70%;
+}
+  
+.counter_div input {
+    margin-right: 1vh;
+    margin-left: 1vh;
+}
+
+.qty .count {
+    color: #000;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 30px;
+    padding: 0 2px;
+    min-width: 35px;
+    text-align: center;
+}
+  
+.qty .plus {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    color: white;
+    width: 30px;
+    height: 30px;
+    font: 30px/1 Arial, sans-serif;
+    text-align: center;
+    border-radius: 50%;
+}
+  
+.qty .minus {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    color: white;
+    width: 30px;
+    height: 30px;
+    font: 30px/1 Arial, sans-serif;
+    text-align: center;
+    border-radius: 50%;
+    background-clip: padding-box;
+}
+/*Koniec stylu counteru */
+
+.velkost, .counter_btn, .cena {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.cena, .counter_div {
+    align-items: start;
+    margin-top: 2%;
+}
+

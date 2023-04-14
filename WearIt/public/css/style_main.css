@@ -1,0 +1,518 @@
+/*Navbar*/
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url("../images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    background: rgba(0, 0, 0, 0.9);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    min-height: 64px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+main {
+    margin-top: 64px;
+}
+
+@media only screen and (min-width: 1100px) {
+    body{
+        width: 1100px;
+        margin: auto;
+    }
+
+    header{
+        width: 1100px;
+        margin: auto;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    header {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    nav ul.navbar-nav {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .navbar-nav .nav-link {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+.button_class{			/* pre tlacidla kosika, prihlasenia */
+    display: flex;
+    justify-content: flex-end;
+}
+.btn-outline-success {
+    color: rgba(255,255,255,.80);
+    border-color: rgba(255,255,255,.80);
+    font-family: "Baskerville Old Face";
+    font-size: large;
+}
+
+.btn-outline-success:hover {
+    color: rgba(255,255,255,1);
+    background-color: rgba(0,0,0,1);
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+    border-color: rgba(255,255,255,1);
+    text-decoration: underline;
+}
+
+@media (max-width: 991.9px){
+    .button_spans{
+        display: none;
+    }
+}
+
+.button_class_mobil{	/* pre tlacidla kosika, prihlasenia  pre mobil*/
+    display: none;
+}
+
+.ul_class{
+    margin-right: 10%;
+}
+
+.nav-item{				/* li v ul */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+nav ul.navbar-nav{
+    margin-right: 5%;
+    height: 100%;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(255,255,255,.80);
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+    font-family: "Baskerville Old Face";
+    font-size: larger;
+}
+.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
+    color: rgba(255,255,255,1);
+    text-decoration: underline;
+}
+
+@media (max-width: 767.9px){
+    .button_class{
+        display: none;
+    }
+    nav ul.navbar-nav li{
+        height: 100%;
+    }
+    .button_class_mobil{
+        display: block;
+        margin-left: auto;
+    }
+
+    nav form.d-flex{
+        display: none!important;
+    }
+    .search_div .btn-outline-success{
+        background-color: rgba(255, 255, 255, 0.5);
+        color: rgba(0, 0, 0, 0.8);
+        border-color: rgba(0, 0, 0, 0.8);
+    }
+    .search_div .btn-outline-success:hover{
+        background-color: rgba(255, 255, 255, 1);
+        color: rgba(0, 0, 0, 1);
+        border-color: rgba(0, 0, 0, 1);
+        box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
+        text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
+    }
+}
+
+@media (min-width: 768px){
+    .search_div {
+        display: none!important;
+    }
+}
+
+@media (max-width: 768px){
+    .search_button{
+        display: block;
+    }
+}
+
+.navbar-brand{
+    height: 100%;
+    width: 100%;
+}
+
+
+.navbar-toggler{
+    background-color: rgba(255, 255, 255, 0.9);
+    color: rgba(0, 0, 0, 0.8);
+    border-color: rgba(0, 0, 0, 0.8);
+}
+.navbar-toggler:hover{
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(0, 0, 0, 1);
+    border-color: rgba(0, 0, 0, 1);
+    box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
+}
+
+
+.navbar-brand:hover{
+    content: url("../images/wtech_logo_hover.png");
+}
+
+.overlay .container-fluid {
+    display: none;
+    background-color: #f8f9fa;
+}
+.overlay li:hover{
+    color: rgba(0,0,0,1);
+    text-decoration: underline;
+}
+
+.woman-section.active, .man-section.active, .kids-section.active {
+    display: block;
+}
+
+.fixed {
+    position: absolute;
+    height: 500px;
+}
+
+.form-control{
+    background-color: rgba(255,255,255,0.80);
+    border-color: rgba(255,255,255,0.80);
+    font-family: "Baskerville Old Face";
+    color: rgba(0,0,0,0.50);
+    font-size: large;
+}
+
+.form-control:hover{
+    background-color: rgba(255,255,255,1);
+    border-color: rgba(255,255,255,1);
+}
+
+.search_div {
+    display: none;
+    background-color: #f8f9fa;
+}
+
+nav form.d-flex.formik {
+    height: 50px;
+    padding: 5px;
+    display: flex !important;
+}
+
+
+.target_women, .target_men, .target_kids{
+    background-color: #f8f9fa;
+}
+
+.multi-column-dropdown {
+    list-style-type: none;
+}
+
+.multi-column-dropdown li{
+    text-align: center;
+    margin-top : 5px;
+
+}
+
+.multi-column-dropdown ul{
+    display: flex;
+    justify-content: center;
+
+}
+
+.multi-column-dropdown li a{
+    text-decoration: none;
+    color: rgba(0,0,0,0.8);
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
+    font-family: "Baskerville Old Face";
+    font-size: large;
+}
+.title-section{
+    display: block;
+    text-align: center;
+    color: rgba(255,255,255,0.80);
+    background-color: rgba(0, 0, 0, 0.9);
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+    font-family: "Baskerville Old Face";
+    font-size: larger;
+}
+
+@media (max-width: 576px){
+    .title-section{
+        font-size: small;
+    }
+    #womanSection ul, #manSection ul, #kidsSection ul {
+        padding: 0;
+    }
+}
+
+.navbar-toggler {
+    margin-top: 10.5px;
+    margin-bottom: 10.5px;
+    color: rgba(255,255,255,.80);
+    border-color: rgba(255,255,255,.80);
+}
+
+.show .search_div {
+    display: block;
+}
+
+/*Navbar End*/
+
+/*Footer*/
+
+footer {
+    padding: 2.5% 10%!important;
+    margin-top: 5%;
+    background: rgba(0, 0, 0, 0.9);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+footer .row {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    color: rgba(255,255,255,0.8);
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+    font-family: "Baskerville Old Face";
+    font-size: larger;
+    text-align: start;
+}
+
+footer a {
+    display: flex;
+    justify-content: end;
+}
+
+footer hr{
+    margin: 30px 0;
+}
+
+.bi:hover{
+    color: rgba(255,255,255,1);
+}
+
+
+@media only screen and (max-width: 576px) {
+    footer .row, footer h5  {
+        font-size: medium;
+    }
+    footer hr{
+        height: 1px;
+    }
+    footer .navbar-brand{
+        width: 50%;
+    }
+
+}
+
+/*Footer End*/
+
+/* Login/Registration PopUps*/
+
+.login_overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 500ms;
+    opacity: 0;
+    visibility: hidden;
+    font-family: "Baskerville Old Face";
+
+}
+
+.login_overlay:target {
+    opacity: 1;
+    visibility: visible;
+}
+
+.login_overlay h1 {
+    color: rgba(0, 0, 0, 0.8);
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
+}
+
+.login_overlay h3 {
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+}
+
+.wrapper_popup {
+    position: relative;
+    width: 50%;
+    min-height: 400px;
+    display: flex;
+}
+
+.first_column, .second_column {
+    width: 50%;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.first_column {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+
+.second_column {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.signin, .signup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#signin, #signup {
+    background: none;
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.close {
+    position: absolute;
+    right: 2%;
+    top: 0;
+    font-size: 50px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 200ms;
+}
+
+.close:hover {
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+}
+
+
+.signup input, .signin input {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    padding: 12px 15px;
+    border: 2px;
+    margin: 8px 0;
+    width: 100%;
+    color: rgba(0, 0, 0, 0.9);
+}
+
+input:focus {
+    outline-color: rgba(0, 0, 0, 0.9);
+}
+
+.form-submit {
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(0, 0, 0, 1);
+    border-color: rgba(0, 0, 0, 1);
+    box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
+    margin-left: 0 !important;
+}
+
+.form-submit:hover {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(0, 0, 0, 1);
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 1);
+    text-decoration: underline;
+}
+
+.login_button, .login_span {
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.login_button:hover {
+    color: rgba(0, 0, 0, 1);
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
+}
+
+.signup .form-submit {
+    margin-top: 15px;
+}
+
+.login_forgot {
+    color: rgba(0, 0, 0, 0.9);
+    text-decoration: underline;
+}
+
+.login_forgot:hover {
+    color: rgba(0, 0, 0, 1);
+    text-shadow: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+}
+
+.brand {
+    height: 100%;
+    width: 100%;
+    margin-right: 0 !important;
+}
+
+@media only screen and (min-width: 768px) {
+    .wrapper_popup {
+        width: 80%;
+    }
+
+}
+
+@media only screen and (min-width: 992px) {
+    .wrapper_popup {
+        width: 70%;
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+    .wrapper_popup {
+        width: 80%;
+        flex-direction: column-reverse;
+    }
+
+    .column {
+        width: 100%;
+    }
+
+    .close {
+        top: 0;
+        right: 10px;
+        margin: 0;
+    }
+    .form-submit {
+        width: 100%;
+    }
+}
+
+
+/*Login/Registration END*/
