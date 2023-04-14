@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,16 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'App\Http\Controllers\HomepageController@index');
+Route::get('/', function () {
+    return view('homepage');
+});
 
-Route::get('/product', 'App\Http\Controllers\ProductController@index');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/product_list', 'App\Http\Controllers\ProductlistController@index');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-Route::get('/cart', 'App\Http\Controllers\CartController@index');
-
-Route::get('/delivery', 'App\Http\Controllers\DeliveryController@index');
-
-Route::get('/order', 'App\Http\Controllers\OrderController@index');
-
-Route::get('/transport', 'App\Http\Controllers\TransportController@index');
+require __DIR__.'/auth.php';
