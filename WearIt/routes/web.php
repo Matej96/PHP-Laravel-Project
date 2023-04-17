@@ -14,9 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('homepage');
-});
+Route::get('/', 'App\Http\Controllers\HomepageController@index');
+
+Route::get('/product', 'App\Http\Controllers\ProductController@index');
+
+Route::get('/product_list/{id}', 'App\Http\Controllers\ProductListController@index')
+            ->name('product_list.index');
+
+Route::get('/filtered_list/{id}', 'App\Http\Controllers\FilteredController@filtered')
+            ->name('filtered_list');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

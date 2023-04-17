@@ -30,8 +30,8 @@
     </div>
     <hr style="height: 2px; background: white;">
     <div class="col-sm-3 col-12 me-">
-        <a href="landing_page.html">
-            <img class="navbar-brand  text-center" src="images/wtech_logo.png">
+        <a href="{{url('/')}}">
+            <img class="navbar-brand  text-center" src={{ asset('images/wtech_logo.png') }}>
         </a>
     </div>
 </footer>

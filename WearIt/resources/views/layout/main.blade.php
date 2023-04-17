@@ -18,5 +18,6 @@
         <!-- Bootstrap core JavaScript -->
         @include('layout.partials.scripts')
         @yield('customJs')
+        @stack('scripts')
     </body>
 </html>

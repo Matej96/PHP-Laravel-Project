@@ -189,9 +189,6 @@
                                                 <label for="max-price">Do:</label>
                                                 <input type="number" id="max-price" name="max-price" class="form-control" min="0">
                                             </div>
-                                            <div class="apply-button">
-                                                <button type="submit" class="btn btn-primary">Potvrdiť</button>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -262,7 +259,7 @@
 
                         </div>
                         <div >
-                            {{ $data['products']->links('vendor.pagination.bootstrap-4') }}
+                            {{ $data['products']->appends(request()->query())->links('vendor.pagination.bootstrap-4') }}
                         </div>
                     </div>
                 </div>
