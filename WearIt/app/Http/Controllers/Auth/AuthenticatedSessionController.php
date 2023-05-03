@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\DB;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -28,7 +29,15 @@ class AuthenticatedSessionController extends Controller
         if ($request->authenticate()){
 
             $request->session()->regenerate();
+            $user = DB::table('users as u')
+                ->select('u.*')
+                ->where('u.email', '=', $request->email)
+                ->first();
 
+            if($user->role == "admin"){
+                return redirect('/admin');
+            }
+        
             return redirect()->intended(RouteServiceProvider::HOME);
         }
 
