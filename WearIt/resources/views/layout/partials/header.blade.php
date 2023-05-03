@@ -7,7 +7,7 @@
                 </a>
             </div>
             <div class="button_class_mobil pe-2">
-                <a href="shopping_cart_page.html">
+                <a href="{{ route("cart") }}">
                     <button class="btn btn-outline-success">
               <span class="bi bi-cart">
                 <span class="d-none">Nákupný košík</span>
@@ -54,7 +54,7 @@
                     </i></button>
             </form>
             <div class="button_class">
-                <a href="shopping_cart_page.html">
+                <a href="{{ route("cart") }}">
                     <button class="btn btn-outline-success">
                       <span class="bi bi-cart">
                         <span class="button_spans">Košík</span>
