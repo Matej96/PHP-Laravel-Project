@@ -24,6 +24,14 @@ Route::get('/product_list/{id}', 'App\Http\Controllers\ProductListController@ind
 Route::get('/filtered_list/{id}', 'App\Http\Controllers\FilteredController@filtered')
             ->name('filtered_list');
 
+Route::get('/search_list', 'App\Http\Controllers\FilteredController@search')
+    ->name('search_list');
+
+Route::get('/search_filter_list/{word}', 'App\Http\Controllers\FilteredController@search_filter')
+    ->name('search_filter_list');
+
+Route::get('/product/{id}', 'App\Http\Controllers\ProductController@index')
+    ->name('product_page');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

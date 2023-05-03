@@ -18,7 +18,7 @@
                      class="swiper mySwiper2">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <img src="images/product1.png" />
+                            <img src="{{asset($data['product']->product_image)}}" />
                         </div>
                         <div class="swiper-slide">
                             <img src="images/product1_2.png" />
@@ -55,8 +55,8 @@
                 <div class="content">
                     <hr style="height: 2px; background: black; margin-top: 6rem;">
                     <div class="row">
-                        <h2 class="my-4 title-product">GANT</h2>
-                        <h3 class="mt-3 mb-5 price-tag">Cena: 70,53 €</h3>
+                        <h2 class="my-4 title-product">{{$data['product']->product_name}}</h2>
+                        <h3 class="mt-3 mb-5 price-tag">Cena: {{$data['product']->price}} €</h3>
                         <h3 class="mt-3 mb-5 price-tag">Typ oblečenia: Mikina</h3>
                     </div>
                     <hr style="height: 2px; background: black;">
@@ -204,16 +204,8 @@
         <div class="row">
             <h2 class="mt-5 mb-4 h2-header">Popis</h2>
             <div class="p-description">
-                <p class="mx-5 mt-3">Mikina značky GANT je vyrobená z kvalitného a mäkkého materiálu, ktorý zaručuje pohodlné
-                    a príjemné nosenie.
-                    Jej strih je moderný a nadčasový, s dlhými rukávmi a okrúhlym výstrihom. Vpred je vybavená praktickým
-                    zipsom, ktorý umožňuje regulovať teplotu a pohodlie v závislosti od počasia.
-                    <br>
-                    <br>
-                    Na hrudi má mikina nápis GANT, ktorý je symbolom značky a zaručuje vysokú kvalitu a štýl.
-                    Je k dispozícii v rôznych farbách, ktoré sa ľahko kombinujú s rôznymi kúskami oblečenia.
-                    Táto mikina je ideálnym doplnkom pre každodenné použitie a vhodná pre ľudí, ktorí ocenia vysokú kvalitu a
-                    eleganciu.
+                <p class="mx-5 mt-3">
+                    {{$data['product']->product_description}}
                 </p>
             </div>
             <h2 class="mt-5 mb-4 h2-header">Detaily</h2>

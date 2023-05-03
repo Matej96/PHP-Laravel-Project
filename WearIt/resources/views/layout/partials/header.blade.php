@@ -16,9 +16,9 @@
                 </a>
                 <a href="#login">
                     <button class="btn btn-outline-success">
-              <span class="bi bi-person">
-                <span class="d-none">Prihlásenie</span>
-              </span>
+                      <span class="bi bi-person">
+                        <span class="d-none">Prihlásenie</span>
+                      </span>
                     </button>
                 </a>
             </div>
@@ -28,8 +28,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <div id="ss" class="search_div">
-                    <form class="d-flex me-4 formik">
-                        <input class="form-control me-2 " type="search" placeholder="Vyhľadať tovar" aria-label="Search">
+                    <form method="get" action="{{route('search_list')}}" class="d-flex me-4 formik">
+                        <input class="form-control me-2 " name="search" type="search" placeholder="Vyhľadať tovar" aria-label="Search">
                         <button class="btn btn-outline-success " type="submit"><i class="bi bi-search">
                                 <span class="d-md-none"></span>
                             </i></button>
@@ -47,8 +47,8 @@
                     </li>
                 </ul>
             </div>
-            <form method="get" class="d-flex me-4">
-                <input class="form-control me-2 " type="search" placeholder="Vyhľadať tovar" aria-label="Search">
+            <form method="get" action="{{route('search_list')}}" class="d-flex me-4">
+                <input class="form-control me-2 " name="search" type="search" placeholder="Vyhľadať tovar" aria-label="Search">
                 <button class="btn btn-outline-success " type="submit"><i class="bi bi-search">
                         <span class="d-md-none"></span>
                     </i></button>
@@ -86,6 +86,15 @@
                     <div class="column first_column">
                         <div class="signin">
                             <h1>Prihlásenie do účtu</h1>
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <form  method="POST" action="{{ route('login') }}">
                                 @csrf
                                 <input type="email" placeholder="Emailová adresa" type="email" name="email" :value="old('email')" required />

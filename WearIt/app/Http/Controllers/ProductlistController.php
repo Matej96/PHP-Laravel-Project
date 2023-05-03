@@ -40,4 +40,5 @@ class ProductlistController extends Controller
 
         return view('product_list', ['data' => $data]);
     }
+
 }
