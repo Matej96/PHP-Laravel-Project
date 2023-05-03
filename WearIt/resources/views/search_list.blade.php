@@ -135,16 +135,12 @@
                     <div class="container-fluid main_container">
                         <div class="row nadpis_row">
                             <div class="col nadpis_col">
-                                <h2 class="col-3 col-lg-4">Bundy</h2>
+                                <h2 class="col-3 col-lg-4">{{$data['word']}}</h2>
                                 <h5 class="col-3 col-lg-4">Pánske/Oblečenie</h5>
                                 <hr style="height: 2px; background: white;">
                             </div>
                         </div>
-
-
-
-
-                        <form method="get" action="{{route('filtered_list', ['id' => $data['category_id']])}}">
+                        <form method="GET" action="{{route('search_filter_list', ['word' => $data['word']] )}}">
                             <div class="row filter_row">
 
                                 <div class="col-6 col-md-3 dropdown_div">
@@ -189,9 +185,6 @@
                                                 <label for="max-price">Do:</label>
                                                 <input type="number" id="max-price" name="max-price" class="form-control" min="0">
                                             </div>
-                                            <div class="apply-button">
-                                                <button type="submit" class="btn btn-primary">Potvrdiť</button>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -216,10 +209,10 @@
 
                             </div>
                             <div>
-                                {{$data['count']}}
                                 {{count($data['products'])}}
                             </div>
                         </form>
+
                         <hr style="height: 2px; background: white; padding-left: 3%; padding-right: 3%;">
                         <div class="swiper mySwiper">
                             <div class="swiper-wrapper">
@@ -262,7 +255,7 @@
 
                         </div>
                         <div >
-                            {{ $data['products']->links('vendor.pagination.bootstrap-4') }}
+                            {{ $data['products']->appends(request()->query())->links('vendor.pagination.bootstrap-4') }}
                         </div>
                     </div>
                 </div>
