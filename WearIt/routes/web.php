@@ -33,8 +33,12 @@ Route::get('/search_filter_list/{word}', 'App\Http\Controllers\FilteredControlle
 Route::get('/product/{id}', 'App\Http\Controllers\ProductController@index')
     ->name('product_page');
 
+
 Route::get('/cart', 'App\Http\Controllers\CartController@index')
     ->name('cart');
+
+Route::get('/admin', 'App\Http\Controllers\AdminController@index')
+    ->name('admin');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
