@@ -71,7 +71,7 @@
                         </button>
                     </form>
                 @else
-                    <a href="#login">
+                    <a class="login_a">
                         <button class="btn btn-outline-success">
                           <span class="bi bi-person">
                             <span class="button_spans">Prihlásenie</span>
@@ -82,7 +82,7 @@
             </div>
             <div id="login" class="overlay login_overlay">
                 <div class="wrapper wrapper_popup">
-                    <a href="#" class="close">&times;</a>
+                    <a class="close">&times;</a>
                     <div class="column first_column">
                         <div class="signin">
                             <h1>Prihlásenie do účtu</h1>

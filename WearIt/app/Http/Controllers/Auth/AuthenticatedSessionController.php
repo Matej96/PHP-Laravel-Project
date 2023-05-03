@@ -29,6 +29,7 @@ class AuthenticatedSessionController extends Controller
         if ($request->authenticate()){
 
             $request->session()->regenerate();
+
             $user = DB::table('users as u')
                 ->select('u.*')
                 ->where('u.email', '=', $request->email)
@@ -39,6 +40,7 @@ class AuthenticatedSessionController extends Controller
             }
         
             return redirect()->intended(RouteServiceProvider::HOME);
+
         }
 
         return redirect()->back()->withErrors(['emial' => trans('auth.failed')])->withInput()->with(['show_login' => true]);
