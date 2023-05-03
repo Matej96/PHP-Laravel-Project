@@ -10,7 +10,7 @@ class ProductlistController extends Controller
     public function index($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
 
-        $products = DB::table('products')->where('category_id', $id)->paginate(9);
+        $products = DB::table('products')->where('category_id', $id)->whereNull('deleted_at')->paginate(9);
 
         $colors = DB::table('products as pr')
             ->join('product_variations as pv', 'pr.id', '=', 'pv.product_id')

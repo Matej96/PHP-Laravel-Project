@@ -40,6 +40,8 @@ Route::get('/cart', 'App\Http\Controllers\CartController@index')
 Route::get('/admin', 'App\Http\Controllers\AdminController@index')
     ->name('admin');
 
+Route::post('/remove-data/{id}', [\App\Http\Controllers\AdminController::class, 'removeData'])->name('remove.data');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

@@ -10,7 +10,7 @@ class ProductController extends Controller
 {
     public function index($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $product = Product::find($id);;
+        $product = Product::find($id);
 
         $data = [
             'product' => $product
