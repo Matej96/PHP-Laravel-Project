@@ -36,6 +36,8 @@ Route::get('/product/{id}', 'App\Http\Controllers\ProductController@index')
 Route::get('/admin', 'App\Http\Controllers\AdminController@index')
     ->name('admin');
 
+Route::post('/remove-data/{id}', [\App\Http\Controllers\AdminController::class, 'removeData'])->name('remove.data');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
