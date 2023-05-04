@@ -16,6 +16,7 @@ class ProductlistController extends Controller
         foreach ($products as $product) {
             $imagePath = "images/{$product->id}-1.png";
             $publicDisk = Storage::disk('public');
+            dump($imagePath);
 
             if ($publicDisk->exists($imagePath)) {
                 $product->image_url = asset("storage/{$imagePath}");
@@ -23,6 +24,7 @@ class ProductlistController extends Controller
                 $product->image_url = null;
             }
         }
+
 
         $colors = DB::table('products as pr')
             ->join('product_variations as pv', 'pr.id', '=', 'pv.product_id')
