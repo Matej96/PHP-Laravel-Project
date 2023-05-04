@@ -1,0 +1,90 @@
+/*CSS - Delivery Page*/
+
+.data_container {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.nadpis_row {
+    margin-top: 10%;
+    background: rgba(0, 0, 0, 0.9);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: rgba(255, 255, 255, .80);
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+    font-family: "Baskerville Old Face";
+}
+
+.obsah_row {
+    color: rgba(0, 0, 0, 0.9);
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
+    font-family: "Baskerville Old Face";
+    word-wrap: break-word;
+}
+
+.obsah_row h4,
+.obsah_row span,
+.obsah_row ul {
+    color: rgba(0, 0, 0, 0.9);
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
+    font-family: "Baskerville Old Face";
+}
+
+.obsah_row span {
+    font-size: larger;
+}
+
+.obsah_row div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.obsah_row ul {
+    list-style: none;
+}
+
+/*Štýl buttonov použítých v tejto page*/
+
+.buttony {
+    display: flex;
+    justify-content: space-between;
+}
+
+.first_btn {
+    text-align: left;
+}
+
+.second_btn {
+    text-align: right;
+}
+
+.data_button {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(0, 0, 0, 1);
+    border-color: rgba(0, 0, 0, 1);
+    box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
+    margin-bottom: 10px;
+}
+
+.data_button:hover {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(0, 0, 0, 1);
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 1);
+    text-decoration: underline;
+}
+
+/*Koniec štýlu buttonov*/
+
+@media only screen and (max-width: 576px) {
+    .nadpis_row  h4{
+        font-size: large;
+    }
+    .obsah_row  h4, .obsah_row span, .obsah_row li{
+        font-size: medium;
+    }
+}
+
+/* End CSS*/

@@ -117,9 +117,10 @@ $('.signup').hide();
 $('#signin, #signup').on(
     'click',
     function () {
-        $('.signin, .signup').toggle()
+        $('.signin, .signup').toggle();
     }
 )
-
-
+function showPopup() {
+    document.getElementById("login").style.display = "block";
+}
 /* Login/Registration PopUp Script End*/

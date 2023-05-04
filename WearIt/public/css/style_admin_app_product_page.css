@@ -1,0 +1,99 @@
+/*CSS pre admin_add_product_page.html*/
+
+/*Sekcia v ktorej sa nachádza formulár*/
+.admin_section{
+    display: flex;
+    margin-top: 10%;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+.main_title{
+    text-align: center;
+}
+
+.card-body{
+    margin-bottom: 20px;
+}
+
+.main_title, .card-body{
+    font-family: "Baskerville Old Face";
+    padding: 20px;
+    color: rgba(0, 0, 0, 1);
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
+}
+
+/*Štýl jednotlivých dropdownov*/
+.bootstrap-select>.dropdown-toggle.bs-placeholder{
+    border: 1px solid rgb(0,0,0);
+}
+
+.circle {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    margin-right: 0.5em;
+    border: 1px solid rgba(0,0,0,0.5);
+}
+.circle.red { background-color: #ff0000; }
+.circle.green { background-color: #00ff00; }
+.circle.blue { background-color: #0000ff; }
+.circle.purple { background-color: blueviolet }
+.circle.brown { background-color: brown }
+.circle.pink {background-color: deeppink}
+.circle.aqua {background-color: aqua}
+.circle.orange {background-color: orange}
+.circle.black { background-color: #000000; }
+.circle.white { background-color: #ffffff; }
+.circle.other {border: none}
+
+.dropdown-menu.show {
+    max-height: 200px;
+    overflow-y: scroll;
+    padding: 0;
+}
+
+.bootstrap-select .dropdown-toggle .filter-option-inner-inner {
+    overflow-x: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.5);
+}
+
+.filter-option-inner-inner{
+    overflow-x: scroll!important;
+}
+/*Koniec dropdown štýlov*/
+
+/*Štýl button*/
+.add_button{
+    width: 60%;
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(0, 0, 0, 1);
+    border-color: rgba(0, 0, 0, 1);
+    box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
+    margin-bottom: 10px;
+}
+
+.add_button:hover {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(0, 0, 0, 1);
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 1);
+    text-decoration: underline;
+}
+/*Koniec button*/
+.number-input{
+    width: 220px;
+}
+
+/*Koniec CSS-ka*/
