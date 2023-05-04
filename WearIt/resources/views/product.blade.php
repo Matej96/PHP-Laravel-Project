@@ -193,9 +193,15 @@
                                 <input type="number" class="count" name="qty" value="1">
                                 <span class="plus bg-dark">+</span>
                             </div>
-                            <button class="col-7 ms-3 btn btn-outline-success add-cart">
-                                <i class="bi bi-cart-plus">Pridat do kosika</i>
-                            </button>
+                            <form action="{{ route('cart_add', ['id' => $data['product']->id]) }}" method="POST">
+                                @csrf
+                                <button class="col-7 ms-3 btn btn-outline-success add-cart">
+                                    Add to cart
+                                </button>
+                            </form>
+                            {{--                            <button class="col-7 ms-3 btn btn-outline-success add-cart">--}}
+                            {{--                                <i class="bi bi-cart-plus">Pridat do kosika</i>--}}
+                            {{--                            </button>--}}
                         </div>
                     </div>
                 </div>
