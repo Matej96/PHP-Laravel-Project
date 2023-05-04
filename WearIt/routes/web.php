@@ -37,6 +37,8 @@ Route::get('/product/{id}', 'App\Http\Controllers\ProductController@index')
 Route::get('/cart', 'App\Http\Controllers\CartController@index')
     ->name('cart');
 
+Route::post('/cart/add', 'App\Http\Controllers\CartController@addToCart')->name('cart_add');
+
 Route::get('/admin', 'App\Http\Controllers\AdminController@index')
     ->name('admin');
 

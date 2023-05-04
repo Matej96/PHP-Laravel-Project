@@ -9,34 +9,34 @@ use Illuminate\Support\Facades\DB;
 class CartController extends Controller
 {
     public function index(){
+        $products = DB::table('product_variations')
+            ->select('product_name', 'color_name', 'size_name', 'price', 'amount')
+            ->join('products', 'product_variations.product_id' , '=', 'products.id')
+            ->join('cart_products', 'product_variations.id', '=', 'cart_products.product_variation_id')
+            ->join('carts', 'carts.id', '=', 'cart_products.cart_id')
+            ->join('colors', 'colors.id', '=', 'product_variations.color_id')
+            ->join('sizes', 'sizes.id', '=', 'product_variations.size_id')
+            ->where('carts.user_id', '=', auth()->user()->getAuthIdentifier())
+            ->get();
 
+//        dd($products);
+
+        return view('cart', [
+            'products' => $products
+        ]);
     }
-//        $products = DB::table('products_variations')
-//            ->select('product_name', '')
-//            ->join('products', 'products_variations.product_id' , '=', ' products.id')
-//            ->join('')
-//            ->join('product_order', 'products_variations.')
-//            ->get();
-//
-//        return view('cart');
-//    }
-//
-//    public function addToCart($id)
-//    {
-//        $product = Product::findOrFail($id);
-//        $cart = session()->get('cart', []);
-//
-//        if(isset($cart[$id])) {
-//            $cart[$id]['quantity']++;
-//        } else {
-//            $cart[$id] = [
-//                "name" => $product->name,
-//                "quantity" => 1,
-//                "price" => $book->price,
-//                "image" => $book->image
-//            ];
-//        }
-//        session()->put('cart', $cart);
-//        return redirect()->back()->with('success', 'Book has been added to cart!');
-//    }
+    public function addToCart(Request $request)
+    {
+        $quantity = ProductVariations::where('product_id', '=', $request->input('product_id'))
+            ->where()
+            ->pluck('quantity')->first();
+
+        if ($quantity > 0){
+            dd('xd');
+        } else {
+            return redirect()->back()->with('error', 'Produkt je vypredaný!');
+        }
+
+        return redirect()->back()->with('success', 'Produkt bol pridaný do košíka!');
+    }
 }
