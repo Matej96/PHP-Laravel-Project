@@ -17,36 +17,22 @@
                 <div style="--swiper-navigation-color: rgba(255,255,255,.80); --swiper-pagination-color: #fff"
                      class="swiper mySwiper2">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="{{asset($data['product']->product_image)}}" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="images/product1_2.png" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="images/product1_3.png" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="images/product1_4.png" />
-                        </div>
+                        @foreach($data['images'] as $image_path)
+                            <div class="swiper-slide">
+                                <img src="{{$image_path}}" />
+                            </div>
+                        @endforeach
                     </div>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
                 </div>
                 <div thumbsSlider="" class="swiper mySwiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="images/product1.png" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="images/product1_2.png" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="images/product1_3.png" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="images/product1_4.png" />
-                        </div>
+                        @foreach($data['images'] as $image_path)
+                            <div class="swiper-slide">
+                                <img src="{{$image_path}}" />
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -69,30 +55,15 @@
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <div class="row">
                                     <div class="col">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                XXXL
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                XXL
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                XL
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                L
-                                            </label>
-                                        </div>
+                                        @foreach($data['sizes'] as $size)
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                    {{$size->size_name}}
+                                                </label>
+                                            </div>
+                                        @endforeach
+
                                     </div>
                                     <div class="col">
                                         <div class="form-check">
@@ -131,57 +102,16 @@
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <div class="row">
                                     <div class="col">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                <div class="color" style="background-color:red"></div>
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                <div class="color" style="background-color:blue"></div>
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                <div class="color" style="background-color:black"></div>
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                <div class="color" style="background-color:grey"></div>
-                                            </label>
-                                        </div>
+                                        @foreach($data['colors'] as $color)
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                    <div class="color" >{{$color->color_name}}</div>
+                                                </label>
+                                            </div>
+                                        @endforeach
                                     </div>
-                                    <div class="col">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                <div class="color" style="background-color:coral"></div>
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                <div class="color" style="background-color:chocolate"></div>
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                <div class="color" style="background-color:darkolivegreen"></div>
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                <div class="color" style="background-color:salmon"></div>
-                                            </label>
-                                        </div>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>

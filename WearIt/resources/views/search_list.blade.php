@@ -222,7 +222,7 @@
                                             <div class="grid-item">
                                                 <div class="img_box">
                                                     <a href="{{route('product_page', ['id' => $product->id])}}">
-                                                        <img src="{{asset($product->product_image)}}">
+                                                        <img src="{{asset($product->image_url)}}">
                                                     </a>
                                                 </div>
                                                 <div class="content">
@@ -233,23 +233,7 @@
                                         @endforeach
                                     </div>
                                 </div>
-                                <div class="swiper-slide">
-                                    <div class="grid-container">
-                                        @foreach($data['products'] as $product)
-                                            <div class="grid-item">
-                                                <div class="img_box">
-                                                    <a href="product_page.html">
-                                                        <img src="{{asset($product->product_image)}}">
-                                                    </a>
-                                                </div>
-                                                <div class="content">
-                                                    <h3>{{$product->product_name}}</h3>
-                                                    <h3>Cena: {{$product->price}} €</h3>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
+
 
                             </div>
 
