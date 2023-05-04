@@ -5,17 +5,33 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View;
 
 class AdminController extends Controller
 {
     public function index(): \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application
     {
-        $products = DB::table('products')->whereNull('deleted_at')->paginate(2);
+
+        $products = DB::table('products')
+            ->whereNull('deleted_at')
+            ->paginate(9);
+
+        foreach ($products as $product) {
+            $imagePath = "images/{$product->id}-1.png";
+            $publicDisk = Storage::disk('public');
+
+
+            if ($publicDisk->exists($imagePath)) {
+                $product->image_url = asset("storage/{$imagePath}");
+            } else {
+                $product->image_url = null;
+            }
+        }
+
 
         $colors = DB::table('products as pr')
-            ->join('product_variations as pv', 'pr.id', '=', 'pv.product_id')
-            ->join('colors as cl', 'cl.id', '=', 'pv.color_id')
+            ->join('colors as cl', 'cl.id', '=', 'pr.color_id')
             ->select('cl.color_name', 'cl.hex_value')
             ->distinct()
             ->get();
@@ -41,8 +57,24 @@ class AdminController extends Controller
 
     public function removeData($id): \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse
     {
-        $data = Product::find($id);
-        $data->delete();
+        $product = Product::find($id);
+
+        $iterator = 1;
+        $publicDisk = Storage::disk('public');
+
+
+        while (True){
+            $imagePath = "images/{$id}-{$iterator}.png";
+            if ($publicDisk->exists($imagePath)) {
+                $publicDisk->delete($imagePath);
+            } else {
+                break;
+            }
+            $iterator++;
+        }
+
+        $product->delete();
+
         $products = DB::table('products')->whereNull('deleted_at')->paginate(2);
         $totalItems = $products->total();
         // Získajte počet objektov na stránku

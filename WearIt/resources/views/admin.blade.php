@@ -34,7 +34,7 @@
                 </div>
                 <div class="img_box">
                     <a href="{{route('product_page', ['id' => $product->id])}}">
-                        <img src="{{asset($product->product_image)}}" class="card-img"/>
+                        <img src="{{ $product->image_url }}" class="card-img"/>
                     </a>
                 </div>
                 <div class="card-body d-flex flex-column">
