@@ -37,13 +37,13 @@
                 </div>
                 <ul class="nav navbar-nav me-auto navbar-nav-scroll">
                     <li class="nav-item woman-section">
-                        <a class="nav-link" href="#">Dámske</a>
+                        <a class="nav-link" href="{{ route('product_list.index', ['id' => 2]) }}">Dámske</a>
                     </li>
                     <li class="nav-item man-section">
-                        <a class="nav-link">Pánske</a>
+                        <a class="nav-link" href="{{ route('product_list.index', ['id' => 1]) }}">Pánske</a>
                     </li>
                     <li class="nav-item kids-section">
-                        <a class="nav-link" href="#">Detské</a>
+                        <a class="nav-link" href="{{ route('product_list.index', ['id' => 3]) }}">Detské</a>
                     </li>
                 </ul>
             </div>

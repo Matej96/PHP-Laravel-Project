@@ -11,7 +11,10 @@ class ProductlistController extends Controller
     public function index($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
 
-        $products = DB::table('products')->where('category_id', $id)->whereNull('deleted_at')->paginate(9);
+        $products = DB::table('products')
+            ->where('category_id', $id)
+            ->whereNull('deleted_at')
+            ->paginate(9);
 
         foreach ($products as $product) {
             $imagePath = "images/{$product->id}-1.png";
@@ -25,8 +28,7 @@ class ProductlistController extends Controller
         }
 
         $colors = DB::table('products as pr')
-            ->join('product_variations as pv', 'pr.id', '=', 'pv.product_id')
-            ->join('colors as cl', 'cl.id', '=', 'pv.color_id')
+            ->join('colors as cl', 'cl.id', '=', 'pr.color_id')
             ->select('cl.color_name', 'cl.hex_value')
             ->distinct()
             ->where('pr.category_id', '=', $id)
