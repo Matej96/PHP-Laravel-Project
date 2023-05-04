@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class ProductlistController extends Controller
 {
@@ -11,6 +12,17 @@ class ProductlistController extends Controller
     {
 
         $products = DB::table('products')->where('category_id', $id)->whereNull('deleted_at')->paginate(9);
+
+        foreach ($products as $product) {
+            $imagePath = "images/{$product->id}-1.png";
+            $publicDisk = Storage::disk('public');
+
+            if ($publicDisk->exists($imagePath)) {
+                $product->image_url = asset("storage/{$imagePath}");
+            } else {
+                $product->image_url = null;
+            }
+        }
 
         $colors = DB::table('products as pr')
             ->join('product_variations as pv', 'pr.id', '=', 'pv.product_id')

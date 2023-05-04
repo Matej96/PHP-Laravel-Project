@@ -89,9 +89,9 @@
                             @if ($errors->any())
                                 <div class="alert alert-danger">
                                     <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
+                                        @if ($errors->has('email'))
+                                            <li>{{ $errors->first('email') }}</li>
+                                        @endif
                                     </ul>
                                 </div>
                             @endif

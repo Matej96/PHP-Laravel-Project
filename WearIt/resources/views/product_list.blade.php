@@ -141,9 +141,6 @@
                             </div>
                         </div>
 
-
-
-
                         <form method="get" action="{{route('filtered_list', ['id' => $data['category_id']])}}">
                             <div class="row filter_row">
 
@@ -229,7 +226,7 @@
                                             <div class="grid-item">
                                                 <div class="img_box">
                                                     <a href="{{route('product_page', ['id' => $product->id])}}">
-                                                        <img src="{{asset($product->product_image)}}">
+                                                        <img src="{{ $product->image_url }}">
                                                     </a>
                                                 </div>
                                                 <div class="content">
