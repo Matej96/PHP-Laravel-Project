@@ -12,6 +12,20 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>{{ $message }}</strong>
+                </div>
+            @endif
+
+
+            @if ($message = Session::get('error'))
+                <div class="alert alert-danger alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>{{ $message }}</strong>
+                </div>
+            @endif
             <div class="col-md-6 col-12 first-half">
                 <h5 class="my-4">Pánske/Oblečenie/Mikiny</h5>
                 <div style="--swiper-navigation-color: rgba(255,255,255,.80); --swiper-pagination-color: #fff"
@@ -46,94 +60,43 @@
                         <h3 class="mt-3 mb-5 price-tag">Typ oblečenia: Mikina</h3>
                     </div>
                     <hr style="height: 2px; background: black;">
-                    <div class="row dropdowns">
-                        <div class=" col-6 col-sm-3 dropdown">
-                            <button class="btn btn-secondary dropdown-toggle px-4 py-2" type="button" id="dropdownMenuButton"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Velkost
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <div class="row">
-                                    <div class="col">
-                                        @foreach($data['sizes'] as $size)
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                    {{$size->size_name}}
-                                                </label>
-                                            </div>
-                                        @endforeach
-
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                M
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                S
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                XS
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                XXS
-                                            </label>
+                    <form action="{{ route('cart_add', ['product_id' => $data['product']->id, '']) }}" method="POST">
+                        @csrf
+                        <div class="row dropdowns">
+                            <div class=" col-6 col-sm-3 dropdown">
+                                <button class="btn btn-secondary dropdown-toggle px-4 py-2" type="button" id="dropdownMenuButton"
+                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Velkost
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <div class="row">
+                                        <div class="col">
+                                            @foreach($data['sizes'] as $size)
+                                                <div class="form-check" name="size">
+                                                    <input value="{{$size->id}}" class="form-check-input" type="radio" name="size" id="flexRadioDefault1">
+                                                    <label class="form-check-label" for="flexRadioDefault1">
+                                                        {{$size->size_name}}
+                                                    </label>
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6 col-sm-3 dropdown">
-                            <button class="btn btn-secondary dropdown-toggle px-4 py-2" type="button" id="dropdownMenuButton"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Farba
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <div class="row">
-                                    <div class="col">
-                                        @foreach($data['colors'] as $color)
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                    <div class="color" >{{$color->color_name}}</div>
-                                                </label>
-                                            </div>
-                                        @endforeach
-                                    </div>
-
+                        <div class="row counter_row">
+                            <div class="qty mt-5">
+                                <div class="counter_div">
+                                    <span class="minus bg-dark">-</span>
+                                    <input type="number" class="count" name="qty" value="1">
+                                    <span class="plus bg-dark">+</span>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row counter_row">
-                        <div class="qty mt-5">
-                            <div class="counter_div">
-                                <span class="minus bg-dark">-</span>
-                                <input type="number" class="count" name="qty" value="1">
-                                <span class="plus bg-dark">+</span>
-                            </div>
-                            <form action="{{ route('cart_add', ['id' => $data['product']->id]) }}" method="POST">
-                                @csrf
-                                <button class="col-7 ms-3 btn btn-outline-success add-cart">
+                                <button type="submit" class="col-7 ms-3 btn btn-outline-success add-cart">
                                     Add to cart
                                 </button>
-                            </form>
-                            {{--                            <button class="col-7 ms-3 btn btn-outline-success add-cart">--}}
-                            {{--                                <i class="bi bi-cart-plus">Pridat do kosika</i>--}}
-                            {{--                            </button>--}}
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>

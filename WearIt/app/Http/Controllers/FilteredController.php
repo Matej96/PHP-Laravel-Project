@@ -15,7 +15,7 @@ class FilteredController extends Controller
         if($id != 0){
             return DB::table('products as pr')
                 ->join('product_variations as pv', 'pr.id', '=', 'pv.product_id')
-                ->join('colors as cl', 'cl.id', '=', 'pv.color_id')
+                ->join('colors as cl', 'cl.id', '=', 'pr.color_id')
                 ->select('cl.color_name', 'cl.hex_value')
                 ->distinct()
                 ->where('pr.category_id', '=', $id)
@@ -23,7 +23,7 @@ class FilteredController extends Controller
         }else{
             return DB::table('products as pr')
                 ->join('product_variations as pv', 'pr.id', '=', 'pv.product_id')
-                ->join('colors as cl', 'cl.id', '=', 'pv.color_id')
+                ->join('colors as cl', 'cl.id', '=', 'pr.color_id')
                 ->select('cl.color_name', 'cl.hex_value')
                 ->distinct()
                 ->where('pr.product_name', 'LIKE', '%'.$word.'%')
@@ -62,7 +62,7 @@ class FilteredController extends Controller
             ->distinct('pr.id')
             ->where('pr.category_id', '=', $id)
             ->join('product_variations as pv', 'pr.id', '=', 'pv.product_id')
-            ->join('colors as cl', 'cl.id', '=', 'pv.color_id')
+            ->join('colors as cl', 'cl.id', '=', 'pr.color_id')
             ->join('sizes as sz', 'sz.id', '=', 'pv.size_id')
             ->when($request->input('colors'), function ($query, $colors) {
                 return $query->whereIn('cl.color_name', $colors);
@@ -163,7 +163,7 @@ class FilteredController extends Controller
             ->distinct('pr.id')
             ->where('product_name', 'LIKE', '%'.$word.'%')
             ->join('product_variations as pv', 'pr.id', '=', 'pv.product_id')
-            ->join('colors as cl', 'cl.id', '=', 'pv.color_id')
+            ->join('colors as cl', 'cl.id', '=', 'pr.color_id')
             ->join('sizes as sz', 'sz.id', '=', 'pv.size_id')
             ->when($request->input('colors'), function ($query, $colors) {
                 return $query->whereIn('cl.color_name', $colors);
@@ -192,6 +192,17 @@ class FilteredController extends Controller
             $products = $products
                 ->paginate(9)
                 ->appends(request()->query());
+        }
+
+        foreach ($products as $product) {
+            $imagePath = "images/{$product->id}-1.png";
+            $publicDisk = Storage::disk('public');
+
+            if ($publicDisk->exists($imagePath)) {
+                $product->image_url = asset("storage/{$imagePath}");
+            } else {
+                $product->image_url = null;
+            }
         }
 
         $colors = $this->get_colors(0, $word);

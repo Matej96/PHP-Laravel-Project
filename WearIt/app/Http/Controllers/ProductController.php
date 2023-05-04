@@ -29,16 +29,10 @@ class ProductController extends Controller
             $iterator++;
         }
 
-        $colors = DB::table('product_variations as pv')
-            ->join('colors as cl', 'pv.color_id', '=', 'cl.id')
-            ->select('cl.color_name')
-            ->distinct()
-            ->where('pv.product_id', '=', $id)
-            ->get();
 
         $sizes = DB::table('product_variations as pv')
             ->join('sizes as sz', 'pv.size_id', '=', 'sz.id')
-            ->select('sz.size_name')
+            ->select('sz.*')
             ->distinct('sz.size_name')
             ->where('pv.product_id', '=', $id)
             ->get();
@@ -46,7 +40,6 @@ class ProductController extends Controller
         $data = [
             'product' => $product,
             'images' => $images,
-            'colors' => $colors,
             'sizes' => $sizes
         ];
 
