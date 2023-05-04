@@ -38,12 +38,12 @@ class AuthenticatedSessionController extends Controller
             if($user->role == "admin"){
                 return redirect('/admin');
             }
-        
+
             return redirect()->intended(RouteServiceProvider::HOME);
 
         }
 
-        return redirect()->back()->withErrors(['emial' => trans('auth.failed')])->withInput()->with(['show_login' => true]);
+        return redirect()->back()->withErrors(['email' => 'Nesprávne prihlasovacie údaje.'])->withInput()->with(['show_login' => true]);
 
     }
 
