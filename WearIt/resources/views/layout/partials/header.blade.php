@@ -150,11 +150,11 @@
 
                     <div class="column second_column">
                         <div class="signin">
-                            <img class="brand" src="images/wtech_logo.png">
+                            <img class="brand" src="{{ asset('images/wtech_logo.png') }}">
                             <h3>Pohodlne nakupujte!</h3>
                         </div>
                         <div class="signup">
-                            <img class="brand" src="images/wtech_logo.png">
+                            <img class="brand" src="{{ asset('images/wtech_logo.png') }}">
                             <h3>Vytvorenie účtu je zadarmo!</h3>
                         </div>
                     </div>

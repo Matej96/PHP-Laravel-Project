@@ -39,7 +39,7 @@ class AdminController extends Controller
         return view('admin', ['data' => $data]);
     }
 
-    public function removeData($id)
+    public function removeData($id): \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse
     {
         $data = Product::find($id);
         $data->delete();

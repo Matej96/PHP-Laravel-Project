@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class FilteredController extends Controller
 {
@@ -98,6 +99,17 @@ class FilteredController extends Controller
 
         $sizes = $this->get_sizes($id);
 
+        foreach ($products as $product) {
+            $imagePath = "images/{$product->id}-1.png";
+            $publicDisk = Storage::disk('public');
+
+            if ($publicDisk->exists($imagePath)) {
+                $product->image_url = asset("storage/{$imagePath}");
+            } else {
+                $product->image_url = null;
+            }
+        }
+
         $data = [
             'sizes' => $sizes,
             'colors' => $colors,
@@ -121,6 +133,17 @@ class FilteredController extends Controller
         $sizes = $this->get_sizes(0, $word);
 
         $colors = $this->get_colors(0, $word);
+
+        foreach ($products as $product) {
+            $imagePath = "images/{$product->id}-1.png";
+            $publicDisk = Storage::disk('public');
+
+            if ($publicDisk->exists($imagePath)) {
+                $product->image_url = asset("storage/{$imagePath}");
+            } else {
+                $product->image_url = null;
+            }
+        }
 
         $data = [
             'all' => $all_products,
@@ -174,7 +197,6 @@ class FilteredController extends Controller
         $colors = $this->get_colors(0, $word);
 
         $sizes = $this->get_sizes(0, $word);
-
         $data = [
             'products' => $products,
             'sizes' => $sizes,
