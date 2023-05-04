@@ -60,7 +60,7 @@
                         <h3 class="mt-3 mb-5 price-tag">Typ oblečenia: Mikina</h3>
                     </div>
                     <hr style="height: 2px; background: black;">
-                    <form action="{{ route('cart_add', ['product_id' => $data['product']->id, '']) }}" method="POST">
+                    <form id="add-to-cart-form" action="{{ route('cart_add', ['product_id' => $data['product']->id, '']) }}" method="POST" onsubmit="checkSizeAndSubmit();">
                         @csrf
                         <div class="row dropdowns">
                             <div class=" col-6 col-sm-3 dropdown">
@@ -88,7 +88,7 @@
                             <div class="qty mt-5">
                                 <div class="counter_div">
                                     <span class="minus bg-dark">-</span>
-                                    <input type="number" class="count" name="qty" value="1">
+                                    <input type="text" id="quantity" class="count" name="quantity" value="1">
                                     <span class="plus bg-dark">+</span>
                                 </div>
                                 <button type="submit" class="col-7 ms-3 btn btn-outline-success add-cart">
@@ -132,4 +132,15 @@
 @section('customJs')
     <script src="{{asset('js/navbar.js')}}"></script>
     <script src="{{asset('js/script_product.js')}}"></script>
+    <script>
+        function checkSizeAndSubmit() {
+            let sizeSelected = $("input[name='size']:checked").length > 0;
+
+            if (!sizeSelected) {
+                alert("Prosím, vyberte veľkosť!");
+            } else {
+                $("#add-to-cart-form").submit();
+            }
+        }
+    </script>
 @endsection
