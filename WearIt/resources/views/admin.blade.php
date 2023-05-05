@@ -12,8 +12,13 @@
 @endsection
 
 @section('content')
+
 <section class="admin_section">
+
     <div class="row card_row">
+        @if(session()->has('success'))
+            <div class="alert alert-success" id="success-message">{{ session('success') }}</div>
+        @endif
         @foreach($data['products'] as $product)
             <div class="card col-lg-3 col-md-4 col-sm-6">
                 <div class="card-header">
@@ -33,9 +38,7 @@
                     </div>
                 </div>
                 <div class="img_box">
-                    <a href="{{route('product_page', ['id' => $product->id])}}">
                         <img src="{{ $product->image_url }}" class="card-img"/>
-                    </a>
                 </div>
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title">{{$product->product_name}}</h5>
@@ -51,5 +54,13 @@
 @endsection
 
 @section('customJs')
+
+    <script>
+        $(document).ready(function() {
+            setTimeout(function() {
+                $('#success-message').fadeOut('fast');
+            }, 5000);
+        });
+    </script>
 
 @endsection

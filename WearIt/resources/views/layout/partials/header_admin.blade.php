@@ -7,7 +7,7 @@
                 </a>
             </div>
             <div class="button_class_mobil pe-2">
-                <a href="admin_add_product_page.html">
+                <a href="{{ route("admin_add_product") }}">
                     <button class="btn btn-outline-success">
               <span class="bi bi-plus-square">
                 <span class="d-none">Pridať produkt</span>
@@ -46,7 +46,7 @@
                     </i></button>
             </form>
             <div class="button_class">
-                <a href="admin_add_product_page.html">
+                <a href="{{ route("admin_add_product") }}">
                     <button class="btn btn-outline-success">
               <span class="bi bi-plus-square">
                 <span class="button_spans">Pridať produkt</span>
