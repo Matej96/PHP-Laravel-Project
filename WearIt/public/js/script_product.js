@@ -24,15 +24,23 @@ var swiper2 = new Swiper(".mySwiper2", {
 
 /* Counter - Počet produktov */
 
-$(document).ready(function () {
-    $(document).on('click', '.plus', function () {
-        $('.count').val(parseInt($('.count').val()) + 1);
-    });
-    $(document).on('click', '.minus', function () {
-        $('.count').val(parseInt($('.count').val()) - 1);
-        if ($('.count').val() == 0) {
-            $('.count').val(1);
+
+document.addEventListener('DOMContentLoaded', function() {
+    const minusButton = document.querySelector('.minus');
+    const plusButton = document.querySelector('.plus');
+    const qtyInput = document.getElementById('quantity');
+
+    minusButton.addEventListener('click', function() {
+        let newVal = parseInt(qtyInput.value) - 1;
+        if (newVal < 1) {
+            newVal = 1;
         }
+        qtyInput.value = newVal;
+    });
+
+    plusButton.addEventListener('click', function() {
+        let newVal = parseInt(qtyInput.value) + 1;
+        qtyInput.value = newVal;
     });
 });
 

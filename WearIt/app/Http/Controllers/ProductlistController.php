@@ -27,6 +27,7 @@ class ProductlistController extends Controller
             }
         }
 
+
         $colors = DB::table('products as pr')
             ->join('colors as cl', 'cl.id', '=', 'pr.color_id')
             ->select('cl.color_name', 'cl.hex_value')

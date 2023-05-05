@@ -2,8 +2,8 @@
     <nav class="navbar navbar-expand-md navbar-light p-0">
         <div class="container-fluid">
             <div class="col-md-1 col-2 me-">
-                <a href="admin_main_page.html">
-                    <img class="navbar-brand  text-center" src="images/wtech_logo.png">
+                <a href="{{url('/admin')}}">
+                    <img class="navbar-brand  text-center" src={{ asset('images/wtech_logo.png') }}>
                 </a>
             </div>
             <div class="button_class_mobil pe-2">
@@ -14,13 +14,16 @@
               </span>
                     </button>
                 </a>
-                <a href="landing_page.html">
-                    <button class="btn btn-outline-success">
-              <span class="bi bi-person">
-                <span class="d-none">Odhlásiť sa</span>
-              </span>
-                    </button>
-                </a>
+                @auth
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button class="btn btn-outline-success">
+                          <span class="bi bi-person">
+                            <span class="button_spans">Odhlásenie</span>
+                          </span>
+                        </button>
+                    </form>
+                @endauth
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
                     aria-controls="navbarScroll" aria-expanded="true" aria-label="Toggle navigation">
@@ -50,13 +53,16 @@
               </span>
                     </button>
                 </a>
-                <a href="landing_page.html">
-                    <button class="btn btn-outline-success">
-              <span class="bi bi-person">
-                <span class="button_spans">Odhlásiť sa</span>
-              </span>
-                    </button>
-                </a>
+                @auth
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button class="btn btn-outline-success">
+                          <span class="bi bi-person">
+                            <span class="button_spans">Odhlásenie</span>
+                          </span>
+                        </button>
+                    </form>
+                @endauth
             </div>
         </div>
     </nav>
