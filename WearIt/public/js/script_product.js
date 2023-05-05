@@ -25,7 +25,6 @@ var swiper2 = new Swiper(".mySwiper2", {
 /* Counter - Počet produktov */
 
 $(document).ready(function () {
-    $('.count').prop('disabled', true);
     $(document).on('click', '.plus', function () {
         $('.count').val(parseInt($('.count').val()) + 1);
     });
