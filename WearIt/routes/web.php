@@ -46,7 +46,12 @@ Route::delete('/cart/delete', 'App\Http\Controllers\CartController@removeFromCar
 Route::get('/admin', 'App\Http\Controllers\AdminController@index')
     ->name('admin');
 
+Route::get('/admin_add_product', 'App\Http\Controllers\AdminaddController@index')
+    ->name('admin_add_product');
+
 Route::post('/remove-data/{id}', [\App\Http\Controllers\AdminController::class, 'removeData'])->name('remove.data');
+
+Route::post('/add/product', [\App\Http\Controllers\AdminaddController::class, 'addProduct'])->name('add_product');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
