@@ -24,6 +24,7 @@ var swiper2 = new Swiper(".mySwiper2", {
 
 /* Counter - Počet produktov */
 
+
 document.addEventListener('DOMContentLoaded', function() {
     const minusButton = document.querySelector('.minus');
     const plusButton = document.querySelector('.plus');
