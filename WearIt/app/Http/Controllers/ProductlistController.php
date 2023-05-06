@@ -43,14 +43,16 @@ class ProductlistController extends Controller
             ->where('pr.category_id', '=', $id)
             ->get();
 
-        $count = $products->count();
+        $category = DB::table('categories')->where('id', $id)->value('category_name');
 
+        $count = $products->count();
         $data = [
             'sizes' => $sizes,
             'colors' => $colors,
             'products' => $products,
             'category_id' => $id,
-            'count' => $count
+            'count' => $count,
+            'category' => $category
         ];
 
         return view('product_list', ['data' => $data]);

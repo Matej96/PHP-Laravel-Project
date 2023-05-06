@@ -136,7 +136,7 @@
                         <div class="row nadpis_row">
                             <div class="col nadpis_col">
                                 <h2 class="col-3 col-lg-4">{{$data['word']}}</h2>
-                                <h5 class="col-3 col-lg-4">Pánske/Oblečenie</h5>
+                                <h5 class="col-3 col-lg-4">Oblečenie</h5>
                                 <hr style="height: 2px; background: white;">
                             </div>
                         </div>
@@ -149,8 +149,7 @@
                                                 aria-label="size 3 select example">
 
                                             @foreach($data['colors'] as $color)
-                                                <option value="{{$color->color_name}}" data-content="<span class='circle
-                                                #00ff00'></span>{{$color->color_name}}"></option>
+                                                <option value="{{$color->color_name}}" data-content="<span class='circle' style='background-color: {{$color->hex_value}}'></span>{{$color->color_name}}"></option>
                                             @endforeach
 
                                         </select>
@@ -202,14 +201,11 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-6 col-md-3 dropdown_div">
-                                        <input type="submit" value="Filtruj">
+                                    <div class="col-md-12 d-flex justify-content-center">
+                                        <button type="submit" class="btn btn-primary btn-block mb-4 filter_button">Filtrovanie produktov</button>
                                     </div>
                                 </div>
 
-                            </div>
-                            <div>
-                                {{count($data['products'])}}
                             </div>
                         </form>
 

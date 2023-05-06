@@ -71,7 +71,7 @@ span.minus:focus {
   color: rgba(0, 0, 0, 0.8);
   text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.5);
   font-family: "Baskerville Old Face";
-  text-decoration: underline;
+
 }
 
 .price-tag {
