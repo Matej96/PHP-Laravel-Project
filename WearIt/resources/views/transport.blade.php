@@ -15,6 +15,7 @@
         @csrf
         <input type="hidden" name="selected_payment" id="selected_payment" value="">
         <input type="hidden" name="selected_transport" id="selected_transport" value="">
+
         <div class="container-fluid data-container">
             <div class="row nadpis_row">
                 <h4 class="mt-3 mb-3">Môj košík / <strong>Výber spôsob dopravy a platby</strong> / Fakturačne a dodacie
@@ -25,7 +26,7 @@
             <div class="row payment_row">
                 <h3 class="mt-3 mb-3 nadpis_unroll">Zvoľte spôsob platby</h3>
                 @foreach($data['payments'] as $payment)
-                    <div class="unroll-container unroll-container-payment" data-payment-id="{{ $payment->id }}">
+                    <div class="unroll-container" id="unroll-container-payment" data-payment-id="{{ $payment->id }}">
                         <div class="unroll-header">
                             <h4>{{$payment->type}}</h4>
                             <span><strong>
@@ -45,7 +46,7 @@
             <div class="row transport_row">
                 <h3 class="mt-3 mb-3 nadpis_unroll">Zvoľte spôsob dopravy</h3>
                 @foreach($data['transports'] as $transport)
-                    <div class="unroll-container unroll-container-transport" data-transport-id="{{ $transport->id }}">
+                    <div class="unroll-container" id="unroll-container-transport" data-transport-id="{{ $transport->id }}">
                         <div class="unroll-header">
                             <h4>{{$transport->type}}</h4>
                             <span>
