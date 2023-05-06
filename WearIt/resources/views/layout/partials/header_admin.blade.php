@@ -7,7 +7,7 @@
                 </a>
             </div>
             <div class="button_class_mobil pe-2">
-                <a href="{{ route("admin_add_product") }}">
+                <a href="{{ route("admin_add_product", ['id' => null]) }}">
                     <button class="btn btn-outline-success">
               <span class="bi bi-plus-square">
                 <span class="d-none">Pridať produkt</span>
@@ -15,7 +15,7 @@
                     </button>
                 </a>
                 @auth
-                    <form method="POST" action="{{ route('logout') }}">
+                    <form method="POST" action="{{ route('logout', ['id' => null]) }}">
                         @csrf
                         <button class="btn btn-outline-success">
                           <span class="bi bi-person">
@@ -46,7 +46,7 @@
                     </i></button>
             </form>
             <div class="button_class">
-                <a href="{{ route("admin_add_product") }}">
+                <a href="{{ route("admin_add_product", ['id' => null]) }}">
                     <button class="btn btn-outline-success">
               <span class="bi bi-plus-square">
                 <span class="button_spans">Pridať produkt</span>

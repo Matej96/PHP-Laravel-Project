@@ -24,10 +24,12 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="text-end">
-                            <button class="btn btn-warning btn-outline-dark btn-sm"
-                                    onclick="window.location.href='admin_add_product_page.html'">
+                            <form action="{{ route('admin_add_product', ['id' => $product->id]) }}" method="get">
+                                @csrf
+                            <button class="btn btn-warning btn-outline-dark btn-sm">
                                 <i class="bi bi-pencil-fill"></i>
                             </button>
+                            </form>
                             <form action="{{ route('remove.data', ['id' => $product->id]) }}" method="post">
                                 @csrf
                                 <button class="btn btn-danger btn-outline-dark btn-sm remove_button">
