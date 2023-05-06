@@ -8,13 +8,14 @@ use App\Models\Product;
 use App\Models\ProductVariations;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class CartController extends Controller
 {
     public function index(){
         $products = DB::table('product_variations')
-            ->select('products.id', 'cart_products.id as cp', 'product_variation_id', 'product_name', 'size_name', 'price', 'amount', 'color_name')
+            ->select('products.id', 'cart_products.id as cp_id', 'product_variation_id', 'product_name', 'size_name', 'price', 'amount', 'color_name')
             ->join('products', 'product_variations.product_id' , '=', 'products.id')
             ->join('cart_products', 'product_variations.id', '=', 'cart_products.product_variation_id')
             ->join('carts', 'carts.id', '=', 'cart_products.cart_id')
@@ -87,20 +88,25 @@ class CartController extends Controller
     }
 
     public function removeFromCart(Request $request){
+        $parts = explode('-', $request->input('product_variation_id'));
+        $pv_id = $parts[0];
+        $cp_id = $parts[1];
 
         $amount = DB::table('cart_products')
             ->join('carts', 'carts.id', '=', 'cart_products.cart_id')
             ->where('carts.user_id', '=', auth()->user()->getAuthIdentifier())
-            ->where('product_variation_id', '=', $request->input('product_variation_id'))
+            ->where('product_variation_id', '=', $pv_id)
+            ->where('cart_products.id', '=', $cp_id)
             ->value('amount');
+//        Log::info($amount);
 
-        DB::table('product_variations as pv')
-            ->join('cart_products as cp', 'cp.product_variation_id', '=', 'pv.id')
-            ->where('cp.id', '=', $request->input('cart_product_id'))
+        DB::table('product_variations')
+            ->where('id', '=', $pv_id)
             ->increment('quantity', $amount);
-
+//
         DB::table('cart_products')
-            ->where('id', '=', $request->input('cart_product_id'))
+            ->where('product_variation_id', '=', $pv_id)
+            ->where('id', '=', $cp_id)
             ->delete();
 
         return response()->json(['success' => 'Produkt bol odstránený z košíka!']);
