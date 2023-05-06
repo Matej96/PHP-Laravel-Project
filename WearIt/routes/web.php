@@ -43,15 +43,18 @@ Route::post('/cart/add', 'App\Http\Controllers\CartController@addToCart')
 Route::delete('/cart/delete', 'App\Http\Controllers\CartController@removeFromCart')
     ->name('cart_delete');
 
+Route::delete('/image/delete', 'App\Http\Controllers\AdminaddController@removeImage')
+    ->name('image_delete');
+
 Route::get('/admin', 'App\Http\Controllers\AdminController@index')
     ->name('admin');
 
-Route::get('/admin_add_product', 'App\Http\Controllers\AdminaddController@index')
+Route::get('/admin_add_product/{id?}', 'App\Http\Controllers\AdminaddController@index')
     ->name('admin_add_product');
 
 Route::post('/remove-data/{id}', [\App\Http\Controllers\AdminController::class, 'removeData'])->name('remove.data');
 
-Route::post('/add/product', [\App\Http\Controllers\AdminaddController::class, 'addProduct'])->name('add_product');
+Route::post('/add/product/{id?}', [\App\Http\Controllers\AdminaddController::class, 'addProduct'])->name('add_product');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
