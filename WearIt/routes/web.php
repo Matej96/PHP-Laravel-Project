@@ -60,7 +60,7 @@ Route::get('/admin', 'App\Http\Controllers\AdminController@index')
     ->middleware('admin');
 
 Route::get('/admin_add_product/{id?}', 'App\Http\Controllers\AdminaddController@index')
-    ->name('admin_add_product');
+    ->name('admin_add_product')
     ->middleware('admin');
 
 Route::post('/remove-data/{id}', [\App\Http\Controllers\AdminController::class, 'removeData'])->name('remove.data');
