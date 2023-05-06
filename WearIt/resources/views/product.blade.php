@@ -12,19 +12,11 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
-            @if ($message = Session::get('success'))
-                <div class="alert alert-success alert-block">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
-                    <strong>{{ $message }}</strong>
-                </div>
+            @if(session()->has('success'))
+                <div class="alert alert-success" id="success-message">{{ session('success') }}</div>
             @endif
-
-
-            @if ($message = Session::get('error'))
-                <div class="alert alert-danger alert-block">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
-                    <strong>{{ $message }}</strong>
-                </div>
+            @if(session()->has('error'))
+                <div class="alert alert-danger" id="success-message">{{ session('error') }}</div>
             @endif
             <div class="col-md-6 col-12 first-half">
                 <h5 class="my-4">{{$data['category']}}/Oblečenie</h5>
@@ -61,7 +53,7 @@
                         <h3 class="mt-3 mb-5 price-tag">Farba oblečenia: {{$data['color']}}</h3>
                     </div>
                     <hr style="height: 2px; background: black;">
-                    <form id="add-to-cart-form" action="{{ route('cart_add', ['product_id' => $data['product']->id, '']) }}" method="POST" onsubmit="checkSizeAndSubmit();">
+                    <form id="add-to-cart-form" action="{{ route('cart_add', ['product_id' => $data['product']->id, '']) }}" method="POST">
                         @csrf
                         <div class="row dropdowns">
                             <div class=" col-6 col-sm-3 dropdown">
@@ -117,14 +109,10 @@
     <script src="{{asset('js/navbar.js')}}"></script>
     <script src="{{asset('js/script_product.js')}}"></script>
     <script>
-        function checkSizeAndSubmit() {
-            let sizeSelected = $("input[name='size']:checked").length > 0;
-
-            if (!sizeSelected) {
-                alert("Prosím, vyberte veľkosť!");
-            } else {
-                $("#add-to-cart-form").submit();
-            }
-        }
+        $(document).ready(function() {
+            setTimeout(function() {
+                $('#message').fadeOut('fast');
+            }, 5000);
+        });
     </script>
 @endsection

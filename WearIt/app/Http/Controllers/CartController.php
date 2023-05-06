@@ -14,7 +14,7 @@ class CartController extends Controller
 {
     public function index(){
         $products = DB::table('product_variations')
-            ->select('products.id', 'product_variation_id', 'product_name', 'size_name', 'price', 'amount', 'color_name')
+            ->select('products.id', 'cart_products.id as cp', 'product_variation_id', 'product_name', 'size_name', 'price', 'amount', 'color_name')
             ->join('products', 'product_variations.product_id' , '=', 'products.id')
             ->join('cart_products', 'product_variations.id', '=', 'cart_products.product_variation_id')
             ->join('carts', 'carts.id', '=', 'cart_products.cart_id')
@@ -48,15 +48,15 @@ class CartController extends Controller
     }
     public function addToCart(Request $request)
     {
+        if($request->input('size') == null){
+            return redirect()->back()->with('error', 'Vyberte veľkosť produktu!');
+        }
+
         $quantity = ProductVariations::where('product_id', '=', $request->input('product_id'))
             ->where('size_id', '=', $request->input('size'))
             ->pluck('quantity')->first();
 
-//        dd($request->input('product_id'), $request->input('size'), $request->input('qty'));
-//        dd($request->input('product_id'));
-//        dd($quantity);
-
-        if ($quantity > 0){
+        if ($quantity > 0 && $quantity >= $request->input('quantity')){
             $cart_id = DB::table('carts')
                 ->select('id')
                 ->where('user_id', '=', auth()->user()->getAuthIdentifier())
@@ -79,24 +79,28 @@ class CartController extends Controller
                 ->decrement('quantity', intval($request->input('quantity')));
 
             return redirect()->back()->with('success', 'Produkt bol pridaný do košíka!');
-        } else {
+        } else if($quantity == 0){
             return redirect()->back()->with('error', 'Produkt je vypredaný!');
         }
+
+        return redirect()->back()->with('error', 'Zadané množstvo nie je na sklade!');
     }
 
     public function removeFromCart(Request $request){
+
         $amount = DB::table('cart_products')
             ->join('carts', 'carts.id', '=', 'cart_products.cart_id')
             ->where('carts.user_id', '=', auth()->user()->getAuthIdentifier())
             ->where('product_variation_id', '=', $request->input('product_variation_id'))
             ->value('amount');
 
-        DB::table('product_variations')
-            ->where('id', '=', $request->input('product_variation_id'))
+        DB::table('product_variations as pv')
+            ->join('cart_products as cp', 'cp.product_variation_id', '=', 'pv.id')
+            ->where('cp.id', '=', $request->input('cart_product_id'))
             ->increment('quantity', $amount);
 
         DB::table('cart_products')
-            ->where('product_variation_id', '=', $request->input('product_variation_id'))
+            ->where('id', '=', $request->input('cart_product_id'))
             ->delete();
 
         return response()->json(['success' => 'Produkt bol odstránený z košíka!']);
