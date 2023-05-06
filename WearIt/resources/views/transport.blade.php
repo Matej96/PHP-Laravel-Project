@@ -28,45 +28,72 @@
                     <ul class="row mb-3">
                         <li class="col-4">
                             <h5>Meno:</h5>
-                            <input class="order_input" name="first_name" type="text" placeholder="Meno" value="">
+                            <input class="order_input" name="first_name" type="text" placeholder="Meno">
+                            @error('first_name')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
                         </li>
                         <li class="col-4">
                             <h5>Priezvisko:</h5>
                             <input class="order_input" name="last_name" type="text" placeholder="Priezvisko">
+                            @error('last_name')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
                         </li>
                         <li class="col-4">
                             <h5>Telefón:</h5>
                             <input class="order_input" name="phone_number" type="text" placeholder="Telefon">
+                            @error('phone_number')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
                         </li>
                     </ul>
                     <ul class="row mb-3">
                         <li class="col-4">
                             <h5>Krajina:</h5>
                             <input class="order_input" name="country" type="text" placeholder="Krajina">
+                            @error('country')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
                         </li>
                         <li class="col-4">
                             <h5>Mesto:</h5>
                             <input class="order_input" name="city" type="text" placeholder="Mesto">
+                            @error('city')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
                         </li>
                         <li class="col-4">
                             <h5>PSČ:</h5>
                             <input class="order_input" name="prc" type="text" placeholder="PSČ">
+                            @error('prc')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
                         </li>
                     </ul>
                     <ul class="row mb-3">
                         <li class="col-6">
                             <h5>Ulica:</h5>
                             <input class="order_input" name="street" type="text" placeholder="Ulica">
+                            @error('street')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
                         </li>
                         <li class="col-6">
                             <h5>Číslo domu:</h5>
                             <input class="order_input" name="house_number" type="text" placeholder="Číslo domu">
+                            @error('house_number')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="row payment_row">
                 <h3 class="mt-3 mb-3 nadpis_unroll">Zvoľte spôsob platby</h3>
+                @error('selected_payment')
+                    <div class="error">{{ $message }}</div>
+                @enderror
                 @foreach($data['payments'] as $payment)
                     <div class="unroll-container" id="unroll-container-payment" data-payment-id="{{ $payment->id }}">
                         <div class="unroll-header">
@@ -87,6 +114,9 @@
             </div>
             <div class="row transport_row">
                 <h3 class="mt-3 mb-3 nadpis_unroll">Zvoľte spôsob dopravy</h3>
+                @error('selected_transport')
+                    <div class="error">{{ $message }}</div>
+                @enderror
                 @foreach($data['transports'] as $transport)
                     <div class="unroll-container" id="unroll-container-transport" data-transport-id="{{ $transport->id }}">
                         <div class="unroll-header">

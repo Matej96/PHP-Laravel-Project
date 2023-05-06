@@ -68,16 +68,38 @@ class TransportController extends Controller
 
     public function finish_order(Request $request){
 
-        $payment = $request->input('selected_payment');
-        $transport = $request->input('selected_transport');
-        $first_name = $request->input('first_name');
-        $last_name = $request->input('last_name');
-        $phone_number = $request->input('phone_number');
-        $country = $request->input('country');
-        $city = $request->input('city');
-        $street = $request->input('street');
-        $prc = $request->input('prc');
-        $house_number = $request->input('house_number');
+        $rules_main = [
+
+            'first_name' => 'required|alpha',
+            'last_name' => 'required|alpha',
+            'phone_number' => 'required|numeric',
+            'country' => 'required|alpha',
+            'city' => 'required|alpha',
+            'street' => 'required',
+            'prc' => 'required|numeric',
+            'house_number' => 'required|numeric'
+        ];
+
+        $rules_main_response =[
+
+            'first_name.required' => 'Zadajte meno',
+            'first_name.alpha' => 'Meno musí obsahovať iba znaky abecedy',
+            'last_name.required' => 'Zadajte priezvisko',
+            'last_name.alpha' => 'Priezvisko musí obsahovať iba znaky abecedy',
+            'phone_number.required' => 'Zadajte telefónne čislo',
+            'phone_number.numeric' => 'Telefónne číslo musí byť čislo',
+            'country.required' => 'Zadajte krajinu',
+            'country.alpha' => 'Krajina musí obsahovať iba znaky abecedy',
+            'city.required' => 'Zadajte mesto',
+            'city.alpha' => 'Mesto musí obsahovať iba znaky abecedy',
+            'street.required' => 'Zadajte ulicu',
+            'prc.required' => 'Zadajte poštové smerovacie číslo',
+            'prc.numeric' => 'Poštové smerovacie číslo musí byť číslo',
+            'house_number.required' => 'Zadajte číslo domu',
+            'house_number.numeric' => 'Číslo domu musí byť číslo',
+        ];
+
+        $validatedData = $request->validate($rules_main,$rules_main_response);
 
         $products = DB::table('product_variations')
             ->select('products.id', 'product_variation_id', 'product_name', 'size_name', 'price', 'amount', 'color_name')
@@ -98,8 +120,8 @@ class TransportController extends Controller
         $order_id = DB::table('orders')
             ->insertGetId([
                'user_id' => auth()->user()->getAuthIdentifier(),
-                'payment_id' => $payment,
-                'transport_id' => $transport,
+                'payment_id' => $validatedData['selected_payment'],
+                'transport_id' => $validatedData['selected_transport'],
                 'total_price' => $total_price,
                 'created_at' => now()
             ]);
