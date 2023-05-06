@@ -48,8 +48,12 @@ Route::delete('/image/delete', 'App\Http\Controllers\AdminaddController@removeIm
 Route::post('/transport', 'App\Http\Controllers\TransportController@index')
     ->name('transport');
 
-Route::post('/order', 'App\Http\Controllers\OrderController@index')
-    ->name('order');
+Route::get('/transport', 'App\Http\Controllers\TransportController@get_method')
+    ->name('transport_get');
+
+Route::post('/finish', 'App\Http\Controllers\TransportController@finish_order')
+    ->name('finish_order');
+
 
 Route::get('/admin', 'App\Http\Controllers\AdminController@index')
     ->name('admin')

@@ -28,7 +28,12 @@
             <strong>{{ session('error') }}</strong>
         </div>
     @endif
-    <form action="{{ route('transport') }}" method="POST">
+    @if($products->count() == 0)
+        <div class="alert alert-danger alert-block">
+            <strong>Váš košík je prázdny!</strong>
+        </div>
+    @else
+        <form action="{{ route('transport') }}" method="POST">
         @csrf
         <div class="container-fluid obsah_container">
             @foreach($products as $product)
@@ -86,6 +91,7 @@
             </div>
         </div>
     </form>
+    @endif
 @endsection
 
 @section('customJs')

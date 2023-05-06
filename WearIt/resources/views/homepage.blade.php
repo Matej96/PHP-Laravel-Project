@@ -12,6 +12,11 @@
 @endsection
 
 @section('content')
+    @if (session('success'))
+        <div id="error-message" class="alert alert-success alert-block">
+            <strong>{{ session('success') }}</strong>
+        </div>
+    @endif
     <section class="main">
         <section class="slider_container">
             <h2>Akcie</h2>
