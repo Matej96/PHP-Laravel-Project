@@ -3,14 +3,12 @@
 /*Sekcia v ktorej sú všetký karty produktov*/
 .admin_section{
     display: flex;
-    max-height: 700px;
-    overflow-y: scroll;
-    overflow-x: none;
+    justify-content: space-between;
     margin-top: 10%;
     background: rgba(255, 255, 255, 0.9);
     box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
     font-family: "Baskerville Old Face";
-    padding: 20px;
+    padding: 35px;
 }
 
 /*Dizajn každej karty, ktorá sa nachádza v seksii admin_section*/
@@ -25,6 +23,12 @@
     max-width: 100%;
 }
 
+.card{
+    padding-left: 0!important;
+    padding-right: 0!important;
+
+}
+
 .admin_section .card-body {
     position: absolute;
     bottom: 0;
@@ -36,6 +40,48 @@
     text-align: center;
     padding: 10px;
     transition: transform 0.3s ease-in-out;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .disabled > span,
+.pagination > .disabled > a,
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+}
+
+.pagination > li > a,
+.pagination > li > span {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    border: none;
+    border-radius: 0;
+    font-size: 20px;
+    margin: 0 5px;
+    line-height: 30px;
+    text-align: center;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+}
+
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+    margin-left: 0;
+}
+
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+    margin-right: 0;
 }
 /*Koniec dizajnu karty*/
 

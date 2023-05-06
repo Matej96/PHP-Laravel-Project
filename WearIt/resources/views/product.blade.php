@@ -58,6 +58,7 @@
                         <h2 class="my-4 title-product">{{$data['product']->product_name}}</h2>
                         <h3 class="mt-3 mb-5 price-tag">Cena: {{$data['product']->price}} €</h3>
                         <h3 class="mt-3 mb-5 price-tag">Kategoria oblečenia: {{$data['category']}}</h3>
+                        <h3 class="mt-3 mb-5 price-tag">Farba oblečenia: {{$data['color']}}</h3>
                     </div>
                     <hr style="height: 2px; background: black;">
                     <form id="add-to-cart-form" action="{{ route('cart_add', ['product_id' => $data['product']->id, '']) }}" method="POST" onsubmit="checkSizeAndSubmit();">
@@ -85,7 +86,7 @@
                             </div>
                         </div>
                         <div class="row counter_row">
-                            <div class="qty mt-5">
+                            <div class="qty">
                                 <div class="counter_div">
                                     <span class="minus bg-dark">-</span>
                                     <input type="text" id="quantity" class="count" name="quantity" value="1">

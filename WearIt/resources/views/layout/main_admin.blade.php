@@ -13,7 +13,7 @@
     @yield('content')
 </main>
 
-@include('layout.partials.footer')
+@include('layout.partials.footer_admin')
 
 <!-- Bootstrap core JavaScript -->
 @include('layout.partials.scripts')
