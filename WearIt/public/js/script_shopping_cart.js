@@ -1,10 +1,23 @@
 /* Javascipt pre Shopping_Card - Javascript slúži na zmenu hodnoty v counter */
 
+function updateTotalPrice() {
+    let totalPrice = 0;
+    $('.count').each(function () {
+        const pricePerItem = parseFloat($(this).data('price'));
+        const quantity = parseInt($(this).val());
+        totalPrice += pricePerItem * quantity;
+    });
+
+    $('.total-price').text(totalPrice.toFixed(2));
+}
+
 $(document).ready(function () {
     $(document).on('click', '.plus', function () {
         // Nájdite najbližší input s triedou .count
         var countInput = $(this).closest('.counter_div').find('.count');
         countInput.val(parseInt(countInput.val()) + 1);
+
+        updateTotalPrice();
     });
     $(document).on('click', '.minus', function () {
         // Nájdite najbližší input s triedou .count
@@ -13,8 +26,10 @@ $(document).ready(function () {
         if (countInput.val() == 0) {
             countInput.val(1);
         }
+        updateTotalPrice();
     });
 });
+
 
 /*Koniec Scriptu*/
 
