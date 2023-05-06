@@ -10,8 +10,11 @@ class OrderController extends Controller
         $selectedPayment = intval($request->input('selected_payment'));
         $selectedTransport = intval($request->input('selected_transport'));
 
-
-
-        return view('order');
+        $data = [
+            'payment_id' => $selectedPayment,
+            'transport_id' => $selectedTransport
+        ];
+        dump($data);
+        return view('order', ['data' => $data]);
     }
 }

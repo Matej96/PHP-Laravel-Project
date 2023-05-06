@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Payment;
 use App\Models\ProductVariations;
-use App\Models\Transport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -30,11 +28,11 @@ class TransportController extends Controller
             $new_q = $quantity - $bought_count_before;
             // Ak nie upozornenie pouzivatela
             if($new_q > ProductVariations::find($pv)->quantity){
-                return redirect()->back()->with('error', 'Požadované množstvo tovaru nie je na sklade.');
+                return redirect()->back()->with('error', 'Požadované tovaru množstvo nie je na sklade.');
             }
         }
 
-        // Aktualizacia poctu tovaru v tabulkach cart_products a product_variations
+        // Aktualizacia poctu tovaru v tabulkach cart_products a
         foreach ($quantities as $pv_id => $q){
             $bought_count_before = DB::table('cart_products')
                 ->select('amount')
@@ -55,14 +53,6 @@ class TransportController extends Controller
                 ->increment('amount', $new_q);
         }
 
-        $transports = Transport::all();
-        $payments = Payment::all();
-
-        $data = [
-            'transports' => $transports,
-            'payments' => $payments
-        ];
-
-        return view('transport', ['data' => $data]);
+        return view('transport');
     }
 }

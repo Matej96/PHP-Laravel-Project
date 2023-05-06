@@ -46,9 +46,14 @@ Route::delete('/cart/delete', 'App\Http\Controllers\CartController@removeFromCar
 Route::post('/transport', 'App\Http\Controllers\TransportController@index')
     ->name('transport');
 
+Route::get('/transport', 'App\Http\Controllers\TransportController@get_method')
+    ->name('transport_get');
 
 Route::post('/order', 'App\Http\Controllers\OrderController@index')
     ->name('order');
+
+Route::post('/order', 'App\Http\Controllers\OrderController@index')
+    ->name('order_get');
 
 Route::get('/admin', 'App\Http\Controllers\AdminController@index')
     ->name('admin');
