@@ -33,7 +33,6 @@ Route::get('/search_filter_list/{word}', 'App\Http\Controllers\FilteredControlle
 Route::get('/product/{id}', 'App\Http\Controllers\ProductController@index')
     ->name('product_page');
 
-
 Route::get('/cart', 'App\Http\Controllers\CartController@index')
     ->name('cart');
 
@@ -43,9 +42,11 @@ Route::post('/cart/add', 'App\Http\Controllers\CartController@addToCart')
 Route::delete('/cart/delete', 'App\Http\Controllers\CartController@removeFromCart')
     ->name('cart_delete');
 
+Route::delete('/image/delete', 'App\Http\Controllers\AdminaddController@removeImage')
+    ->name('image_delete');
+
 Route::post('/transport', 'App\Http\Controllers\TransportController@index')
     ->name('transport');
-
 
 Route::post('/order', 'App\Http\Controllers\OrderController@index')
     ->name('order');
@@ -54,13 +55,13 @@ Route::get('/admin', 'App\Http\Controllers\AdminController@index')
     ->name('admin')
     ->middleware('admin');
 
-Route::get('/admin_add_product', 'App\Http\Controllers\AdminaddController@index')
-    ->name('admin_add_product')
+Route::get('/admin_add_product/{id?}', 'App\Http\Controllers\AdminaddController@index')
+    ->name('admin_add_product');
     ->middleware('admin');
 
 Route::post('/remove-data/{id}', [\App\Http\Controllers\AdminController::class, 'removeData'])->name('remove.data');
 
-Route::post('/add/product', [\App\Http\Controllers\AdminaddController::class, 'addProduct'])->name('add_product');
+Route::post('/add/product/{id?}', [\App\Http\Controllers\AdminaddController::class, 'addProduct'])->name('add_product');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

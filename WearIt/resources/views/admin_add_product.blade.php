@@ -20,13 +20,14 @@
             <div class="container col-lg-6 col-md-8">
                 <div class="card-body bg-light">
 
-                    <form method="POST" action="{{ route('add_product') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ isset($product_id) ? route('add_product', $product_id) : route('add_product') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-outline mb-4">
                             <label class="form-label" for="productName">Názov produktu</label>
-                            <input type="text" id="productName" name="productName" class="form-control border-dark" value="{{ old('productName') }}"/>
-                        @error('productName')
+                            <input type="text" id="productName" name="productName" class="form-control border-dark" value="{{ $product ? $product->product_name : old('productName') }}"/>
+
+                            @error('productName')
                         <div class="error">{{ $message }}</div>
                         @enderror
                         </div>
@@ -35,7 +36,7 @@
                             <div class="col col-lg-6 d-flex justify-content-center align-items-center">
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="productPrice">Cena (€)</label>
-                                    <input type="number" id="productPrice" name="productPrice" class="form-control border-dark number-input" value="{{ old('productPrice') }}" min="0" step="0.01"/>
+                                    <input type="number" id="productPrice" name="productPrice" class="form-control border-dark number-input" value="{{ $product ? $product->price : old('productPrice') }}" min="0" step="0.01"/>
                                     @error('productPrice')
                                     <div class="error">{{ $message }}</div>
                                     @enderror
@@ -43,9 +44,9 @@
                             </div>
 
                             <div class="col col-lg-6 d-flex justify-content-center align-items-center">
-                                <div class="form-outline mb-4">
+                                <div class="form-outline mb-4" style="{{ $disableQuantity ? 'display:none;' : '' }}">
                                     <label class="form-label" for="productQuantity">Počet kusov</label>
-                                    <input type="number" id="productQuantity" name="productQuantity" class="form-control border-dark number-input" value="{{ old('productQuantity') }}" min="0"/>
+                                    <input type="number" id="productQuantity" name="productQuantity" class="form-control border-dark number-input" value="{{ old('productQuantity') }}" min="0"  />
                                     @error('productQuantity')
                                     <div class="error">{{ $message }}</div>
                                     @enderror
@@ -55,7 +56,7 @@
 
                         <div class="form-outline mb-4">
                             <label class="form-label" for="description">Popis</label>
-                            <textarea class="form-control border-dark" id="description" name="description" rows="4">{{ old('description') }}</textarea>
+                            <textarea class="form-control border-dark" id="description" name="description" rows="4">{{ $product ? $product->product_description : old('description') }}</textarea>
                             @error('description')
                             <div class="error">{{ $message }}</div>
                             @enderror
@@ -70,6 +71,46 @@
                             @if ($errors->has('formFileMultiple.*'))
                                 <div class="error">{{ $errors->first('formFileMultiple.*') }}</div>
                             @endif
+                            <div id="image-list" class="mt-3">
+                                @if(isset($images))
+                                    @foreach($images as $image)
+                                        <div class="row align-items-center mb-2">
+                                            <div class="col-2">
+                                                <p id="image">{{ $image }}</p>
+                                            </div>
+                                            <div class="col-6">
+                                                <button type="button" class="btn btn-danger btn-sm" onclick="removeImage(this)">Vymazať</button>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @endif
+                            </div>
+                            @if(isset($variations))
+                                <div class="row">
+                                @foreach($variations as $variation)
+                                        @foreach($sizes as $size)
+                                            @if($size->id == $variation->size_id)
+                                                <div class="col-6 col-md-3 justify-content-center align-items-center">
+                                                    <div class="form-outline mb-4">
+                                                        <label class="form-label" for="productSizes2">Veľkosť:</label>
+                                                        <input type="hidden" name="productSizes2[]" value="{{ $size->id }}">
+                                                        <input type="text" id="productSizes2" name="productSizes2[]" class="form-control" value="{{ $size->size_name }}" disabled>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        @endforeach
+                                    <div class="col-6 col-md-3 justify-content-center align-items-center">
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label" for="productCount2">Počet:</label>
+                                            <input type="number" id="productCount2" name="productCount2[]" class="form-control" value="{{ old('productCount2.'.$loop->index, (int)$variation->quantity) }}" min="0">
+                                        </div>
+                                        @error('productCount2')
+                                        <div class="error">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                @endforeach
+                                </div>
+                            @endif
                         </div>
 
                         <div class="row">
@@ -80,7 +121,7 @@
                                     </div>
                                     <select class="selectpicker border-dark" id="categoryPicker" name="categoryPicker" title="Kategória" aria-label="size 3 select example" >
                                         @foreach($categories as $categories)
-                                            <option value="{{ $categories->id }}" data-content="{{ $categories->category_name }}" {{ old('categoryPicker') == $categories->id ? 'selected' : '' }}></option>
+                                            <option value="{{ $categories->id }}" {{ (old('categoryPicker') == $categories->id || ($product && $product->category_id == $categories->id)) ? 'selected' : '' }}>{{ $categories->category_name }}</option>
                                         @endforeach
                                     </select>
                                     @error('categoryPicker')
@@ -123,8 +164,9 @@
                                     </div>
                                     <select class="selectpicker border-dark" id="colorPicker" name="colorPicker" title="Farba" aria-label="size 3 select example">
                                         @foreach($colors as $color)
-                                            <option value="{{$color->id}}" data-content="<span class='circle' style='background-color: {{$color->hex_value}}'></span>{{$color->color_name}}"
-                                                {{ old('colorPicker') == $color->id ? 'selected' : '' }}>
+                                            <option value="{{ $color->id }}"
+                                                    data-content="<span class='circle' style='background-color: {{$color->hex_value}}'></span>{{$color->color_name}}"
+                                                {{ (old('colorPicker') == $color->id) || ($product && $product->color_id == $color->id) ? 'selected' : '' }}>
                                             </option>
                                         @endforeach
                                     </select>
@@ -135,13 +177,13 @@
                             </div>
 
                             <div class="col col-lg-6 d-flex justify-content-center align-items-center">
-                                <div class="form-group mb-4">
+                                <div class="form-group mb-4" style="{{ $disableQuantity ? 'display:none;' : '' }}">
                                     <div class="col mb-2">
                                         <label for="sizePicker">Veľkosť</label>
                                     </div>
                                     <select class="selectpicker border-dark" data-size="10" id="sizePicker" name="sizePicker[]" title="Veľkosť" multiple aria-label="size 3 select example">
-                                        @foreach($sizes as $sizes)
-                                            <option value="{{ $sizes->id }}" data-content="{{ $sizes->size_name }}" {{ (collect(old('sizePicker'))->contains($sizes->id)) ? 'selected':'' }}></option>
+                                        @foreach($sizes as $size)
+                                            <option value="{{ $size->id }}" data-content="{{ $size->size_name }}" {{ (collect(old('sizePicker'))->contains($size->id)) ? 'selected':'' }}></option>
                                         @endforeach
                                     </select>
                                     @error('sizePicker')
@@ -167,6 +209,57 @@
         $(document).ready(function() {
             $('.selectpicker').selectpicker();
         });
+    </script>
+    <script>
+        function removeImage(button) {
+            if (!button) {
+                console.error('Button is not defined.');
+                return;
+            }
+
+            // get the parent element of the button (which should be the entire image row)
+            const row = button.closest('.row');
+
+            // check if row is defined
+            if (!row) {
+                console.error('Row is not defined.');
+                return;
+            }
+
+            // get the URL of the image to remove
+            const imageName = row.querySelector('#image').textContent.trim();
+
+            // Odoslanie AJAX požiadavky na odstránenie produktu z košíka
+            fetch('{{ route('image_delete') }}', {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                body: JSON.stringify({
+                    id: imageName
+                })
+            })
+                .then(response => {
+                    if (response.ok) {
+                        row.remove();
+                        return response.json();
+                    } else {
+                        console.error('Chyba pri odstraňovaní položky z košíka.');
+                    }
+                })
+                .then(data => {
+                    // update image URLs with new filenames
+                    const images = document.querySelectorAll('#image-list .row #image');
+                    for (let i = 0; i < images.length; i++) {
+                        const newFilename = data.filenames[i];
+                        images[i].textContent = newFilename;
+                    }
+                })
+                .catch(error => {
+                    console.error('Chyba pri odstraňovaní položky z košíka:', error);
+                });
+        }
     </script>
 
 @endsection
