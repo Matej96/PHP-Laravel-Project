@@ -39,7 +39,7 @@
             @foreach($products as $product)
                 <div class="container-fluid mb-4 card_container">
                     <div class="row remove_btn_row">
-                        <button type="button" class="btn btn-danger remove_button" data-id="{{ $product->product_variation_id }}" onclick="removeFromCart(event)">
+                        <button type="button" class="btn btn-danger remove_button" data-id="{{ $product->cp }}" onclick="removeFromCart(event)">
                             <i class="bi bi-x-circle-fill"></i>
                         </button>
                     </div>
@@ -100,7 +100,7 @@
     <script>
         function removeFromCart(event) {
             const button = event.target.closest('button');
-            const productVariationId = button.dataset.id;
+            const cart_product_id = button.dataset.id;
             const cardContainer = button.closest('.card_container');
 
             // Odoslanie AJAX požiadavky na odstránenie produktu z košíka
@@ -111,7 +111,7 @@
                     'X-CSRF-TOKEN': '{{ csrf_token() }}'
                 },
                 body: JSON.stringify({
-                    product_variation_id: productVariationId
+                    cart_product_id: cart_product_id
                 })
             })
             .then(response => {
