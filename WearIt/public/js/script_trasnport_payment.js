@@ -1,7 +1,7 @@
 /* Script slúži na Unroll/roll kontent - Dvoch entít a to payment a transport */
 
-const paymentUnrollHeaders = document.querySelectorAll('.payment_row .unroll-header');
-const transportUnrollHeaders = document.querySelectorAll('.transport_row .unroll-header');
+const paymentUnrollHeaders = document.querySelectorAll('.unroll-container-payment .unroll-header');
+const transportUnrollHeaders = document.querySelectorAll('.unroll-container-transport .unroll-header');
 
 let activePaymentUnrollContainer = null;
 let activeTransportUnrollContainer = null;
@@ -15,6 +15,9 @@ for (let i = 0; i < paymentUnrollHeaders.length; i++) {
     paymentUnrollHeaders[i].insertBefore(label, paymentUnrollHeaders[i].firstChild);
 
     paymentUnrollHeaders[i].addEventListener('click', function () {
+        const paymentId = this.getAttribute('data-payment-id');
+        document.getElementById('selected_payment').value = paymentId;
+
         const unrollContainer = this.parentNode;
         const unrollContent = this.nextElementSibling;
         const isActive = unrollContainer.classList.contains('show');
@@ -48,6 +51,9 @@ for (let i = 0; i < transportUnrollHeaders.length; i++) {
     transportUnrollHeaders[i].insertBefore(label, transportUnrollHeaders[i].firstChild);
 
     transportUnrollHeaders[i].addEventListener('click', function () {
+        const transportId = this.getAttribute('data-transport-id');
+        document.getElementById('selected_transport').value = transportId;
+
         const unrollContainer = this.parentNode;
         const unrollContent = this.nextElementSibling;
         const isActive = unrollContainer.classList.contains('show');

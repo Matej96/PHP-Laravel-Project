@@ -43,6 +43,13 @@ Route::post('/cart/add', 'App\Http\Controllers\CartController@addToCart')
 Route::delete('/cart/delete', 'App\Http\Controllers\CartController@removeFromCart')
     ->name('cart_delete');
 
+Route::post('/transport', 'App\Http\Controllers\TransportController@index')
+    ->name('transport');
+
+
+Route::post('/order', 'App\Http\Controllers\OrderController@index')
+    ->name('order');
+
 Route::get('/admin', 'App\Http\Controllers\AdminController@index')
     ->name('admin');
 

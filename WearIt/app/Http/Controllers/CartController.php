@@ -36,8 +36,14 @@ class CartController extends Controller
 
 //        dd($products);
 
+        $price = 0;
+        foreach ($products as $product){
+            $price += $product->amount * $product->price;
+        }
+
         return view('cart', [
-            'products' => $products
+            'products' => $products,
+            'price' => $price
         ]);
     }
     public function addToCart(Request $request)
@@ -82,17 +88,17 @@ class CartController extends Controller
         $amount = DB::table('cart_products')
             ->join('carts', 'carts.id', '=', 'cart_products.cart_id')
             ->where('carts.user_id', '=', auth()->user()->getAuthIdentifier())
-            ->where('product_variation_id', '=', $request->get('product_variation_id'))
+            ->where('product_variation_id', '=', $request->input('product_variation_id'))
             ->value('amount');
 
         DB::table('product_variations')
-            ->where('id', '=', $request->get('product_variation_id'))
+            ->where('id', '=', $request->input('product_variation_id'))
             ->increment('quantity', $amount);
 
         DB::table('cart_products')
-            ->where('product_variation_id', '=', $request->get('product_variation_id'))
+            ->where('product_variation_id', '=', $request->input('product_variation_id'))
             ->delete();
 
-        return redirect()->back()->with('success', 'Produkt bol odstránený z košíka!');
+        return response()->json(['success' => 'Produkt bol odstránený z košíka!']);
     }
 }
