@@ -3,7 +3,7 @@
 @section('custom')
     <link rel="stylesheet" href="{{asset('css/style_main.css')}}">
     <link rel="stylesheet" href="{{asset('css/style_transport_payment.css')}}">
-
+    <link rel="stylesheet" href="{{asset('css/style_order_shipping_payment.css')}}">
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>
@@ -11,17 +11,59 @@
 @endsection
 
 @section('content')
-    <form action="{{route('order')}}" method="POST">
+    <form action="{{route('finish_order')}}" method="POST">
         @csrf
         <input type="hidden" name="selected_payment" id="selected_payment" value="">
         <input type="hidden" name="selected_transport" id="selected_transport" value="">
-
         <div class="container-fluid data-container">
             <div class="row nadpis_row">
                 <h4 class="mt-3 mb-3">Môj košík / <strong>Výber spôsob dopravy a platby</strong> / Fakturačne a dodacie
                     údaje /
                     Dokončenie objednávky</h4>
                 <h2 class="mt-3 mb-3">Výber spôsob dopravy a platby</h2>
+            </div>
+            <div class="row fakturacne_row">
+                <h3 class="mt-4 mb-4">Fakturačne údaje</h3>
+                <div class="container-fluid">
+                    <ul class="row mb-3">
+                        <li class="col-4">
+                            <h5>Meno:</h5>
+                            <input class="order_input" name="first_name" type="text" placeholder="Meno" value="">
+                        </li>
+                        <li class="col-4">
+                            <h5>Priezvisko:</h5>
+                            <input class="order_input" name="last_name" type="text" placeholder="Priezvisko">
+                        </li>
+                        <li class="col-4">
+                            <h5>Telefón:</h5>
+                            <input class="order_input" name="phone_number" type="text" placeholder="Telefon">
+                        </li>
+                    </ul>
+                    <ul class="row mb-3">
+                        <li class="col-4">
+                            <h5>Krajina:</h5>
+                            <input class="order_input" name="country" type="text" placeholder="Krajina">
+                        </li>
+                        <li class="col-4">
+                            <h5>Mesto:</h5>
+                            <input class="order_input" name="city" type="text" placeholder="Mesto">
+                        </li>
+                        <li class="col-4">
+                            <h5>PSČ:</h5>
+                            <input class="order_input" name="prc" type="text" placeholder="PSČ">
+                        </li>
+                    </ul>
+                    <ul class="row mb-3">
+                        <li class="col-6">
+                            <h5>Ulica:</h5>
+                            <input class="order_input" name="street" type="text" placeholder="Ulica">
+                        </li>
+                        <li class="col-6">
+                            <h5>Číslo domu:</h5>
+                            <input class="order_input" name="house_number" type="text" placeholder="Číslo domu">
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="row payment_row">
                 <h3 class="mt-3 mb-3 nadpis_unroll">Zvoľte spôsob platby</h3>

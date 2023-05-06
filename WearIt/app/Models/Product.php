@@ -12,11 +12,14 @@ class Product extends Model
 
     protected $fillable = [
         'category_id',
+        'color_id',
         'product_name',
         'product_description',
         'price',
         'product_image',
-        'created_at'
+        'created_at',
+        'deleted_at',
+        'updated_at'
     ];
 
     public function category(): \Illuminate\Database\Eloquent\Relations\BelongsTo
