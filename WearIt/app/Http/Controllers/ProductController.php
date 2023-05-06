@@ -38,12 +38,14 @@ class ProductController extends Controller
             ->get();
 
         $category = DB::table('categories')->where('id', $product->category_id)->value('category_name');
+        $color = DB::table('colors')->where('id', $product->color_id)->value('color_name');
 
         $data = [
             'product' => $product,
             'images' => $images,
             'sizes' => $sizes,
-            'category' => $category
+            'category' => $category,
+            'color' => $color
         ];
 
         return view('product', ['data' => $data]);

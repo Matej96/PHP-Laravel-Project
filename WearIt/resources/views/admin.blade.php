@@ -20,7 +20,7 @@
             <div class="alert alert-success" id="success-message">{{ session('success') }}</div>
         @endif
         @foreach($data['products'] as $product)
-            <div class="card col-lg-3 col-md-4 col-sm-6">
+            <div class="card col-lg-4 col-md-4 col-sm-6">
                 <div class="card-header">
                     <div class="row">
                         <div class="text-end">

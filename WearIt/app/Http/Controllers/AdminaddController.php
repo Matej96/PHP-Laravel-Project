@@ -53,7 +53,7 @@ class AdminaddController extends Controller
             'productPrice' => 'required|numeric|gt:0',
             'description' => 'required|min:250|max:2500',
             'formFileMultiple' => 'required|max:5',
-            'formFileMultiple.*' => 'required|file|mimes:jpeg,jpg,png|between:50,2048',
+            'formFileMultiple.*' => 'required|file|mimes:png|between:50,2048',
             'formFileMultiple.*.uploaded' => 'required',
             'categoryPicker' => 'required',
             'colorPicker' => 'required',
@@ -75,7 +75,7 @@ class AdminaddController extends Controller
             'formFileMultiple.max' => 'Maximalny pocet obrazkov je :max',
 
             'formFileMultiple.*.file' => 'Obrázok produktu musí byť súbor',
-            'formFileMultiple.*.mimes' => 'Obrázok produktu musí byť vo formáte JPEG, JPG alebo PNG',
+            'formFileMultiple.*.mimes' => 'Obrázok produktu musí byť vo formáte PNG',
             'formFileMultiple.*.between' => 'Obrázok produktu musí mať veľkosť medzi :min a :max kilobajtov',
             'formFileMultiple.*.uploaded' => 'Súbor sa nepodarilo nahrať, skúste to prosím znova',
 
