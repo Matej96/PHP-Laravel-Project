@@ -109,13 +109,14 @@ class FilteredController extends Controller
                 $product->image_url = null;
             }
         }
-
+        $category = DB::table('categories')->where('id', $id)->value('category_name');
         $data = [
             'sizes' => $sizes,
             'colors' => $colors,
             'products' => $products,
             'category_id' => $id,
-            'count' => $count
+            'count' => $count,
+            'category' => $category
         ];
 
         return view('product_list', ['data' => $data]);

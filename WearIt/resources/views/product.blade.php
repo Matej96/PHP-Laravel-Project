@@ -27,7 +27,7 @@
                 </div>
             @endif
             <div class="col-md-6 col-12 first-half">
-                <h5 class="my-4">Pánske/Oblečenie/Mikiny</h5>
+                <h5 class="my-4">{{$data['category']}}/Oblečenie</h5>
                 <div style="--swiper-navigation-color: rgba(255,255,255,.80); --swiper-pagination-color: #fff"
                      class="swiper mySwiper2">
                     <div class="swiper-wrapper">
@@ -57,7 +57,7 @@
                     <div class="row">
                         <h2 class="my-4 title-product">{{$data['product']->product_name}}</h2>
                         <h3 class="mt-3 mb-5 price-tag">Cena: {{$data['product']->price}} €</h3>
-                        <h3 class="mt-3 mb-5 price-tag">Typ oblečenia: Mikina</h3>
+                        <h3 class="mt-3 mb-5 price-tag">Kategoria oblečenia: {{$data['category']}}</h3>
                     </div>
                     <hr style="height: 2px; background: black;">
                     <form id="add-to-cart-form" action="{{ route('cart_add', ['product_id' => $data['product']->id, '']) }}" method="POST" onsubmit="checkSizeAndSubmit();">
@@ -92,7 +92,7 @@
                                     <span class="plus bg-dark">+</span>
                                 </div>
                                 <button type="submit" class="col-7 ms-3 btn btn-outline-success add-cart">
-                                    Add to cart
+                                    Pridať do košíka
                                 </button>
                             </div>
                         </div>
@@ -106,23 +106,6 @@
                 <p class="mx-5 mt-3">
                     {{$data['product']->product_description}}
                 </p>
-            </div>
-            <h2 class="mt-5 mb-4 h2-header">Detaily</h2>
-            <div class="row mb-5 details">
-                <div class="col-md-6 pt-3 p-description">
-                    <ul>
-                        <li>Potlač loga</li>
-                        <li>Teplákovina</li>
-                        <li>S kapucňou</li>
-                    </ul>
-                </div>
-                <div class="col-md-6 pt-3 p-description">
-                    <ul>
-                        <li>Rovný strih</li>
-                        <li>Výšivka znaku</li>
-                        <li>Klokanie vrecka</li>
-                    </ul>
-                </div>
             </div>
         </div>
     </div>

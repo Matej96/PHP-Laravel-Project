@@ -135,8 +135,8 @@
                     <div class="container-fluid main_container">
                         <div class="row nadpis_row">
                             <div class="col nadpis_col">
-                                <h2 class="col-3 col-lg-4">Bundy</h2>
-                                <h5 class="col-3 col-lg-4">Pánske/Oblečenie</h5>
+                                <h2 class="col-3 col-lg-4">{{$data['category']}}</h2>
+                                <h5 class="col-3 col-lg-4">{{$data['category']}}/Oblečenie</h5>
                                 <hr style="height: 2px; background: white;">
                             </div>
                         </div>
@@ -148,10 +148,8 @@
                                     <div class="form-group mb-4">
                                         <select class="selectpicker border-dark" name="colors[]" id="colorPicker" title="Farba" multiple
                                                 aria-label="size 3 select example">
-
                                             @foreach($data['colors'] as $color)
-                                                <option value="{{$color->color_name}}" data-content="<span class='circle
-                                                #00ff00'></span>{{$color->color_name}}"></option>
+                                                <option value="{{$color->color_name}}" data-content="<span class='circle' style='background-color: {{$color->hex_value}}'></span>{{$color->color_name}}"></option>
                                             @endforeach
 
                                         </select>
@@ -206,15 +204,11 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-6 col-md-3 dropdown_div">
-                                        <input type="submit" value="Filtruj">
+                                    <div class="col-md-12 d-flex justify-content-center">
+                                        <button type="submit" class="btn btn-primary btn-block mb-4 filter_button">Filtrovanie produktov</button>
                                     </div>
                                 </div>
 
-                            </div>
-                            <div>
-                                {{$data['count']}}
-                                {{count($data['products'])}}
                             </div>
                         </form>
                         <hr style="height: 2px; background: white; padding-left: 3%; padding-right: 3%;">

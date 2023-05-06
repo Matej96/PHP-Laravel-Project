@@ -237,7 +237,6 @@
     position: relative;
     width: 100%;
     height: auto;
-    padding-top: 10px;
     margin-bottom: 20px;
     background-color: white;
     display: flex;
@@ -278,17 +277,7 @@
     margin: 0 auto;
 }
 
-.swiper-pagination-bullet {
-    width: 20px !important;
-    height: 20px !important;
-    text-align: center;
-    line-height: 20px;
-    font-size: 15px;
-    background-color: rgba(0, 0, 0, 0.9) !important;
-    color: rgba(255, 255, 255, 0.8);
-    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
-    opacity: 1;
-}
+
 
 
 .bootstrap-select>.dropdown-toggle.bs-placeholder {
@@ -419,6 +408,67 @@
 }
 
 .apply-button:hover .btn {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(0, 0, 0, 1);
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 1);
+    text-decoration: underline;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .disabled > span,
+.pagination > .disabled > a,
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+}
+
+.pagination > li > a,
+.pagination > li > span {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    border: none;
+    border-radius: 0;
+    font-size: 20px;
+    margin: 0 5px;
+    line-height: 30px;
+    text-align: center;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);
+}
+
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+    margin-left: 0;
+}
+
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+    margin-right: 0;
+}
+
+.filter_button{
+    width: 40%;
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(0, 0, 0, 1);
+    border-color: rgba(0, 0, 0, 1);
+    box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.8);
+    margin-bottom: 10px;
+}
+
+.filter_button:hover {
     color: rgba(255, 255, 255, 1);
     background-color: rgba(0, 0, 0, 1);
     text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.5);

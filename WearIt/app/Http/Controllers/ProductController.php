@@ -37,10 +37,13 @@ class ProductController extends Controller
             ->where('pv.product_id', '=', $id)
             ->get();
 
+        $category = DB::table('categories')->where('id', $product->category_id)->value('category_name');
+
         $data = [
             'product' => $product,
             'images' => $images,
-            'sizes' => $sizes
+            'sizes' => $sizes,
+            'category' => $category
         ];
 
         return view('product', ['data' => $data]);
