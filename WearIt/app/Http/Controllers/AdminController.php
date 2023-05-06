@@ -94,4 +94,39 @@ class AdminController extends Controller
             return redirect()->back()->with('success', 'Data has been removed successfully.');
         }
     }
+
+    public function search(Request $request): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    {
+        $word = $request->input('search');
+
+        $all_products = DB::table('products')
+            ->where('product_name', 'LIKE', '%'.$word.'%');
+
+        $products = $all_products->paginate(9)->appends(request()->query());
+
+        $sizes = $this->get_sizes(0, $word);
+
+        $colors = $this->get_colors(0, $word);
+
+        foreach ($products as $product) {
+            $imagePath = "images/{$product->id}-1.png";
+            $publicDisk = Storage::disk('public');
+
+            if ($publicDisk->exists($imagePath)) {
+                $product->image_url = asset("storage/{$imagePath}");
+            } else {
+                $product->image_url = null;
+            }
+        }
+
+        $data = [
+            'all' => $all_products,
+            'products' => $products,
+            'sizes' => $sizes,
+            'colors' => $colors,
+            'word' => $word
+        ];
+
+        return view('search_list', ['data' => $data]);
+    }
 }

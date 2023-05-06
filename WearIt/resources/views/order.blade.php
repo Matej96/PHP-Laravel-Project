@@ -11,9 +11,6 @@
 @endsection
 
 @section('content')
-    <div>
-        {{$data['user']}}
-    </div>
     <div class="container-fluid">
         <div class="row nadpis_row">
             <h4 class="mt-3 mb-3">Môj košík / Výber spôsob dopravy a platby / <strong>Fakturačne a dodacie údaje</strong> /
