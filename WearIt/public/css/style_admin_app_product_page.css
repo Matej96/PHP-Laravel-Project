@@ -36,8 +36,8 @@
     margin-right: 0.5em;
     border: 1px solid rgba(0,0,0,0.5);
 }
-.circle.red { background-color: #ff0000; }
-.circle.green { background-color: #00ff00; }
+.circle.c1 { background-color: #ff0000; }
+.circle.c2 { background-color: #00ff00; }
 .circle.blue { background-color: #0000ff; }
 .circle.purple { background-color: blueviolet }
 .circle.brown { background-color: brown }

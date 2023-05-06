@@ -15,6 +15,9 @@ for (let i = 0; i < paymentUnrollHeaders.length; i++) {
     paymentUnrollHeaders[i].insertBefore(label, paymentUnrollHeaders[i].firstChild);
 
     paymentUnrollHeaders[i].addEventListener('click', function () {
+        const paymentId = this.parentNode.getAttribute('data-payment-id');
+        document.getElementById('selected_payment').value = paymentId;
+
         const unrollContainer = this.parentNode;
         const unrollContent = this.nextElementSibling;
         const isActive = unrollContainer.classList.contains('show');
@@ -48,6 +51,9 @@ for (let i = 0; i < transportUnrollHeaders.length; i++) {
     transportUnrollHeaders[i].insertBefore(label, transportUnrollHeaders[i].firstChild);
 
     transportUnrollHeaders[i].addEventListener('click', function () {
+        const transportId = this.parentNode.getAttribute('data-transport-id');
+        document.getElementById('selected_transport').value = transportId;
+        console.log(transportId);
         const unrollContainer = this.parentNode;
         const unrollContent = this.nextElementSibling;
         const isActive = unrollContainer.classList.contains('show');

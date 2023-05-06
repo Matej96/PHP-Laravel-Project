@@ -13,10 +13,4 @@ class City extends Model
         'name',
         'postal_code'
     ];
-
-    public function users(): \Illuminate\Database\Eloquent\Relations\HasMany
-    {
-        return $this->hasMany(User::class);
-    }
-
 }

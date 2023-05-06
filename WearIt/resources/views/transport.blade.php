@@ -11,91 +11,85 @@
 @endsection
 
 @section('content')
-    <div class="container-fluid data-container">
-        <div class="row nadpis_row">
-            <h4 class="mt-3 mb-3">Môj košík / <strong>Výber spôsob dopravy a platby</strong> / Fakturačne a dodacie
-                údaje /
-                Dokončenie objednávky</h4>
-            <h2 class="mt-3 mb-3">Výber spôsob dopravy a platby</h2>
-        </div>
-        <div class="row payment_row">
-            <h3 class="mt-3 mb-3 nadpis_unroll">Zvoľte spôsob platby</h3>
-            <div class="unroll-container" id="unroll-container-payment">
-                <div class="unroll-header">
-                    <h4>Platobnou kartou online</h4>
-                    <span"><strong>Zadarmo</strong></span>
-                </div>
-                <div class="unroll-content">
-                        <span>Platba kartou - platba je realizovaná bez poplatkov, vysoká úroveň zabezpečenia, skrátenie
-                            dodacej lehoty zákazníkovi, k dispozícii 24 hodín denne po celý rok.</span>
-                </div>
+    <form action="{{route('order')}}" method="POST">
+        @csrf
+        <input type="hidden" name="selected_payment" id="selected_payment" value="">
+        <input type="hidden" name="selected_transport" id="selected_transport" value="">
+
+        <div class="container-fluid data-container">
+            <div class="row nadpis_row">
+                <h4 class="mt-3 mb-3">Môj košík / <strong>Výber spôsob dopravy a platby</strong> / Fakturačne a dodacie
+                    údaje /
+                    Dokončenie objednávky</h4>
+                <h2 class="mt-3 mb-3">Výber spôsob dopravy a platby</h2>
             </div>
-            <div class="unroll-container" id="unroll-container-payment">
-                <div class="unroll-header">
-                    <h4>Bankovým prevodom</h4>
-                    <span"><strong>Zadarmo</strong></span>
-                </div>
-                <div class="unroll-content">
-                        <span>Objednávka sa začne vybavovať až po tom, čo bude platba prevedená na náš účet. Banka Vám
-                            peniaze odráta z účtu okamžite, kým ju však banka prevedie k nám, môže trvať 1 deň.</span>
-                </div>
+            <div class="row payment_row">
+                <h3 class="mt-3 mb-3 nadpis_unroll">Zvoľte spôsob platby</h3>
+                @foreach($data['payments'] as $payment)
+                    <div class="unroll-container" id="unroll-container-payment" data-payment-id="{{ $payment->id }}">
+                        <div class="unroll-header">
+                            <h4>{{$payment->type}}</h4>
+                            <span><strong>
+                            @if($payment->price == 0)
+                                        {{'Zadarmo'}}
+                                    @else
+                                        {{$payment->price . ' €'}}
+                                    @endif
+                        </strong></span>
+                        </div>
+                        <div class="unroll-content">
+                            <span>{{$payment->description}}</span>
+                        </div>
+                    </div>
+                @endforeach
             </div>
-            <div class="unroll-container" id="unroll-container-payment">
-                <div class="unroll-header">
-                    <h4>Dobierkou pri prevziatí balíčku</h4>
-                    <span><strong>Zadarmo</strong></span>
-                </div>
-                <div class="unroll-content">
-                        <span>Dobierku platíte v hotovosti pri doručení tovaru kuriérom. Dobierku môžete platiť v
-                            hotovosti alebo kartou. </span>
-                </div>
-            </div>
-        </div>
-        <div class="row transport_row">
-            <h3 class="mt-3 mb-3 nadpis_unroll">Zvoľte spôsob dopravy</h3>
-            <div class="unroll-container" id="unroll-container-transport">
-                <div class="unroll-header">
-                    <h4>Doručenie domov</h4>
-                    <span"><strong>5,96€</strong></span>
-                </div>
-                <div class="unroll-content">
-                        <span>Tovar je zasielaný balíkom prostredníctvom kuriérskej služby s doručením 48 hodín po
-                            odoslaní. Výhoda výberu dopravy kuriérom je v tom, že Vám tovar bude zaslaný priamo na Vašu
-                            adresu a kuriér vám prinesie práve na vašu adresu doručenia. Nemusíte už nikam chodiť pre
-                            balík</span>
-                </div>
-            </div>
-            <div class="unroll-container" id="unroll-container-transport">
-                <div class="unroll-header">
-                    <h4>Výdajné miesto pre osobný odber zásielky</h4>
-                    <span"><strong>Zadarmo</strong></span>
-                </div>
-                <div class="unroll-content">
-                        <span>Možnosť osobného odberu Vám umožňuje prísť si tovar vyzdvihnúť do našej predajne v Čadci
-                            na ulici Palaričková 69. Výhodou osobného odberu je možnosť skontrolovať si objednaný tovar
-                            ihneď, prípadne konzultovať tovar s personálom.</span>
-                </div>
+            <div class="row transport_row">
+                <h3 class="mt-3 mb-3 nadpis_unroll">Zvoľte spôsob dopravy</h3>
+                @foreach($data['transports'] as $transport)
+                    <div class="unroll-container" id="unroll-container-transport" data-transport-id="{{ $transport->id }}">
+                        <div class="unroll-header">
+                            <h4>{{$transport->type}}</h4>
+                            <span>
+                            <strong>
+                                @if($transport->price == 0)
+                                    {{'Zadarmo'}}
+                                @else
+                                    {{$transport->price . ' €'}}
+                                @endif
+                            </strong>
+                        </span>
+                        </div>
+                        <div class="unroll-content">
+                            <span>{{$transport->description}}</span>
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
-    </div>
-    <div class="container-fluid">
-        <div class="row mt-3 buttony">
-            <div class="col-12 col-sm-5 first_btn">
-                <button class="btn btn-primary px-3 data_button" type="submit"
-                        onclick="window.location.href='shopping_cart_page.html'">
-                    <i class="bi bi-backspace"></i> Naspäť do košíka
-            </div>
-            <div class="col-12 col-sm-5 second_btn">
-                <button class="btn btn-primary px-3 data_button" type="submit"
-                        onclick="window.location.href='order_shipping_payment_page.html'">
-                    <i class="bi bi-bag-check"></i> Fakturačne a dodacie údaje
-                </button>
+        <div class="container-fluid">
+            <div class="row mt-3 buttony">
+                <div class="col-12 col-sm-5 first_btn">
+                    <button class="btn btn-primary px-3 data_button" id="back-to-cart" type="button">
+                        <i class="bi bi-backspace"></i> Naspäť do košíka
+                    </button>
+                </div>
+                <div class="col-12 col-sm-5 second_btn">
+                    <button class="btn btn-primary px-3 data_button" type="submit"
+                            onclick="window.location.href='order_shipping_payment_page.html'">
+                        <i class="bi bi-bag-check"></i> Fakturačne a dodacie údaje
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 @endsection
 
 @section('customJs')
     <script src="{{asset('js/navbar.js')}}"></script>
     <script src="{{asset('js/script_trasnport_payment.js')}}"></script>
+    <script>
+        document.getElementById('back-to-cart').addEventListener('click', function() {
+            window.location.href = '{{ route('cart') }}';
+        });
+    </script>
 @endsection
