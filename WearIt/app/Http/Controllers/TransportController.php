@@ -10,11 +10,12 @@ use Illuminate\Support\Facades\DB;
 
 class TransportController extends Controller
 {
-    public function index(Request $request){
+    public function index(Request $request)
+    {
 
         $quantities = $request->input('qty');
 
-        if (auth()->check()){
+        if (auth()->check()) {
             // Najdenie kosika pouzivatela
             $card_id = DB::table('carts')
                 ->select('id')
@@ -22,7 +23,7 @@ class TransportController extends Controller
                 ->value('id');
 
             // Zistenie ci je mnozstvo daneho tovaru dostupne
-            foreach ($quantities as $pv => $quantity){
+            foreach ($quantities as $pv => $quantity) {
                 $bought_count_before = DB::table('cart_products')
                     ->select('amount')
                     ->where('product_variation_id', '=', $pv)
@@ -31,13 +32,13 @@ class TransportController extends Controller
 
                 $new_q = $quantity - $bought_count_before;
                 // Ak nie upozornenie pouzivatela
-                if($new_q > ProductVariations::find($pv)->quantity){
+                if ($new_q > ProductVariations::find($pv)->quantity) {
                     return redirect()->back()->with('error', 'Požadované tovaru množstvo nie je na sklade.');
                 }
             }
 
             // Aktualizacia poctu tovaru v tabulkach cart_products a
-            foreach ($quantities as $pv_id => $q){
+            foreach ($quantities as $pv_id => $q) {
                 $bought_count_before = DB::table('cart_products')
                     ->select('amount')
                     ->where('product_variation_id', '=', $pv_id)
@@ -57,17 +58,15 @@ class TransportController extends Controller
                     ->increment('amount', $new_q);
             }
         } else {
-//            dd($quantities);
             // Zistenie ci je mnozstvo daneho tovaru dostupne
             $i = 0;
             $cart = session()->get('products');
-            foreach ($quantities as $pv => $quantity){
-//                dd(session()->get('products')[0]);
+            foreach ($quantities as $pv => $quantity) {
                 $bought_count_before = $cart[$i]['quantity'];
-//                dd($bought_count_before);
                 $new_q = $quantity - $bought_count_before;
+
                 // Ak nie upozornenie pouzivatela
-                if($new_q > ProductVariations::find($pv)->quantity){
+                if ($new_q > ProductVariations::find($pv)->quantity) {
                     return redirect()->back()->with('error', 'Požadované tovaru množstvo nie je na sklade.');
                 }
 
@@ -75,7 +74,7 @@ class TransportController extends Controller
             }
 
             $i = 0;
-            foreach ($quantities as $pv_id => $q){
+            foreach ($quantities as $pv_id => $q) {
                 $bought_count_before = $cart[$i]['quantity'];
                 $new_q = $quantity - $bought_count_before;
 
@@ -100,7 +99,8 @@ class TransportController extends Controller
         return view('transport', ['data' => $data]);
     }
 
-    public function finish_order(Request $request){
+    public function finish_order(Request $request)
+    {
 
         $rules_main = [
 
@@ -116,7 +116,7 @@ class TransportController extends Controller
             'selected_payment' => 'required'
         ];
 
-        $rules_main_response =[
+        $rules_main_response = [
 
             'first_name.required' => 'Zadajte meno',
             'first_name.alpha' => 'Meno musí obsahovať iba znaky abecedy',
@@ -135,7 +135,7 @@ class TransportController extends Controller
             'selected_payment.required' => 'Zadajte spôsob platby'
         ];
 
-        $validatedData = $request->validate($rules_main,$rules_main_response);
+        $validatedData = $request->validate($rules_main, $rules_main_response);
 
         $card_id = DB::table('carts')
             ->select('id')
@@ -148,15 +148,15 @@ class TransportController extends Controller
             ->where('cp.cart_id', '=', $card_id)
             ->get();
         $transport = DB::table('transports')
-                        ->where('id', '=', $validatedData['selected_transport'])
-                        ->first();
+            ->where('id', '=', $validatedData['selected_transport'])
+            ->first();
 
         $payment = DB::table('payments')
-                        ->where('id', '=', $validatedData['selected_payment'])
-                        ->first();
+            ->where('id', '=', $validatedData['selected_payment'])
+            ->first();
 
         $total_price = 0;
-        foreach ($card_products as $product){
+        foreach ($card_products as $product) {
             $total_price += $product->amount * $product->price;
         }
 
@@ -175,7 +175,8 @@ class TransportController extends Controller
 
     }
 
-    public function return_back(){
+    public function return_back()
+    {
         $transports = Transport::all();
         $payments = Payment::all();
 
@@ -186,3 +187,4 @@ class TransportController extends Controller
 
         return view('transport', ['data' => $data]);
     }
+}
