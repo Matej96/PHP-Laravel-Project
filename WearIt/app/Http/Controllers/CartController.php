@@ -163,12 +163,6 @@ class CartController extends Controller
         } else {
             $cart = session()->get('products', collect());
 
-            $pv_id = DB::table('product_variations')
-                ->where('product_id', '=', $request->input('product_id'))
-                ->where('size_id', '=', $request->input('size_id'))
-                ->value('product_variations.id');
-
-            Log:info($cart[$cp_id]);
             $amount = $cart[$cp_id]['quantity'];
 
             DB::table('product_variations')
