@@ -137,16 +137,35 @@ class TransportController extends Controller
 
         $validatedData = $request->validate($rules_main, $rules_main_response);
 
-        $card_id = DB::table('carts')
-            ->select('id')
-            ->where('user_id', '=', auth()->user()->getAuthIdentifier())
-            ->value('id');
+        if (auth()->check()){
+            $card_id = DB::table('carts')
+                ->select('id')
+                ->where('user_id', '=', auth()->user()->getAuthIdentifier())
+                ->value('id');
 
-        $card_products = DB::table('cart_products as cp')
-            ->join('product_variations as pv', 'pv.id', '=', 'cp.product_variation_id')
-            ->join('products as pr', 'pr.id', '=', 'pv.product_id')
-            ->where('cp.cart_id', '=', $card_id)
-            ->get();
+            $card_products = DB::table('cart_products as cp')
+                ->join('product_variations as pv', 'pv.id', '=', 'cp.product_variation_id')
+                ->join('products as pr', 'pr.id', '=', 'pv.product_id')
+                ->where('cp.cart_id', '=', $card_id)
+                ->get();
+        } else {
+            $cart = session()->get('products');
+            $card_products = collect();
+
+//            dd($cart, $card_products);
+
+            foreach ($cart as $product) {
+                $card_products->push(DB::table('product_variations')
+                    ->select('price', 'product_name', DB::raw($product['quantity'] . ' as amount'))
+                    ->join('products', 'products.id', '=', 'product_variations.product_id')
+                    ->where('products.id', '=', $product['id'])
+                    ->where('size_id', '=', $product['size'])
+                    ->get());
+            }
+
+            $card_products = $card_products->flatten();
+        }
+
         $transport = DB::table('transports')
             ->where('id', '=', $validatedData['selected_transport'])
             ->first();
