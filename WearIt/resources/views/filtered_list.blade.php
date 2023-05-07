@@ -222,19 +222,25 @@
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
                                     <div class="grid-container">
-                                        @foreach($data['products'] as $product)
-                                            <div class="grid-item">
-                                                <div class="img_box">
-                                                    <a href="product_page.html">
-                                                        <img src="{{asset($product->image_url)}}">
-                                                    </a>
-                                                </div>
-                                                <div class="content">
-                                                    <h3>{{$product->product_name}}</h3>
-                                                    <h3>Cena: {{$product->price}} €</h3>
-                                                </div>
+                                        @if($data['products']->count() == 0)
+                                            <div id="error-message" class="alert alert-danger alert-block">
+                                                <strong>K daným filtrom nezodpovedá žiaden produkt!</strong>
                                             </div>
-                                        @endforeach
+                                        @else
+                                            @foreach($data['products'] as $product)
+                                                <div class="grid-item">
+                                                    <div class="img_box">
+                                                        <a href="product_page.html">
+                                                            <img src="{{asset($product->image_url)}}">
+                                                        </a>
+                                                    </div>
+                                                    <div class="content">
+                                                        <h3>{{$product->product_name}}</h3>
+                                                        <h3>Cena: {{$product->price}} €</h3>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        @endif
                                     </div>
                                 </div>
 
@@ -257,4 +263,14 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="{{asset('js/script_product_list_page.js')}}"></script>
     <script src="{{asset('js/navbar.js')}}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const errorMessage = document.getElementById('error-message');
+            if (errorMessage) {
+                setTimeout(function() {
+                    errorMessage.style.display = 'none';
+                }, 2500);
+            }
+        });
+    </script>
 @endsection

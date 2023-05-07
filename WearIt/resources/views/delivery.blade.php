@@ -17,7 +17,7 @@
         @csrf
         <div class="container-fluid data_container">
             <div class="row nadpis_row">
-                <h4 class="mt-3 mb-3">Môj košík / Výber spôsob dopravy a platby / Fakturačne a dodacie údaje /
+                <h4 class="mt-3 mb-3">Môj košík / Doprava, platba a fakturačné údaje /
                     <strong>Dokončenie objednávky</strong>
                 </h4>
                 <h2 class="mt-3 mb-3">Dokončenie objednávky</h2>
