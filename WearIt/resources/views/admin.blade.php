@@ -13,53 +13,63 @@
 
 @section('content')
 
-<section class="admin_section">
+    <section class="admin_section">
+        <div class="row card_row">
 
-    <div class="row card_row">
-        @if(session()->has('success'))
-            <div class="alert alert-success" id="success-message">{{ session('success') }}</div>
-        @endif
-        @foreach($data['products'] as $product)
-            <div class="card col-lg-4 col-md-4 col-sm-6">
-                <div class="card-header">
-                    <div class="row">
-                        <div class="text-end">
-                            <form action="{{ route('admin_add_product', ['id' => $product->id]) }}" method="get">
-                                @csrf
-                            <button class="btn btn-warning btn-outline-dark btn-sm">
-                                <i class="bi bi-pencil-fill"></i>
-                            </button>
-                            </form>
-                            <form action="{{ route('remove.data', ['id' => $product->id]) }}" method="post">
-                                @csrf
-                                <button class="btn btn-danger btn-outline-dark btn-sm remove_button">
-                                    <i class="bi bi-trash-fill"></i>
-                                </button>
-                            </form>
+            @if(session()->has('success'))
+                <div class="alert alert-success" id="success-message">{{ session('success') }}</div>
+            @endif
+
+            @foreach($data['products'] as $product)
+                <div class="card col-lg-4 col-md-4 col-sm-6">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="text-end">
+
+                                <form action="{{ route('admin_add_product', ['id' => $product->id]) }}" method="get">
+                                    @csrf
+                                    <button class="btn btn-warning btn-outline-dark btn-sm">
+                                        <i class="bi bi-pencil-fill"></i>
+                                    </button>
+                                </form>
+
+                                <form action="{{ route('remove.data', ['id' => $product->id]) }}" method="post">
+                                    @csrf
+                                    <button class="btn btn-danger btn-outline-dark btn-sm remove_button">
+                                        <i class="bi bi-trash-fill"></i>
+                                    </button>
+                                </form>
+
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="img_box">
+
+                    <div class="img_box">
                         <img src="{{ $product->image_url }}" class="card-img"/>
+                    </div>
+
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{$product->product_name}}</h5>
+                        <h5 class="card-text">Cena: {{$product->price}} €</h5>
+                    </div>
+
                 </div>
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title">{{$product->product_name}}</h5>
-                    <h5 class="card-text">Cena: {{$product->price}} €</h5>
-                </div>
-            </div>
-        @endforeach
-            <div >
+            @endforeach
+
+            <div>
                 {{ $data['products']->links('vendor.pagination.bootstrap-4') }}
             </div>
-    </div>
-  </section>
+
+        </div>
+    </section>
 @endsection
 
 @section('customJs')
 
     <script>
-        $(document).ready(function() {
-            setTimeout(function() {
+        //Script slúži na odstránenie správy po 5 sekúnd.
+        $(document).ready(function () {
+            setTimeout(function () {
                 $('#success-message').fadeOut('fast');
             }, 5000);
         });

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -14,18 +14,19 @@ class AdminaddController extends Controller
         $categories = DB::table('categories')->get();
         $colors = DB::table('colors')->get();
         $sizes = DB::table('sizes')->get();
-        $files = Storage::disk('public')->files('images');
         $product = null;
         $product_id = null;
         $variation = null;
         $disableQuantity = false;
         $allnewFilename = [];
 
-        if ($id){
+        // Ak $id nie je null čiže používateľ klikol na upravenie produktu a nie vytvorenie nového produktu
+        if ($id) {
             $disableQuantity = true;
             $product = DB::table('products')->where('id', $id)->first();
             $product_id = $product->id;
             $variation = DB::table('product_variations')->where('product_id', $product->id)->get();
+            // Po odstránení obrázka sa zistia názvý novo premenovaných obrázkov
             $imageUrls = glob(public_path("storage/images/{$id}-*.png"));
             foreach ($imageUrls as $index => $image) {
                 $newFilename = $id . '-' . ($index + 1) . '.png';
@@ -45,6 +46,7 @@ class AdminaddController extends Controller
             'disableQuantity' => $disableQuantity,
         ]);
     }
+
     public function addProduct(Request $request, $id = null)
     {
 
@@ -58,7 +60,7 @@ class AdminaddController extends Controller
             'categoryPicker' => 'required',
             'colorPicker' => 'required',
         ];
-        $rules_main_response =[
+        $rules_main_response = [
             'productName.required' => 'Názov produktu musí byť vyplnený',
             'productName.min' => 'Názov produktu musí mať minimálne :min znakov',
             'productName.max' => 'Názov produktu môže mať maximálne :max znakov',
@@ -83,6 +85,7 @@ class AdminaddController extends Controller
 
             'colorPicker.required' => 'Farba musí byť vybraná',
         ];
+        // Ak $id nie je null čiže používateľ klikol na upravenie produktu a nie vytvorenie nového produktu
         if ($id != null) {
             $rules_update = [
                 'productCount2' => 'required',
@@ -111,8 +114,11 @@ class AdminaddController extends Controller
             $rules_main_response = array_merge($rules_main_response, $rules_add_response);
         }
 
-        $validatedData = $request->validate($rules_main,$rules_main_response);
-        if ($id != null){
+        // Kontrola validácie dát od používateľa
+        $validatedData = $request->validate($rules_main, $rules_main_response);
+
+        // If - ak upravuje už vznikuný produkt tak updatne hodnoty v databáze
+        if ($id != null) {
             DB::table('products')->where('id', $id)->update([
                 'color_id' => $validatedData['colorPicker'],
                 'category_id' => $validatedData['categoryPicker'],
@@ -132,25 +138,26 @@ class AdminaddController extends Controller
                         'quantity' => $allCounts[$i]
                     ]);
             }
+            // Potom ak pridá nové obrázky tak sa pridajú do public storage a ich názov sa zmený na základe obrázkov ktoré už sú v danom storage
             if ($request->hasFile('formFileMultiple')) {
 
                 $publicDisk = Storage::disk('public');
                 $files = glob(public_path("storage/images/{$id}-*.png"));
                 $filename = basename(end($files));
-                $variation = intval(str_replace("{$id}-", "", pathinfo($filename, PATHINFO_FILENAME))); // extract the variation number
+                // Extrakcia čísla variacie obrázka
+                $variation = intval(str_replace("{$id}-", "", pathinfo($filename, PATHINFO_FILENAME)));
                 $i = $variation + 1;
 
                 foreach ($request->file('formFileMultiple') as $image) {
 
-                    $imageName = $id . '-' . $i . '.' .$image->getClientOriginalExtension();
+                    $imageName = $id . '-' . $i . '.' . $image->getClientOriginalExtension();
                     $publicDisk->put("images/$imageName", file_get_contents($image));
                     $i++;
                 }
             }
 
             return redirect()->route('admin')->with('success', 'Produkt bol úspešne zmenený.');
-        }
-        else{
+        } else { // Táto časť kódu sa vykoná ak sa pridáva nový produkt
             $newProductId = DB::table('products')->insertGetId([
                 'color_id' => $validatedData['colorPicker'],
                 'category_id' => $validatedData['categoryPicker'],
@@ -178,13 +185,13 @@ class AdminaddController extends Controller
 
                 foreach ($request->file('formFileMultiple') as $image) {
 
-                    $imageName = $newProductId . '-' . $i . '.' .$image->getClientOriginalExtension();
+                    $imageName = $newProductId . '-' . $i . '.' . $image->getClientOriginalExtension();
                     $publicDisk->put("images/$imageName", file_get_contents($image));
                     $i++;
                 }
             }
 
-            // Návrat užívateľa na stránku s oznámením o úspešnom uložení
+
             return redirect()->route('admin')->with('success', 'Produkt bol úspešne uložený.');
         }
     }
@@ -192,31 +199,27 @@ class AdminaddController extends Controller
     public function removeImage(Request $request)
     {
         $id_image = $request->get('id');
-
-        // Get the public storage disk
         $publicDisk = Storage::disk('public');
-
-        // Construct the full path to the image file
         $imagePath = "images/$id_image";
 
-        // Check if the file exists
+        // Kontrola či daný obrazok existuje
         if ($publicDisk->exists($imagePath)) {
             $allnewFilename = [];
-            // Delete the file
+
+            // Vymazanie obrázka
             $publicDisk->delete($imagePath);
 
-            // Get the ID from the image filename
+            // Extrakcia ID z názva obrázku
             $id = explode('-', $id_image)[0];
 
+            // Zistenie všetkých obrázkov ktoré začínajú na dané id
             $images = glob(public_path("storage/images/{$id}-*.png"));
 
-
             foreach ($images as $index => $image) {
-                // Construct the new image filename
                 $newFilename = $id . '-' . ($index + 1) . '.png';
                 $allnewFilename[] = $newFilename;
 
-                // Rename the file
+                // Premenovanie obrázkov s daným ID
                 $publicDisk->move("images/" . basename($image), "images/$newFilename");
             }
             return response()->json(['success' => true,

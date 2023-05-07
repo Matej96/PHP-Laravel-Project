@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\View;
+
 
 class AdminController extends Controller
 {
     public function index(): \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application
     {
+        //Zobrazenie všetký produktov a zobrazenie pagination
 
         $products = DB::table('products')
             ->whereNull('deleted_at')
@@ -21,14 +21,12 @@ class AdminController extends Controller
             $imagePath = "images/{$product->id}-1.png";
             $publicDisk = Storage::disk('public');
 
-
             if ($publicDisk->exists($imagePath)) {
                 $product->image_url = asset("storage/{$imagePath}");
             } else {
                 $product->image_url = null;
             }
         }
-
 
         $colors = DB::table('products as pr')
             ->join('colors as cl', 'cl.id', '=', 'pr.color_id')
@@ -58,12 +56,11 @@ class AdminController extends Controller
     public function removeData($id): \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse
     {
         $product = Product::find($id);
-
         $iterator = 1;
         $publicDisk = Storage::disk('public');
 
-
-        while (True){
+        //Vymazanie produktu - softdelete v databáze a fyzické vymazanie z public storagu
+        while (True) {
             $imagePath = "images/{$id}-{$iterator}.png";
             if ($publicDisk->exists($imagePath)) {
                 $publicDisk->delete($imagePath);
@@ -72,61 +69,24 @@ class AdminController extends Controller
             }
             $iterator++;
         }
-
         $product->delete();
 
-        $products = DB::table('products')->whereNull('deleted_at')->paginate(2);
+        $products = DB::table('products')->whereNull('deleted_at')->paginate(9);
         $totalItems = $products->total();
-        // Získajte počet objektov na stránku
+        // Získanie počtu objektov na stránke
         $itemsPerPage = $products->perPage();
-        // Vypočítajte počet objektov na poslednej stránke
+        // Vypočítanie počtu objektov na poslednej stránke
         $itemsOnLastPage = $totalItems % $itemsPerPage;
 
-        // Ak je $itemsOnLastPage rovný 0, znamená to, že posledná stránka je plná objektov
+        // Ak je $itemsOnLastPage rovný 0, znamená to, že posledná stránka je plná produktov
         if ($itemsOnLastPage == 0) {
             $itemsOnLastPage = $itemsPerPage;
         }
 
-        // Ak je aktuálna stránka väčšia ako 1 a na stránke nie sú žiadne produkty
-        if ($itemsOnLastPage == 2) {
-            return redirect('/admin');
+        if ($itemsOnLastPage == 9) {
+            return redirect('/admin')->with('success', 'Produkt bol úspešné odobraný!');
         } else {
-            return redirect()->back()->with('success', 'Data has been removed successfully.');
+            return redirect()->back()->with('success', 'Produkt bol úspešné odobraný!');
         }
-    }
-
-    public function search(Request $request): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
-    {
-        $word = $request->input('search');
-
-        $all_products = DB::table('products')
-            ->where('product_name', 'LIKE', '%'.$word.'%');
-
-        $products = $all_products->paginate(9)->appends(request()->query());
-
-        $sizes = $this->get_sizes(0, $word);
-
-        $colors = $this->get_colors(0, $word);
-
-        foreach ($products as $product) {
-            $imagePath = "images/{$product->id}-1.png";
-            $publicDisk = Storage::disk('public');
-
-            if ($publicDisk->exists($imagePath)) {
-                $product->image_url = asset("storage/{$imagePath}");
-            } else {
-                $product->image_url = null;
-            }
-        }
-
-        $data = [
-            'all' => $all_products,
-            'products' => $products,
-            'sizes' => $sizes,
-            'colors' => $colors,
-            'word' => $word
-        ];
-
-        return view('search_list', ['data' => $data]);
     }
 }

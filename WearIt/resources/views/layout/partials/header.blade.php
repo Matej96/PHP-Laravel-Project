@@ -168,30 +168,30 @@
                     <ul class="multi-column-dropdown">
                         <span class="title-section">Oblečenie</span>
                         <hr style="height: 2px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
-                        <li><a href="product_list_page.html">Tričká</a></li>
-                        <li><a href="product_list_page.html">Nohavice</a></li>
-                        <li><a href="product_list_page.html">Bundy</a></li>
-                        <li><a href="product_list_page.html">Šaty</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 2]) }}">Tričká</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 2]) }}">Nohavice</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 2]) }}">Bundy</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 2]) }}">Šaty</a></li>
                     </ul>
                 </div>
                 <div class="col-4 mt-3">
                     <ul class="multi-column-dropdown">
                         <span class="title-section">Topánky</span>
                         <hr style="height: 2px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
-                        <li><a href="product_list_page.html">Tenisky</a></li>
-                        <li><a href="product_list_page.html">Čižmy</a></li>
-                        <li><a href="product_list_page.html">Športové</a></li>
-                        <li><a href="product_list_page.html">Spoločenské</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 2]) }}">Tenisky</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 2]) }}">Čižmy</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 2]) }}">Športové</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 2]) }}">Spoločenské</a></li>
                     </ul>
                 </div>
                 <div class="col-4 mt-3">
                     <ul class="multi-column-dropdown">
                         <span class="title-section">Doplnky</span>
                         <hr style="height: 2px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
-                        <li><a href="product_list_page.html">Hodinky</a></li>
-                        <li><a href="product_list_page.html">Šály</a></li>
-                        <li><a href="product_list_page.html">Čiapky</a></li>
-                        <li><a href="product_list_page.html">Okuliare</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 2]) }}">Hodinky</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 2]) }}">Šály</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 2]) }}">Čiapky</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 2]) }}">Okuliare</a></li>
                     </ul>
                 </div>
             </div>
@@ -202,30 +202,30 @@
                     <ul class="multi-column-dropdown">
                         <span class="title-section">Oblečenie</span>
                         <hr style="height: 2px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
-                        <li><a href="{{ route('product_list.index', ['id' => 4]) }}">Mikiny</a></li>
-                        <li><a href="{{ route('product_list.index', ['id' => 4]) }}">Nohavice</a></li>
-                        <li><a href="product_list_page.html">Bundy</a></li>
-                        <li><a href="product_list_page.html">Tričká</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 1]) }}">Mikiny</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 1]) }}">Nohavice</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 1]) }}">Bundy</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 1]) }}">Tričká</a></li>
                     </ul>
                 </div>
                 <div class="col-4 mt-3">
                     <ul class="multi-column-dropdown">
                         <span class="title-section">Topánky</span>
                         <hr style="height: 2px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
-                        <li><a href="product_list_page.html">Tenisky</a></li>
-                        <li><a href="product_list_page.html">Pracovné</a></li>
-                        <li><a href="product_list_page.html">Športové</a></li>
-                        <li><a href="product_list_page.html">Spoločenské</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 1]) }}">Tenisky</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 1]) }}">Pracovné</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 1]) }}">Športové</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 1]) }}">Spoločenské</a></li>
                     </ul>
                 </div>
                 <div class="col-4 mt-3">
                     <ul class="multi-column-dropdown">
                         <span class="title-section">Doplnky</span>
                         <hr style="height: 2px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
-                        <li><a href="product_list_page.html">Hodinky</a></li>
-                        <li><a href="product_list_page.html">Šály</a></li>
-                        <li><a href="product_list_page.html">Čiapky</a></li>
-                        <li><a href="product_list_page.html">Okuliare</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 1]) }}">Hodinky</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 1]) }}">Šály</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 1]) }}">Čiapky</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 1]) }}">Okuliare</a></li>
                     </ul>
                 </div>
             </div>
@@ -236,30 +236,30 @@
                     <ul class="multi-column-dropdown">
                         <span class="title-section">Oblečenie</span>
                         <hr style="height: 2px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
-                        <li><a href="product_list_page.html">Bundy</a></li>
-                        <li><a href="product_list_page.html">Šaty</a></li>
-                        <li><a href="product_list_page.html">Tričká</a></li>
-                        <li><a href="product_list_page.html">Nohavice</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 3]) }}">Bundy</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 3]) }}">Šaty</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 3]) }}">Tričká</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 3]) }}">Nohavice</a></li>
                     </ul>
                 </div>
                 <div class="col-4 mt-3">
                     <ul class="multi-column-dropdown">
                         <span class="title-section">Topánky</span>
                         <hr style="height: 2px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
-                        <li><a href="product_list_page.html">Tenisky</a></li>
-                        <li><a href="product_list_page.html">Obuv na prvé kroky</a></li>
-                        <li><a href="product_list_page.html">Športové</a></li>
-                        <li><a href="product_list_page.html">Spoločenské</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 3]) }}">Tenisky</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 3]) }}">Obuv na prvé kroky</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 3]) }}">Športové</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 3]) }}">Spoločenské</a></li>
                     </ul>
                 </div>
                 <div class="col-4 mt-3">
                     <ul class="multi-column-dropdown">
                         <span class="title-section">Doplnky</span>
                         <hr style="height: 2px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
-                        <li><a href="product_list_page.html">Šiltovky</a></li>
-                        <li><a href="product_list_page.html">Šály</a></li>
-                        <li><a href="product_list_page.html">Čiapky</a></li>
-                        <li><a href="product_list_page.html">Okuliare</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 3]) }}">Šiltovky</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 3]) }}">Šály</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 3]) }}">Čiapky</a></li>
+                        <li><a class="nav-link" href="{{ route('product_list.index', ['id' => 3]) }}">Okuliare</a></li>
                     </ul>
                 </div>
             </div>
