@@ -4,7 +4,7 @@
 <script>
     // Skontrolujte, či sú zobrazené chybové hlášky
     document.addEventListener("DOMContentLoaded", function() {
-        @if ($errors->any())
+        @if ($errors->has('email'))
             document.getElementById("login").style.opacity = "1";
             document.getElementById("login").style.visibility = "visible";
             document.querySelectorAll('.close').forEach(item => {

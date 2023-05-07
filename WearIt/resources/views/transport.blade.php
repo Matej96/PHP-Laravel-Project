@@ -11,7 +11,7 @@
 @endsection
 
 @section('content')
-    <form action="{{route('finish_order')}}" method="POST">
+    <form action="{{route('finish_order')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <input type="hidden" name="selected_payment" id="selected_payment" value="">
         <input type="hidden" name="selected_transport" id="selected_transport" value="">
@@ -146,8 +146,7 @@
                     </button>
                 </div>
                 <div class="col-12 col-sm-5 second_btn">
-                    <button class="btn btn-primary px-3 data_button" type="submit"
-                            onclick="window.location.href='order_shipping_payment_page.html'">
+                    <button class="btn btn-primary px-3 data_button" type="submit">
                         <i class="bi bi-bag-check"></i> Fakturačne a dodacie údaje
                     </button>
                 </div>

@@ -86,12 +86,10 @@
                     <div class="column first_column">
                         <div class="signin">
                             <h1>Prihlásenie do účtu</h1>
-                            @if ($errors->any())
+                            @if ($errors->has('email'))
                                 <div class="alert alert-danger">
                                     <ul>
-                                        @if ($errors->has('email'))
-                                            <li>{{ $errors->first('email') }}</li>
-                                        @endif
+                                        <li>{{ $errors->first('email') }}</li>
                                     </ul>
                                 </div>
                             @endif
