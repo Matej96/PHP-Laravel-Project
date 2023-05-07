@@ -84,8 +84,8 @@
 @section('customJs')
     <script src="{{asset('js/navbar.js')}}"></script>
     <script>
-        document.getElementById('back-to-cart').addEventListener('click', function() {
-            window.location.href = '{{ route('finish_order') }}';
+        document.getElementById('back-to-transport').addEventListener('click', function() {
+            window.location.href = '{{ route('return_back') }}';
         });
     </script>
 @endsection

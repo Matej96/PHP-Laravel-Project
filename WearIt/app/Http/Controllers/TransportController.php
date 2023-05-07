@@ -140,4 +140,16 @@ class TransportController extends Controller
         return view('delivery', ['data' => $data]);
 
     }
+
+    public function return_back(){
+        $transports = Transport::all();
+        $payments = Payment::all();
+
+        $data = [
+            'transports' => $transports,
+            'payments' => $payments
+        ];
+
+        return view('transport', ['data' => $data]);
+    }
 }

@@ -71,7 +71,6 @@ class HomepageController extends Controller
             $i++;
         }
 
-
         $data = [
             'mainCategories' => $mainCategories,
             'menCategories' => $menCategories,
