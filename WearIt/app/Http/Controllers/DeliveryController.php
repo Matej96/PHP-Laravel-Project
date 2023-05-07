@@ -15,16 +15,35 @@ class DeliveryController extends Controller
     public function index(Request $request){
         $validatedData = $request->input('order');
 
+        if (auth()->check()){
+            $products = DB::table('product_variations')
+                ->select('products.id', 'product_variation_id', 'product_name', 'size_name', 'price', 'amount', 'color_name')
+                ->join('products', 'product_variations.product_id', '=', 'products.id')
+                ->join('cart_products', 'product_variations.id', '=', 'cart_products.product_variation_id')
+                ->join('carts', 'carts.id', '=', 'cart_products.cart_id')
+                ->join('sizes', 'sizes.id', '=', 'product_variations.size_id')
+                ->join('colors', 'colors.id', '=', 'products.color_id')
+                ->where('carts.user_id', '=', auth()->user()->getAuthIdentifier())
+                ->get();
+        } else {
+            $cart = session()->get('products', collect());
 
-        $products = DB::table('product_variations')
-            ->select('products.id', 'product_variation_id', 'product_name', 'size_name', 'price', 'amount', 'color_name')
-            ->join('products', 'product_variations.product_id', '=', 'products.id')
-            ->join('cart_products', 'product_variations.id', '=', 'cart_products.product_variation_id')
-            ->join('carts', 'carts.id', '=', 'cart_products.cart_id')
-            ->join('sizes', 'sizes.id', '=', 'product_variations.size_id')
-            ->join('colors', 'colors.id', '=', 'products.color_id')
-            ->where('carts.user_id', '=', auth()->user()->getAuthIdentifier())
-            ->get();
+            $products = collect();
+            $index = 0;
+            foreach ($cart as $product){
+                $products->push(DB::table('product_variations')
+                    ->select('products.id', DB::raw($index . ' as cp_id'), 'product_variations.id as product_variation_id', 'product_name', 'size_name', 'price', DB::raw($product['quantity'] . ' as amount'), 'color_name')
+                    ->join('products', 'product_variations.product_id' , '=', 'products.id')
+                    ->join('sizes', 'sizes.id', '=', 'product_variations.size_id')
+                    ->join('colors', 'colors.id','=', 'products.color_id')
+                    ->where('products.id', '=', $product['id'])
+                    ->where('sizes.id', '=', $product['size'])
+                    ->get());
+                $index++;
+            }
+
+            $products = $products->flatten();
+        }
 
         $total_price = 0;
 
@@ -43,15 +62,19 @@ class DeliveryController extends Controller
         $total_price += $transport->price;
         $total_price += $payment->price;
 
+        if (auth()->check()){
+            $card_id = DB::table('carts')
+                ->select('id')
+                ->where('user_id', '=', auth()->user()->getAuthIdentifier())
+                ->value('id');
 
-        $card_id = DB::table('carts')
-            ->select('id')
-            ->where('user_id', '=', auth()->user()->getAuthIdentifier())
-            ->value('id');
-
-        DB::table('cart_products')
-            ->where('cart_id', '=', $card_id)
-            ->delete();
+            DB::table('cart_products')
+                ->where('cart_id', '=', $card_id)
+                ->delete();
+        } else {
+            session()->forget('products');
+            session()->save();
+        }
 
         $country = Country::firstOrCreate(
             ['name' => $validatedData['country']]
@@ -75,19 +98,34 @@ class DeliveryController extends Controller
              'last_name' => $validatedData['last_name']],
         );
 
-        $order_id = DB::table('orders')
-            ->insertGetId([
-                'user_id' => auth()->user()->getAuthIdentifier(),
-                'payment_id' => $validatedData['selected_payment'],
-                'transport_id' => $validatedData['selected_transport'],
-                'total_price' => $total_price,
-                'city_id' => $city->id,
-                'street_id' => $street->id,
-                'house_number_id' => $house_number->id,
-                'person_id' => $person->id,
-                'country_id' => $country->id,
-                'created_at' => now()
-            ]);
+        if (auth()->check()){
+            $order_id = DB::table('orders')
+                ->insertGetId([
+                    'user_id' => auth()->user()->getAuthIdentifier(),
+                    'payment_id' => $validatedData['selected_payment'],
+                    'transport_id' => $validatedData['selected_transport'],
+                    'total_price' => $total_price,
+                    'city_id' => $city->id,
+                    'street_id' => $street->id,
+                    'house_number_id' => $house_number->id,
+                    'person_id' => $person->id,
+                    'country_id' => $country->id,
+                    'created_at' => now()
+                ]);
+        } else {
+            $order_id = DB::table('orders')
+                ->insertGetId([
+                    'payment_id' => $validatedData['selected_payment'],
+                    'transport_id' => $validatedData['selected_transport'],
+                    'total_price' => $total_price,
+                    'city_id' => $city->id,
+                    'street_id' => $street->id,
+                    'house_number_id' => $house_number->id,
+                    'person_id' => $person->id,
+                    'country_id' => $country->id,
+                    'created_at' => now()
+                ]);
+        }
 
         foreach ($products as $product){
             DB::table('product_orders')
