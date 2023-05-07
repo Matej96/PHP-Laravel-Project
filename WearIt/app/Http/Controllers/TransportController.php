@@ -107,11 +107,13 @@ class TransportController extends Controller
             'first_name' => 'required|alpha',
             'last_name' => 'required|alpha',
             'phone_number' => 'required|numeric',
-            'country' => 'required|alpha',
-            'city' => 'required|alpha',
+            'country' => 'required',
+            'city' => 'required',
             'street' => 'required',
             'prc' => 'required|numeric',
-            'house_number' => 'required|numeric'
+            'house_number' => 'required|numeric',
+            'selected_transport' => 'required',
+            'selected_payment' => 'required'
         ];
 
         $rules_main_response =[
@@ -123,95 +125,64 @@ class TransportController extends Controller
             'phone_number.required' => 'Zadajte telefónne čislo',
             'phone_number.numeric' => 'Telefónne číslo musí byť čislo',
             'country.required' => 'Zadajte krajinu',
-            'country.alpha' => 'Krajina musí obsahovať iba znaky abecedy',
             'city.required' => 'Zadajte mesto',
-            'city.alpha' => 'Mesto musí obsahovať iba znaky abecedy',
             'street.required' => 'Zadajte ulicu',
             'prc.required' => 'Zadajte poštové smerovacie číslo',
             'prc.numeric' => 'Poštové smerovacie číslo musí byť číslo',
             'house_number.required' => 'Zadajte číslo domu',
             'house_number.numeric' => 'Číslo domu musí byť číslo',
+            'selected_transport.required' => 'Zadajte spôsob dopravy',
+            'selected_payment.required' => 'Zadajte spôsob platby'
         ];
 
         $validatedData = $request->validate($rules_main,$rules_main_response);
 
-        if (auth()->check()){
-            $products = DB::table('product_variations')
-                ->select('products.id', 'product_variation_id', 'product_name', 'size_name', 'price', 'amount', 'color_name')
-                ->join('products', 'product_variations.product_id', '=', 'products.id')
-                ->join('cart_products', 'product_variations.id', '=', 'cart_products.product_variation_id')
-                ->join('carts', 'carts.id', '=', 'cart_products.cart_id')
-                ->join('sizes', 'sizes.id', '=', 'product_variations.size_id')
-                ->join('colors', 'colors.id', '=', 'products.color_id')
-                ->where('carts.user_id', '=', auth()->user()->getAuthIdentifier())
-                ->get();
-        } else {
-            $products = session()->get('products', collect());
+        $card_id = DB::table('carts')
+            ->select('id')
+            ->where('user_id', '=', auth()->user()->getAuthIdentifier())
+            ->value('id');
 
-            $index = 0;
-            foreach ($products as $product){
-                $products->push(DB::table('product_variations')
-                    ->select('products.id', DB::raw($index . ' as cp_id'), 'product_variations.id as product_variation_id', 'product_name', 'size_name', 'price', DB::raw($product['quantity'] . ' as amount'), 'color_name')
-                    ->join('products', 'product_variations.product_id' , '=', 'products.id')
-                    ->join('sizes', 'sizes.id', '=', 'product_variations.size_id')
-                    ->join('colors', 'colors.id','=', 'products.color_id')
-                    ->where('products.id', '=', $product['id'])
-                    ->where('sizes.id', '=', $product['size'])
-                    ->get());
-                $index++;
-            }
+        $card_products = DB::table('cart_products as cp')
+            ->join('product_variations as pv', 'pv.id', '=', 'cp.product_variation_id')
+            ->join('products as pr', 'pr.id', '=', 'pv.product_id')
+            ->where('cp.cart_id', '=', $card_id)
+            ->get();
+        $transport = DB::table('transports')
+                        ->where('id', '=', $validatedData['selected_transport'])
+                        ->first();
 
-            $products = $products->flatten();
-        }
+        $payment = DB::table('payments')
+                        ->where('id', '=', $validatedData['selected_payment'])
+                        ->first();
 
         $total_price = 0;
-
-        foreach ($products as $product){
+        foreach ($card_products as $product){
             $total_price += $product->amount * $product->price;
         }
 
-        if (auth()->check()){
-            $order_id = DB::table('orders')
-                ->insertGetId([
-                    'user_id' => auth()->user()->getAuthIdentifier(),
-                    'payment_id' => $validatedData['selected_payment'],
-                    'transport_id' => $validatedData['selected_transport'],
-                    'total_price' => $total_price,
-                    'created_at' => now()
-                ]);
-        } else {
-            $order_id = DB::table('orders')
-                ->insertGetId([
-                    'user_id' => null,
-                    'payment_id' => $validatedData['selected_payment'],
-                    'transport_id' => $validatedData['selected_transport'],
-                    'total_price' => $total_price,
-                    'created_at' => now()
-                ]);
-        }
+        $total_price += $transport->price;
+        $total_price += $payment->price;
 
-        foreach ($products as $product){
-            DB::table('product_orders')
-                ->insert([
-                    'order_id' => $order_id,
-                    'product_variation_id' => $product->product_variation_id,
-                    'amount' => $product->amount,
-                    'price' => $product->price,
-                ]);
-        }
+        $data = [
+            'price' => $total_price,
+            'payment' => $payment,
+            'transport' => $transport,
+            'products' => $card_products,
+            'order' => $validatedData
+        ];
 
-        if (auth()->check()){
-            $card_id = DB::table('carts')
-                ->select('id')
-                ->where('user_id', '=', auth()->user()->getAuthIdentifier())
-                ->value('id');
-
-            DB::table('cart_products')
-                ->where('cart_id', '=', $card_id)
-                ->delete();
-        }
-
-        return redirect('/')->with('success', 'Objednávka bola úspešne vykonaná!');
+        return view('delivery', ['data' => $data]);
 
     }
-}
+
+    public function return_back(){
+        $transports = Transport::all();
+        $payments = Payment::all();
+
+        $data = [
+            'transports' => $transports,
+            'payments' => $payments
+        ];
+
+        return view('transport', ['data' => $data]);
+    }

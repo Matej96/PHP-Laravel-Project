@@ -14,9 +14,8 @@
 @section('content')
     <div class="container-fluid data_container">
         <div class="row nadpis_row">
-            <h4 class="mt-3 mb-3"><strong>Môj košík</strong> / Výber spôsob dopravy a platby / Fakturačne a dodacie údaje /
-                Dokončenie
-            </h4>
+            <h4 class="mt-3 mb-3"><strong>Môj košík</strong> / Doprava, platba a fakturačné údaje /
+                Dokončenie objednávky</h4>
             <h2 class="mt-3 mb-3">Môj košík</h2>
         </div>
     </div>
@@ -85,7 +84,7 @@
                 </div>
                 <div class="col-12 col-md-6 finish_btn">
                     <button class="btn btn-primary px-3 order_button" type="submit">
-                        <i class="bi bi-bag-check"></i> Dokončenie objednávky
+                        <i class="bi bi-bag-check"></i> Pokračovať
                     </button>
                 </div>
             </div>
