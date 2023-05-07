@@ -33,7 +33,7 @@
             <strong>Váš košík je prázdny!</strong>
         </div>
     @else
-        <form action="{{ route('transport') }}" method="POST">
+        <form action="{{ route('transport') }}" method="GET">
         @csrf
         <div class="container-fluid obsah_container">
             @foreach($products as $product)
