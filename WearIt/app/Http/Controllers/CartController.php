@@ -113,7 +113,6 @@ class CartController extends Controller
                     $products = collect();
                 }
 
-
                 $new_product = [
                     'id' => $request->input('product_id'),
                     'size' => $request->input('size'),

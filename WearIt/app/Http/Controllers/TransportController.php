@@ -13,46 +13,80 @@ class TransportController extends Controller
     public function index(Request $request){
 
         $quantities = $request->input('qty');
-        // Najdenie kosika pouzivatela
-        $card_id = DB::table('carts')
-            ->select('id')
-            ->where('user_id', '=', auth()->user()->getAuthIdentifier())
-            ->value('id');
 
-        // Zistenie ci je mnozstvo daneho tovaru dostupne
-        foreach ($quantities as $pv => $quantity){
-            $bought_count_before = DB::table('cart_products')
-                ->select('amount')
-                ->where('product_variation_id', '=', $pv)
-                ->where('cart_id', '=', $card_id)
-                ->value('amount');
+        if (auth()->check()){
+            // Najdenie kosika pouzivatela
+            $card_id = DB::table('carts')
+                ->select('id')
+                ->where('user_id', '=', auth()->user()->getAuthIdentifier())
+                ->value('id');
 
-            $new_q = $quantity - $bought_count_before;
-            // Ak nie upozornenie pouzivatela
-            if($new_q > ProductVariations::find($pv)->quantity){
-                return redirect()->back()->with('error', 'Požadované tovaru množstvo nie je na sklade.');
+            // Zistenie ci je mnozstvo daneho tovaru dostupne
+            foreach ($quantities as $pv => $quantity){
+                $bought_count_before = DB::table('cart_products')
+                    ->select('amount')
+                    ->where('product_variation_id', '=', $pv)
+                    ->where('cart_id', '=', $card_id)
+                    ->value('amount');
+
+                $new_q = $quantity - $bought_count_before;
+                // Ak nie upozornenie pouzivatela
+                if($new_q > ProductVariations::find($pv)->quantity){
+                    return redirect()->back()->with('error', 'Požadované tovaru množstvo nie je na sklade.');
+                }
             }
-        }
 
-        // Aktualizacia poctu tovaru v tabulkach cart_products a
-        foreach ($quantities as $pv_id => $q){
-            $bought_count_before = DB::table('cart_products')
-                ->select('amount')
-                ->where('product_variation_id', '=', $pv_id)
-                ->where('cart_id', '=', $card_id)
-                ->value('amount');
+            // Aktualizacia poctu tovaru v tabulkach cart_products a
+            foreach ($quantities as $pv_id => $q){
+                $bought_count_before = DB::table('cart_products')
+                    ->select('amount')
+                    ->where('product_variation_id', '=', $pv_id)
+                    ->where('cart_id', '=', $card_id)
+                    ->value('amount');
 
-            $new_q = $q - $bought_count_before;
+                $new_q = $q - $bought_count_before;
 
-            DB::table('product_variations')
-                ->where('id', '=', $pv_id)
-                ->decrement('quantity', $new_q);
+                DB::table('product_variations')
+                    ->where('id', '=', $pv_id)
+                    ->decrement('quantity', $new_q);
 
 
-            DB::table('cart_products')
-                ->where('product_variation_id', '=', $pv_id)
-                ->where('cart_id', '=', $card_id)
-                ->increment('amount', $new_q);
+                DB::table('cart_products')
+                    ->where('product_variation_id', '=', $pv_id)
+                    ->where('cart_id', '=', $card_id)
+                    ->increment('amount', $new_q);
+            }
+        } else {
+//            dd($quantities);
+            // Zistenie ci je mnozstvo daneho tovaru dostupne
+            $i = 0;
+            $cart = session()->get('products');
+            foreach ($quantities as $pv => $quantity){
+//                dd(session()->get('products')[0]);
+                $bought_count_before = $cart[$i]['quantity'];
+//                dd($bought_count_before);
+                $new_q = $quantity - $bought_count_before;
+                // Ak nie upozornenie pouzivatela
+                if($new_q > ProductVariations::find($pv)->quantity){
+                    return redirect()->back()->with('error', 'Požadované tovaru množstvo nie je na sklade.');
+                }
+
+                $i++;
+            }
+
+            $i = 0;
+            foreach ($quantities as $pv_id => $q){
+                $bought_count_before = $cart[$i]['quantity'];
+                $new_q = $quantity - $bought_count_before;
+
+                DB::table('product_variations')
+                    ->where('id', '=', $pv_id)
+                    ->decrement('quantity', $new_q);
+
+                $i++;
+            }
+
+//            session()->forget('products');
         }
 
         $transports = Transport::all();
@@ -101,15 +135,34 @@ class TransportController extends Controller
 
         $validatedData = $request->validate($rules_main,$rules_main_response);
 
-        $products = DB::table('product_variations')
-            ->select('products.id', 'product_variation_id', 'product_name', 'size_name', 'price', 'amount', 'color_name')
-            ->join('products', 'product_variations.product_id', '=', 'products.id')
-            ->join('cart_products', 'product_variations.id', '=', 'cart_products.product_variation_id')
-            ->join('carts', 'carts.id', '=', 'cart_products.cart_id')
-            ->join('sizes', 'sizes.id', '=', 'product_variations.size_id')
-            ->join('colors', 'colors.id', '=', 'products.color_id')
-            ->where('carts.user_id', '=', auth()->user()->getAuthIdentifier())
-            ->get();
+        if (auth()->check()){
+            $products = DB::table('product_variations')
+                ->select('products.id', 'product_variation_id', 'product_name', 'size_name', 'price', 'amount', 'color_name')
+                ->join('products', 'product_variations.product_id', '=', 'products.id')
+                ->join('cart_products', 'product_variations.id', '=', 'cart_products.product_variation_id')
+                ->join('carts', 'carts.id', '=', 'cart_products.cart_id')
+                ->join('sizes', 'sizes.id', '=', 'product_variations.size_id')
+                ->join('colors', 'colors.id', '=', 'products.color_id')
+                ->where('carts.user_id', '=', auth()->user()->getAuthIdentifier())
+                ->get();
+        } else {
+            $products = session()->get('products', collect());
+
+            $index = 0;
+            foreach ($products as $product){
+                $products->push(DB::table('product_variations')
+                    ->select('products.id', DB::raw($index . ' as cp_id'), 'product_variations.id as product_variation_id', 'product_name', 'size_name', 'price', DB::raw($product['quantity'] . ' as amount'), 'color_name')
+                    ->join('products', 'product_variations.product_id' , '=', 'products.id')
+                    ->join('sizes', 'sizes.id', '=', 'product_variations.size_id')
+                    ->join('colors', 'colors.id','=', 'products.color_id')
+                    ->where('products.id', '=', $product['id'])
+                    ->where('sizes.id', '=', $product['size'])
+                    ->get());
+                $index++;
+            }
+
+            $products = $products->flatten();
+        }
 
         $total_price = 0;
 
@@ -117,14 +170,25 @@ class TransportController extends Controller
             $total_price += $product->amount * $product->price;
         }
 
-        $order_id = DB::table('orders')
-            ->insertGetId([
-               'user_id' => auth()->user()->getAuthIdentifier(),
-                'payment_id' => $validatedData['selected_payment'],
-                'transport_id' => $validatedData['selected_transport'],
-                'total_price' => $total_price,
-                'created_at' => now()
-            ]);
+        if (auth()->check()){
+            $order_id = DB::table('orders')
+                ->insertGetId([
+                    'user_id' => auth()->user()->getAuthIdentifier(),
+                    'payment_id' => $validatedData['selected_payment'],
+                    'transport_id' => $validatedData['selected_transport'],
+                    'total_price' => $total_price,
+                    'created_at' => now()
+                ]);
+        } else {
+            $order_id = DB::table('orders')
+                ->insertGetId([
+                    'user_id' => null,
+                    'payment_id' => $validatedData['selected_payment'],
+                    'transport_id' => $validatedData['selected_transport'],
+                    'total_price' => $total_price,
+                    'created_at' => now()
+                ]);
+        }
 
         foreach ($products as $product){
             DB::table('product_orders')
@@ -136,14 +200,16 @@ class TransportController extends Controller
                 ]);
         }
 
-        $card_id = DB::table('carts')
-            ->select('id')
-            ->where('user_id', '=', auth()->user()->getAuthIdentifier())
-            ->value('id');
+        if (auth()->check()){
+            $card_id = DB::table('carts')
+                ->select('id')
+                ->where('user_id', '=', auth()->user()->getAuthIdentifier())
+                ->value('id');
 
-        DB::table('cart_products')
-            ->where('cart_id', '=', $card_id)
-            ->delete();
+            DB::table('cart_products')
+                ->where('cart_id', '=', $card_id)
+                ->delete();
+        }
 
         return redirect('/')->with('success', 'Objednávka bola úspešne vykonaná!');
 
