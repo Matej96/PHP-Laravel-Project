@@ -52,6 +52,9 @@ Route::get('/transport', 'App\Http\Controllers\TransportController@index')
 Route::post('/finish', 'App\Http\Controllers\TransportController@finish_order')
     ->name('finish_order');
 
+Route::get('/finish', 'App\Http\Controllers\TransportController@return_back')
+    ->name('return_back');
+
 Route::post('/order', 'App\Http\Controllers\DeliveryController@index')
     ->name('create_order');
 

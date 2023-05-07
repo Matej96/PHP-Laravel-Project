@@ -197,9 +197,6 @@
                                                 aria-label="size 3 select example">
                                             <option value="cheapest" data-content="Od najlacnejšieho"></option>
                                             <option value="most_expensive" data-content="Od najdrahšieho"></option>
-                                            <option value="most_recet" data-content="Najnovšie"></option>
-                                            <option value="oldest" data-content="Najstaršie"></option>
-                                            <option value="alphabetically" data-content="Podľa abecedy"></option>
                                         </select>
                                     </div>
                                 </div>
