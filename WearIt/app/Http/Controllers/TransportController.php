@@ -73,8 +73,8 @@ class TransportController extends Controller
             'first_name' => 'required|alpha',
             'last_name' => 'required|alpha',
             'phone_number' => 'required|numeric',
-            'country' => 'required|alpha',
-            'city' => 'required|alpha',
+            'country' => 'required',
+            'city' => 'required',
             'street' => 'required',
             'prc' => 'required|numeric',
             'house_number' => 'required|numeric',
@@ -91,14 +91,14 @@ class TransportController extends Controller
             'phone_number.required' => 'Zadajte telefónne čislo',
             'phone_number.numeric' => 'Telefónne číslo musí byť čislo',
             'country.required' => 'Zadajte krajinu',
-            'country.alpha' => 'Krajina musí obsahovať iba znaky abecedy',
             'city.required' => 'Zadajte mesto',
-            'city.alpha' => 'Mesto musí obsahovať iba znaky abecedy',
             'street.required' => 'Zadajte ulicu',
             'prc.required' => 'Zadajte poštové smerovacie číslo',
             'prc.numeric' => 'Poštové smerovacie číslo musí byť číslo',
             'house_number.required' => 'Zadajte číslo domu',
             'house_number.numeric' => 'Číslo domu musí byť číslo',
+            'selected_transport.required' => 'Zadajte spôsob dopravy',
+            'selected_payment.required' => 'Zadajte spôsob platby'
         ];
 
         $validatedData = $request->validate($rules_main,$rules_main_response);

@@ -17,10 +17,9 @@
         <input type="hidden" name="selected_transport" id="selected_transport" value="">
         <div class="container-fluid data-container">
             <div class="row nadpis_row">
-                <h4 class="mt-3 mb-3">Môj košík / <strong>Výber spôsob dopravy a platby</strong> / Fakturačne a dodacie
-                    údaje /
+                <h4 class="mt-3 mb-3">Môj košík / <strong>Doprava, platba a fakturačné údaje</strong> /
                     Dokončenie objednávky</h4>
-                <h2 class="mt-3 mb-3">Výber spôsob dopravy a platby</h2>
+                <h2 class="mt-3 mb-3">Doprava, platba a fakturačné údaje</h2>
             </div>
             <div class="row fakturacne_row">
                 <h3 class="mt-4 mb-4">Fakturačne údaje</h3>
@@ -92,7 +91,7 @@
             <div class="row payment_row">
                 <h3 class="mt-3 mb-3 nadpis_unroll">Zvoľte spôsob platby</h3>
                 @error('selected_payment')
-                    <div class="error">{{ $message }}</div>
+                    <div class="error2">{{ $message }}</div>
                 @enderror
                 @foreach($data['payments'] as $payment)
                     <div class="unroll-container" id="unroll-container-payment" data-payment-id="{{ $payment->id }}">
@@ -114,7 +113,7 @@
             </div>
             <div class="row transport_row">
                 <h3 class="mt-3 mb-3 nadpis_unroll">Zvoľte spôsob dopravy</h3>
-                @error('selected_transport')
+                @error('selected_transport2')
                     <div class="error">{{ $message }}</div>
                 @enderror
                 @foreach($data['transports'] as $transport)
@@ -147,7 +146,7 @@
                 </div>
                 <div class="col-12 col-sm-5 second_btn">
                     <button class="btn btn-primary px-3 data_button" type="submit">
-                        <i class="bi bi-bag-check"></i> Fakturačne a dodacie údaje
+                        <i class="bi bi-bag-check"></i> Súhrn objednávky
                     </button>
                 </div>
             </div>
