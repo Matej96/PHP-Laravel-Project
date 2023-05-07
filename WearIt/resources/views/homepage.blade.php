@@ -23,72 +23,19 @@
             <div class="container">
                 <div class="swiper card_slider">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="img_box">
-                                <a href="product_page.html">
-                                    <img src={{ asset('images/product1.png') }}>
-                                </a>
+                        @foreach($data['sales'] as $sale)
+                            <div class="swiper-slide">
+                                <div class="img_box">
+                                    <a href="{{route('product_page', ['id' => $sale->id])}}">
+                                        <img src="{{ $sale->image_url }}">
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <h3>{{$sale->product_name}}</h3>
+                                    <h3>Cena: {{$sale->price}} €</h3>
+                                </div>
                             </div>
-                            <div class="content">
-                                <h3>Mikina GANT</h3>
-                                <h3>Cena: 70,53 €</h3>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="img_box">
-                                <a href="product_page.html">
-                                    <img src={{ asset('images/product2.png') }}>
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h3>Mikina Alpha Industries</h3>
-                                <h3>Cena: 39,90 €</h3>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="img_box">
-                                <a href="product_page.html">
-                                    <img src={{ asset('images/product3.png') }}>
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h3>Tenisky Air Max 90 Nike</h3>
-                                <h3>Cena: 130,90 €</h3>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="img_box">
-                                <a href="product_page.html">
-                                    <img src={{ asset('images/product4.png') }}>
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h3>Prechodná bunda Nike</h3>
-                                <h3>Cena: 69,69 €</h3>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="img_box">
-                                <a href="product_page.html">
-                                    <img src={{ asset('images/product5.png') }}>
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h3>Šaty Izzie Raere</h3>
-                                <h3>Cena: 75,56 €</h3>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="img_box">
-                                <a href="product_page.html">
-                                    <img src={{ asset('images/product6.png') }}>
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h3>Kabelka Tommy Hilfiger</h3>
-                                <h3>Cena: 120,20 €</h3>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
@@ -100,72 +47,19 @@
             <div class="container">
                 <div class="swiper card_slider">
                     <div class="swiper-wrapper">
+                        @foreach($data['new'] as $new)
                         <div class="swiper-slide">
                             <div class="img_box">
-                                <a href="product_page.html">
-                                    <img src="images/product6.png">
+                                <a href="{{route('product_page', ['id' => $new->id])}}">
+                                    <img src="{{ $new->image_url }}">
                                 </a>
                             </div>
                             <div class="content">
-                                <h3>Kabelka Tommy Hilfiger</h3>
-                                <h3>Cena: 120,20 €</h3>
+                                <h3>{{$new->product_name}}</h3>
+                                <h3>Cena: {{$new->price}} €</h3>
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="img_box">
-                                <a href="product_page.html">
-                                    <img src="images/product5.png">
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h3>Šaty Izzie Raere</h3>
-                                <h3>Cena: 75,56 €</h3>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="img_box">
-                                <a href="product_page.html">
-                                    <img src="images/product4.png">
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h3>Prechodná bunda Nike</h3>
-                                <h3>Cena: 69,69 €</h3>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="img_box">
-                                <a href="product_page.html">
-                                    <img src="images/product3.png">
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h3>Tenisky Air Max 90 Nike</h3>
-                                <h3>Cena: 130,90 €</h3>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="img_box">
-                                <a href="product_page.html">
-                                    <img src="images/product2.png">
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h3>Mikina Alpha Industries</h3>
-                                <h3>Cena: 39,90 €</h3>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="img_box">
-                                <a href="product_page.html">
-                                    <img src="images/product1.png">
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h3>Mikina GANT</h3>
-                                <h3>Cena: 70,53 €</h3>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
@@ -177,72 +71,19 @@
             <div class="container">
                 <div class="swiper card_slider">
                     <div class="swiper-wrapper">
+                        @foreach($data['popular'] as $popular)
                         <div class="swiper-slide">
                             <div class="img_box">
-                                <a href="product_page.html">
-                                    <img src="images/product4.png">
+                                <a href="{{route('product_page', ['id' => $popular->id])}}">
+                                    <img src="{{ $popular->image_url }}">
                                 </a>
                             </div>
                             <div class="content">
-                                <h3>Prechodná bunda Nike</h3>
-                                <h3>Cena: 69,69 €</h3>
+                                <h3>{{$popular->product_name}}</h3>
+                                <h3>Cena: {{$popular->price}} €</h3>
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="img_box">
-                                <a href="product_page.html">
-                                    <img src="images/product3.png">
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h3>Tenisky Air Max 90 Nike</h3>
-                                <h3>Cena: 130,90 €</h3>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="img_box">
-                                <a href="product_page.html">
-                                    <img src="images/product5.png">
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h3>Šaty Izzie Raere</h3>
-                                <h3>Cena: 75,56 €</h3>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="img_box">
-                                <a href="product_page.html">
-                                    <img src="images/product6.png">
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h3>Kabelka Tommy Hilfiger</h3>
-                                <h3>Cena: 120,20 €</h3>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="img_box">
-                                <a href="product_page.html">
-                                    <img src="images/product2.png">
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h3>Mikina Alpha Industries</h3>
-                                <h3>Cena: 39,90 €</h3>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="img_box">
-                                <a href="product_page.html">
-                                    <img src="images/product1.png">
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h3>Mikina GANT</h3>
-                                <h3>Cena: 70,53 €</h3>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>

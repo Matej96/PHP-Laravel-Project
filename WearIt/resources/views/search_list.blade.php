@@ -214,19 +214,25 @@
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
                                     <div class="grid-container">
-                                        @foreach($data['products'] as $product)
-                                            <div class="grid-item">
-                                                <div class="img_box">
-                                                    <a href="{{route('product_page', ['id' => $product->id])}}">
-                                                        <img src="{{asset($product->image_url)}}">
-                                                    </a>
-                                                </div>
-                                                <div class="content">
-                                                    <h3>{{$product->product_name}}</h3>
-                                                    <h3>Cena: {{$product->price}} €</h3>
-                                                </div>
+                                        @if($data['products']->count() == 0)
+                                            <div id="error-message" class="alert alert-danger alert-block">
+                                                <strong>K danému textu nezodpovedá žiaden produkt!</strong>
                                             </div>
-                                        @endforeach
+                                        @else
+                                            @foreach($data['products'] as $product)
+                                                <div class="grid-item">
+                                                    <div class="img_box">
+                                                        <a href="{{route('product_page', ['id' => $product->id])}}">
+                                                            <img src="{{asset($product->image_url)}}">
+                                                        </a>
+                                                    </div>
+                                                    <div class="content">
+                                                        <h3>{{$product->product_name}}</h3>
+                                                        <h3>Cena: {{$product->price}} €</h3>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        @endif
                                     </div>
                                 </div>
 

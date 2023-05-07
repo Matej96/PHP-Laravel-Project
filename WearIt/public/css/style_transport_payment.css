@@ -150,5 +150,12 @@
     }
 }
 
+.error{
+    color: red;
+}
 
+.error2{
+    color: red;
+    background-color: white;
+}
 /* End CSS*/
