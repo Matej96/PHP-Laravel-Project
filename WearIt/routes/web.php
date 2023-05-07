@@ -52,6 +52,8 @@ Route::get('/transport', 'App\Http\Controllers\TransportController@index')
 Route::post('/finish', 'App\Http\Controllers\TransportController@finish_order')
     ->name('finish_order');
 
+Route::post('/order', 'App\Http\Controllers\DeliveryController@index')
+    ->name('create_order');
 
 Route::get('/admin', 'App\Http\Controllers\AdminController@index')
     ->name('admin')
